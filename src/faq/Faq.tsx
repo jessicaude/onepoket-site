@@ -10,7 +10,9 @@ import './faq.css'
 // tech and from the tab order.
 //
 // The six questions and answers are word for word from
-// reference/onepoket-website.html.
+// reference/onepoket-website.html, except answer 5, which drops its last
+// sentence ("There's no balance to top up."): the brief rules out balances
+// and top-ups, and the change was confirmed in review.
 
 const QUESTIONS: { q: string; a: ReactNode }[] = [
   {
@@ -31,7 +33,7 @@ const QUESTIONS: { q: string; a: ReactNode }[] = [
   },
   {
     q: 'Does OnePoket hold my money?',
-    a: "No. Each order is charged to the payment method you choose at checkout. There's no balance to top up.",
+    a: 'No. Each order is charged to the payment method you choose at checkout.',
   },
   {
     q: "Something's wrong with my order. What do I do?",

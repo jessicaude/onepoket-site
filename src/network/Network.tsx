@@ -33,9 +33,12 @@ import './network.css'
 const TILE_H = 224
 const GAP = 16
 const PITCH_Y = TILE_H + GAP
-// The rows above and below the focus show about half a tile each
-const SHOW = 112
+// The rows above and below the focus show a little over half a tile each,
+// cut by the band's edges, with their middles (and their rails) in frame
+const SHOW = 124
 const HEIGHT = SHOW + GAP + TILE_H + GAP + SHOW
+// The rail under each row of stores
+const RAIL = 72
 
 // The stores around the focus, by offset from it. Each wordmark is set its own
 // simple way: a weight, a case, a tracking, an ink
@@ -138,18 +141,12 @@ export function Network() {
           <Stage<S> width={width} height={HEIGHT} initial={initial} poster={poster} play="once" script={script} theme="light" greys="cool" tokens={TOKENS} className="nw-stage">
             {(s) => (
               <>
-                {/* The network itself: faint dashed lines through every row
-                    and column, the stores sitting on it */}
-                <svg className="nw-net" width={width} height={HEIGHT} aria-hidden>
-                  {[-1, 0, 1].map((row) => {
-                    const y = focusTop + row * PITCH_Y + TILE_H / 2
-                    return <path key={`r${row}`} d={`M0 ${y}H${width}`} />
-                  })}
-                  {cols.map((col) => {
-                    const x = focusLeft + col * pitchX + tileW / 2
-                    return <path key={`c${col}`} d={`M${x} 0V${HEIGHT}`} />
-                  })}
-                </svg>
+                {/* The network itself: each row of stores sits on a faint
+                    rail that runs edge to edge, seen in the gaps between
+                    them, so the stores read as connected, not loose cards */}
+                {[-1, 0, 1].map((row) => (
+                  <span key={`rail${row}`} className="nw-rail" style={{ top: focusTop + row * PITCH_Y + (TILE_H - RAIL) / 2, height: RAIL }} />
+                ))}
                 {[-1, 0, 1].map((row) =>
                   cols.map((col) => {
                     const focus = row === 0 && col === 0

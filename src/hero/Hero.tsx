@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState, type RefObject } from 'react'
 import { useFontsReady } from '../brand/fonts'
-import { PoketLogo } from '../brand/PoketLogo'
 import { HeroStage } from './HeroStage'
 import './hero.css'
 
@@ -11,21 +10,9 @@ export function Hero() {
   const fontsReady = useFontsReady()
   const picture = useRef<HTMLDivElement>(null)
   useBleed(picture, fontsReady)
-  const scrolled = useScrolled()
 
   return (
     <>
-      <header className="nav" data-scrolled={scrolled || undefined}>
-        <div className="wrap nav-in">
-          <a className="nav-logo" href="#top">
-            <PoketLogo height={30} />
-          </a>
-          <a className="nav-biz" href="https://centryos.xyz/">
-            For businesses
-          </a>
-        </div>
-      </header>
-
       <section className="hero" id="top">
         <div className="wrap hero-grid">
           <div className="hero-copy">
@@ -70,18 +57,6 @@ export function Hero() {
       </section>
     </>
   )
-}
-
-// The nav is clear over the hero's top and turns solid once the page scrolls
-function useScrolled() {
-  const [scrolled, setScrolled] = useState(false)
-  useEffect(() => {
-    const check = () => setScrolled(window.scrollY > 4)
-    check()
-    window.addEventListener('scroll', check, { passive: true })
-    return () => window.removeEventListener('scroll', check)
-  }, [])
-  return scrolled
 }
 
 // The store window runs off the page's right edge, not the stage's: tell the

@@ -1,0 +1,382 @@
+/* The legal pages, ported from reference/onepoket-website.html onto the
+   page tokens in src/index.css. The masthead accent ("Policy", "Use",
+   "Terms") was a serif in the reference; the brief's type is Geist only, so
+   it is a brand-green accent in the same face. */
+.legal {
+  & .clause {
+    scroll-margin-top: 86px;
+  }
+
+  /* ---- masthead ---- */
+  & .mast {
+    padding: 72px 0 0;
+  }
+
+  & .mast h1 {
+    font-size: clamp(34px, 4.6vw, 52px);
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    line-height: 1.02;
+  }
+
+  & .mast h1 em {
+    font-style: normal;
+    font-weight: 400;
+    color: var(--brand);
+  }
+
+  & .mast-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+    font-size: 13px;
+    color: var(--ink-3);
+  }
+
+  & .mast-meta .dot {
+    flex: none;
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: var(--ink-3);
+  }
+
+  & .mono {
+    font-family: var(--mono);
+  }
+
+  /* ---- layout ---- */
+  & .doc {
+    display: grid;
+    grid-template-columns: 232px minmax(0, 1fr);
+    align-items: start;
+    gap: 64px;
+    padding: 56px 0 100px;
+  }
+
+  & .doc > .clauses {
+    min-width: 0;
+  }
+
+  /* ---- contents ---- */
+  & .toc {
+    position: sticky;
+    top: 86px;
+  }
+
+  & .toc-h {
+    margin-bottom: 14px;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+  }
+
+  & .toc a {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    padding: 6px 0;
+    font-size: 13.5px;
+    line-height: 1.35;
+    color: var(--ink-2);
+    transition: color 0.18s ease;
+  }
+
+  @media (hover: hover) {
+    & .toc a:hover {
+      color: var(--ink);
+    }
+  }
+
+  & .toc a.on {
+    font-weight: 600;
+    color: var(--brand);
+  }
+
+  & .toc-n {
+    flex: none;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.02em;
+    color: var(--ink-3);
+  }
+
+  & .toc a.on .toc-n {
+    color: var(--brand);
+  }
+
+  /* ---- clauses ---- */
+  & .clause {
+    padding: 38px 0;
+    border-top: 1px solid var(--line);
+  }
+
+  & .clause:first-child {
+    padding-top: 0;
+    border-top: none;
+  }
+
+  & .clause h2 {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    margin-bottom: 18px;
+    font-size: 23px;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+  }
+
+  & .clause-n {
+    flex: none;
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--ink-3);
+  }
+
+  & .clause h3 {
+    margin: 22px 0 7px;
+    font-size: 14.5px;
+    font-weight: 700;
+    letter-spacing: -0.005em;
+    color: var(--ink);
+  }
+
+  & .clause h3:first-of-type {
+    margin-top: 0;
+  }
+
+  & .clause p {
+    max-width: 68ch;
+    margin-bottom: 13px;
+    font-size: 15px;
+    line-height: 1.68;
+    color: var(--ink-2);
+  }
+
+  & .clause p:last-child {
+    margin-bottom: 0;
+  }
+
+  & .clause ul {
+    max-width: 68ch;
+    margin-bottom: 13px;
+    list-style: none;
+  }
+
+  & .clause li {
+    position: relative;
+    margin-bottom: 9px;
+    padding-left: 20px;
+    font-size: 15px;
+    line-height: 1.62;
+    color: var(--ink-2);
+  }
+
+  & .clause li::before {
+    content: '';
+    position: absolute;
+    left: 2px;
+    top: 0.65em;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--brand);
+    opacity: 0.45;
+  }
+
+  & .clause strong {
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  & .clause a {
+    font-weight: 600;
+    color: var(--brand);
+  }
+
+  @media (hover: hover) {
+    & .clause a:hover {
+      text-decoration: underline;
+    }
+  }
+
+  & .standout {
+    margin-top: 4px;
+    padding: 14px 18px;
+    border-radius: 12px;
+    background: var(--wash);
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  /* ---- tier cards ---- */
+  & .tiers {
+    display: grid;
+    gap: 10px;
+    max-width: 68ch;
+    margin: 18px 0 20px;
+  }
+
+  & .tier {
+    padding: 16px 18px;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    background: var(--wash);
+  }
+
+  & .tier-h {
+    display: flex;
+    align-items: baseline;
+    gap: 11px;
+    margin-bottom: 6px;
+    font-size: 14.5px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+
+  & .tier-n {
+    flex: none;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--brand) 10%, transparent);
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    color: var(--brand);
+  }
+
+  & .tier p {
+    margin-bottom: 0;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  /* ---- pending blocks ---- */
+  & .pending {
+    max-width: 68ch;
+    padding: 16px 18px;
+    border: 1px dashed var(--line);
+    border-radius: 12px;
+  }
+
+  & .pending-tag {
+    display: inline-block;
+    margin-bottom: 9px;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--brand) 10%, transparent);
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    color: var(--brand);
+  }
+
+  & .pending p {
+    margin-bottom: 0;
+  }
+
+  /* ---- partner schedule ---- */
+  & .sched-wrap {
+    max-width: 68ch;
+    margin-top: 4px;
+    overflow-x: auto;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+  }
+
+  & .sched {
+    width: 100%;
+    min-width: 480px;
+    border-collapse: collapse;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  & .sched th {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--line);
+    background: var(--wash);
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-align: left;
+    text-transform: uppercase;
+    white-space: nowrap;
+    color: var(--ink-3);
+  }
+
+  & .sched td {
+    padding: 14px 16px;
+    border-top: 1px solid var(--line);
+    vertical-align: top;
+    color: var(--ink-2);
+  }
+
+  & .sched tr:first-child td {
+    border-top: none;
+  }
+
+  & .sched td:first-child {
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  & .sched a {
+    white-space: nowrap;
+  }
+
+  /* ---- closing note ---- */
+  & .endnote {
+    max-width: 68ch;
+    margin-top: 8px;
+    padding-top: 26px;
+    border-top: 1px solid var(--line);
+    font-size: 13px;
+    line-height: 1.65;
+    color: var(--ink-3);
+  }
+
+  /* ---- narrower ---- */
+  @media (max-width: 900px) {
+    & .doc {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 0;
+      padding-top: 40px;
+    }
+
+    & .toc {
+      position: static;
+      margin-bottom: 42px;
+      padding-bottom: 26px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    & .toc-list {
+      columns: 2;
+      column-gap: 28px;
+    }
+
+    & .toc a {
+      break-inside: avoid;
+    }
+  }
+
+  @media (max-width: 560px) {
+    & .mast {
+      padding-top: 48px;
+    }
+
+    & .toc-list {
+      columns: 1;
+    }
+  }
+}

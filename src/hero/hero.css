@@ -1,48 +1,5 @@
-/* Section 1: the nav and the hero copy around the stage. Page tokens are in
+/* Section 1: the hero copy around the stage (the nav is src/nav). Page tokens are in
    src/index.css. Rules exclude stages so nothing reaches into the picture. */
-
-/* Clear over the top of the hero; a solid page-coloured bar with a hairline
-   once the page scrolls, in both themes, so nothing shows through it */
-.nav {
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  background: transparent;
-  box-shadow: 0 1px 0 transparent;
-  transition: background-color 0.2s ease, box-shadow 0.2s ease;
-}
-
-.nav[data-scrolled] {
-  background: var(--paper);
-  box-shadow: 0 1px 0 var(--line);
-}
-
-.nav-in {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 68px;
-}
-
-.nav-logo {
-  display: flex;
-  color: var(--brand);
-}
-
-.nav-biz {
-  padding: 8px 16px;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  font-size: 14px;
-  font-weight: 600;
-  white-space: nowrap;
-  transition: border-color 0.18s ease, background-color 0.18s ease;
-}
-
-.nav-biz:hover {
-  border-color: var(--ink-3);
-  background: var(--wash);
-}
 
 .hero {
   padding-top: 24px;
@@ -232,7 +189,6 @@
 }
 
 @media (max-width: 600px) {
-  .nav-in { height: 60px; }
   .hero { padding-top: 16px; }
   /* Into the page margin, so at 390 the phone stage itself ends at the
      screen edge */

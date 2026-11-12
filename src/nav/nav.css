@@ -1,0 +1,132 @@
+/* The site nav. Clear over the top of the page; a solid page-coloured bar
+   with a hairline once the page scrolls, in both themes, so nothing shows
+   through it. */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: transparent;
+  box-shadow: 0 1px 0 transparent;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.nav[data-scrolled] {
+  background: var(--paper);
+  box-shadow: 0 1px 0 var(--line);
+}
+
+.nav-in {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 68px;
+}
+
+.nav-sp {
+  flex: 1;
+}
+
+.nav-logo {
+  display: flex;
+  flex: none;
+  color: var(--brand);
+}
+
+.nav-biz,
+.nav-back {
+  display: inline-flex;
+  align-items: center;
+  flex: none;
+  padding: 8px 16px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: border-color 0.18s ease, background-color 0.18s ease, color 0.18s ease;
+}
+
+.nav-back {
+  gap: 6px;
+  padding: 8px 14px;
+  font-weight: 500;
+  color: var(--ink-2);
+}
+
+.nav-back svg {
+  transition: transform 0.2s ease;
+}
+
+@media (hover: hover) {
+  .nav-biz:hover,
+  .nav-back:hover {
+    border-color: var(--ink-3);
+    background: var(--wash);
+    color: var(--ink);
+  }
+
+  .nav-back:hover svg {
+    transform: translateX(-2px);
+  }
+}
+
+/* The Customer | Partners switch, Terms page only */
+.mode-tog {
+  position: relative;
+  display: inline-flex;
+  flex: none;
+  margin-left: 18px;
+  padding: 3px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--wash);
+}
+
+.mode-tog button {
+  position: relative;
+  z-index: 1;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink-2);
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.mode-tog button[aria-selected='true'] {
+  color: var(--on-brand);
+}
+
+.mode-tog button:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+}
+
+.mode-knob {
+  position: absolute;
+  top: 3px;
+  bottom: 3px;
+  left: 3px;
+  border-radius: 999px;
+  background: var(--brand);
+  box-shadow: 0 6px 16px -6px rgb(8 61 49 / 0.55);
+  transition: transform 0.45s cubic-bezier(0.22, 0.85, 0.24, 1), width 0.45s cubic-bezier(0.22, 0.85, 0.24, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mode-knob { transition: none; }
+}
+
+@media (max-width: 600px) {
+  .nav-in { height: 60px; }
+
+  /* A phone's nav on a legal page holds the logo, the switch and Back, as an
+     arrow with its name for assistive tech */
+  .nav-biz:not([data-page='home']) { display: none; }
+  .nav-logo svg { width: auto; height: 26px; }
+  .nav-back { width: 38px; height: 38px; justify-content: center; padding: 0; }
+  .nav-back-l { display: none; }
+  .mode-tog { margin-left: 2px; }
+  .mode-tog button { padding: 6px 11px; font-size: 12.5px; }
+}

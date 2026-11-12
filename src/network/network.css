@@ -33,7 +33,7 @@
     position: relative;
     width: 100%;
     /* Holds the picture's height while the fonts load */
-    min-height: 472px;
+    min-height: 496px;
     background: var(--nw-band, var(--wash));
   }
 
@@ -49,7 +49,7 @@
     --nw-band: #14231c;
     --nw-dim: 1;
     --nw-veil: rgb(20 35 28 / 0.86);
-    --nw-net: #2c4339;
+    --nw-rail: #1c3027;
     --nw-focus-shadow: 0 0 0 2px #3fe0a3, 0 26px 50px -16px rgb(0 0 0 / 0.7);
   }
 }
@@ -62,7 +62,7 @@
   --nw-band: #14231c;
   --nw-dim: 1;
   --nw-veil: rgb(20 35 28 / 0.86);
-  --nw-net: #2c4339;
+  --nw-rail: #1c3027;
   --nw-focus-shadow: 0 0 0 2px #3fe0a3, 0 26px 50px -16px rgb(0 0 0 / 0.7);
 }
 
@@ -75,17 +75,12 @@
   --w-brand: #0a5c48;
   --w-brand-deep: #083d31;
 
-  /* The network under the stores: faint dashes, seen only in the gaps */
-  & .nw-net {
+  /* The network under the stores: a faint rail under each row */
+  & .nw-rail {
     position: absolute;
-    inset: 0;
-  }
-
-  & .nw-net path {
-    fill: none;
-    stroke: var(--nw-net, #c6d6cf);
-    stroke-width: 1.5;
-    stroke-dasharray: 4 5;
+    left: 0;
+    right: 0;
+    background: var(--nw-rail, #e2ece7);
   }
 
   /* One anatomy for every store: wordmark, two order lines, the sheet */
