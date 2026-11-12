@@ -1,0 +1,233 @@
+/* Section 1: the nav and the hero copy around the stage. Page tokens are in
+   src/index.css. Rules exclude stages so nothing reaches into the picture. */
+
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: color-mix(in srgb, var(--paper) 86%, transparent);
+  backdrop-filter: saturate(1.4) blur(12px);
+}
+
+.nav-in {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 68px;
+}
+
+.nav-logo {
+  display: flex;
+  color: var(--brand);
+}
+
+.nav-biz {
+  padding: 8px 16px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: border-color 0.18s ease, background-color 0.18s ease;
+}
+
+.nav-biz:hover {
+  border-color: var(--ink-3);
+  background: var(--wash);
+}
+
+.hero {
+  padding-top: 24px;
+  /* The store window runs off the page's right edge and off the hero's foot.
+     The section cuts it at both, hard, without a scrollbar; the hairline
+     under the cut marks where the hero ends */
+  overflow: clip;
+  border-bottom: 1px solid var(--line);
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 660px;
+  gap: 48px;
+  align-items: center;
+}
+
+.hero-copy {
+  padding-bottom: 64px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 440px;
+}
+
+.hero-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 22px;
+  padding: 5px 12px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-size: 12.5px;
+  font-weight: 500;
+  color: var(--ink-2);
+}
+
+.hero-pill b {
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.hero-h1 {
+  font-size: clamp(44px, 5.6vw, 76px);
+  font-weight: 800;
+  letter-spacing: -0.05em;
+  line-height: 0.96;
+}
+
+.hero-h1 span {
+  display: block;
+}
+
+.hero-lede {
+  max-width: 400px;
+  margin-top: 22px;
+  font-size: clamp(16px, 1.5vw, 18px);
+  line-height: 1.55;
+  color: var(--ink-2);
+}
+
+.op {
+  font-weight: 400;
+  white-space: nowrap;
+}
+
+.op b {
+  font-weight: 600;
+}
+
+.hero-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 30px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 46px;
+  padding: 0 22px;
+  border-radius: 999px;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  transition: background-color 0.18s ease, border-color 0.18s ease;
+}
+
+.btn-fill {
+  background: var(--brand);
+  color: var(--on-brand);
+}
+
+.btn-fill:hover {
+  background: var(--brand-deep);
+}
+
+.btn-line {
+  border: 1px solid var(--line);
+  color: var(--ink);
+}
+
+.btn-line:hover {
+  border-color: var(--ink-3);
+}
+
+.hero-figure {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+  margin: 0;
+  min-width: 0;
+  /* On the hero's foot, where the window is cut */
+  align-self: end;
+}
+
+.hero-picture {
+  align-self: stretch;
+  /* Holds the stage's shape while the fonts load, so nothing shifts */
+  aspect-ratio: 660 / 484;
+  opacity: 0;
+  transition: opacity 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.hero-picture[data-ready] {
+  aspect-ratio: auto;
+  opacity: 1;
+}
+
+@media (max-width: 632px) {
+  .hero-picture { aspect-ratio: 374 / 344; }
+}
+
+.replay {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 12px 6px 6px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--paper);
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--ink);
+  cursor: pointer;
+  transition: border-color 0.18s ease;
+}
+
+.replay:hover {
+  border-color: var(--ink-3);
+}
+
+.replay i {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--ink);
+  color: var(--paper);
+}
+
+/* Stacked: copy over the picture */
+@media (max-width: 1180px) {
+  .hero-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 40px;
+  }
+
+  .hero-copy {
+    max-width: 560px;
+    padding-bottom: 0;
+  }
+
+  /* Against the right margin, as beside the copy, so the window always runs
+     off the page a margin past the stage and never stretches into a void */
+  .hero-figure {
+    justify-self: end;
+    width: 100%;
+    max-width: 660px;
+  }
+}
+
+@media (max-width: 600px) {
+  .nav-in { height: 60px; }
+  .hero { padding-top: 16px; }
+  /* Into the page margin, so at 390 the phone stage itself ends at the
+     screen edge */
+  .hero-picture { margin-right: -16px; }
+  .hero-grid { gap: 32px; }
+}

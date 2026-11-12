@@ -1,0 +1,412 @@
+/* Section 1, the hero scene. Every rule is scoped to the stage. The store page
+   and the OnePoket sheet are product surfaces: they stay light in both page
+   themes. There is no plate: the page is the ground. The stage doesn't mask:
+   the window runs past it to the page's right edge and past its foot to the
+   hero section's foot, and the hero section clips it at both, with hard
+   edges. --hs-bleed (set by the host, in design px) is how far the page goes
+   past the stage on the right. */
+.hs {
+  & .ss-stage {
+    /* How far the window runs past the stage's foot, into the hero's clip */
+    --run: 80px;
+    --w-ink: #16211c;
+    --w-ink2: #5a6b63;
+    --w-ink3: #93a29b;
+    --w-line: #e4ebe7;
+    --w-brand: #0a5c48;
+    --w-brand-deep: #083d31;
+    --w-mint: #eaf5f1;
+    overflow: visible;
+    background: none;
+  }
+
+  /* ---- The store's checkout page: pinned top, off the page's right edge and
+     off the hero section's foot ---- */
+
+  .hs-win {
+    position: absolute;
+    top: 0;
+    left: 136px;
+    /* Always long enough to pass the screen edge by 24px */
+    width: max(600px, calc(660px - 136px + var(--hs-bleed, 32px) + 24px));
+    height: calc(100% + var(--run));
+    box-shadow: var(--ss-shadow-hero);
+  }
+
+  .hs-page {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background: #fff;
+    color: var(--w-ink);
+  }
+
+  .hs-top {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    height: 52px;
+    padding: 0 24px;
+    border-bottom: 1px solid var(--w-line);
+  }
+
+  /* A plain wordmark, no tile */
+  .hs-store {
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.3;
+    color: #1c1410;
+  }
+
+  .hs-nav {
+    display: flex;
+    gap: 16px;
+  }
+
+  /* Steps on the white left, the order summary in a tinted panel that runs
+     to the window's right edge, as real checkout pages lay it out */
+  .hs-body {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 232px minmax(0, 1fr);
+  }
+
+  .hs-steps {
+    display: grid;
+    align-content: start;
+    padding: 22px 24px 0;
+  }
+
+  .hs-step {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    height: 44px;
+    border-bottom: 1px solid var(--w-line);
+  }
+
+  .hs-step--now {
+    height: 40px;
+    border-bottom: 0;
+  }
+
+  .hs-step-title {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.3;
+    color: var(--w-ink);
+  }
+
+  /* Done steps step back; the current one leads */
+  .hs-step-title--done {
+    font-weight: 500;
+    color: var(--w-ink2);
+  }
+
+  .hs-check { flex: none; }
+  .hs-check .ss-check__ring { stroke: var(--w-line); }
+  .hs-check .ss-check__fill { fill: var(--w-brand); }
+  .hs-check .ss-check__tick { stroke: #fff; }
+
+  .hs-summary {
+    padding: 27px 24px 0;
+    border-left: 1px solid var(--w-line);
+    background: #f5f8f6;
+  }
+
+  /* The summary keeps its own width; the panel's tint fills the rest */
+  .hs-summary-in {
+    display: grid;
+    gap: 18px;
+    width: 260px;
+  }
+
+  .hs-items {
+    display: grid;
+    gap: 14px;
+  }
+
+  .hs-item {
+    display: grid;
+    grid-template-columns: 34px 1fr auto;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .hs-item-lines {
+    display: grid;
+    gap: 2px;
+  }
+
+  .hs-item-name {
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.3;
+    color: var(--w-ink);
+    white-space: nowrap;
+  }
+
+  .hs-item-sub {
+    font-size: 12px;
+    line-height: 1.3;
+    color: var(--w-ink2);
+    white-space: nowrap;
+  }
+
+  .hs-item-price {
+    font-family: var(--ss-mono);
+    font-size: 12.5px;
+    font-weight: 500;
+    line-height: 1.3;
+    color: var(--w-ink);
+  }
+
+  .hs-thumb {
+    width: 34px;
+    height: 34px;
+    border-radius: 8px;
+    border: 1px solid var(--w-line);
+  }
+
+  .hs-thumb--adire {
+    background: radial-gradient(circle at 25% 25%, #c9d4f2 1.6px, transparent 2px) 0 0 / 8px 8px, #2b3a78;
+  }
+
+  .hs-thumb--ship {
+    display: grid;
+    place-items: center;
+    background: var(--w-mint);
+    color: var(--w-brand);
+  }
+
+  .hs-thumb--raffia {
+    background: repeating-linear-gradient(45deg, #d9c08f 0 4px, #c7a970 4px 8px);
+  }
+
+  .hs-total {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+    padding-top: 14px;
+    border-top: 1px solid var(--w-line);
+  }
+
+  .hs-total-k {
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.3;
+    color: var(--w-ink);
+  }
+
+  .hs-total-v {
+    font-family: var(--ss-mono);
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.3;
+    color: var(--w-ink);
+  }
+
+  /* ---- The OnePoket sheet: in front, over the payment step ---- */
+
+  .hs-sheet {
+    position: absolute;
+    top: 256px;
+    left: 0;
+    width: 290px;
+    display: grid;
+    padding: 18px;
+    border-radius: 20px;
+    background: #fff;
+    color: var(--w-ink);
+    box-shadow:
+      0 0 0 1px rgba(10, 21, 18, 0.05),
+      0 24px 48px -18px rgba(8, 61, 49, 0.32),
+      0 6px 16px rgba(10, 21, 18, 0.06);
+  }
+
+  /* The lockup with its "by CentryOS" line under it, one left edge */
+  .hs-brand {
+    display: grid;
+    justify-items: start;
+    gap: 4px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--w-line);
+  }
+
+  .hs-logo {
+    display: block;
+    flex: none;
+    color: var(--w-brand);
+  }
+
+  .hs-by {
+    font-size: 11px;
+    line-height: 1.3;
+    color: var(--w-ink3);
+  }
+
+  /* The saved method is a plain row under the lockup's hairline, not a box
+     in the card */
+  .hs-saved {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 0 2px;
+  }
+
+  .hs-av {
+    flex: none;
+    background: var(--w-mint);
+    color: var(--w-brand);
+    font-weight: 700;
+  }
+
+  .hs-saved-lines {
+    display: grid;
+    gap: 2px;
+  }
+
+  .hs-saved-t {
+    font-size: 13.5px;
+    font-weight: 600;
+    line-height: 1.3;
+    color: var(--w-ink);
+  }
+
+  .hs-saved-s {
+    font-size: 12px;
+    line-height: 1.3;
+    color: var(--w-ink2);
+  }
+
+  /* The Pay button confirms on itself: the idle label and the busy group are
+     two layers in one cell that crossfade, as in the form-error gold */
+  .hs-pay {
+    display: grid;
+    grid-template-areas: 'stack';
+    place-items: center;
+    height: 46px;
+    margin-top: 12px;
+    border-radius: 999px;
+    background: var(--w-brand);
+    color: #fff;
+    font-size: 14.5px;
+    font-weight: 600;
+    line-height: 1.3;
+    /* Kept on its own layer so the label never hops as the press lands */
+    will-change: transform;
+    transition: background-color 0.3s ease, transform 0.15s cubic-bezier(0.22, 0.85, 0.24, 1);
+  }
+
+  .hs-pay[data-hover] { background: #0c6a53; }
+  .hs-pay[data-pressed] { transform: scale(0.97); }
+  .hs-pay[data-paid] { background: var(--w-brand-deep); }
+
+  .hs-amt {
+    font-family: var(--ss-mono);
+    font-weight: 600;
+  }
+
+  .hs-layer {
+    grid-area: stack;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    opacity: 0;
+    filter: blur(2px);
+    transition: opacity 0.14s ease, filter 0.14s ease;
+    text-box: trim-both cap alphabetic;
+  }
+
+  /* The old label is gone before the new one arrives: never two at once */
+  .hs-layer[data-on] {
+    opacity: 1;
+    filter: none;
+    transition-duration: 0.22s;
+    transition-delay: 0.14s;
+  }
+
+  .hs-labels {
+    display: grid;
+    justify-items: start;
+  }
+
+  .hs-label {
+    grid-area: 1 / 1;
+    opacity: 0;
+    filter: blur(2px);
+    white-space: nowrap;
+    transition: opacity 0.14s ease, filter 0.14s ease;
+  }
+
+  .hs-label[data-on] {
+    opacity: 1;
+    filter: none;
+    transition-duration: 0.22s;
+    transition-delay: 0.14s;
+  }
+
+  .hs-pay-check .ss-check__ring { stroke: rgb(255 255 255 / 0.4); }
+  .hs-pay-check .ss-check__arc { stroke: #fff; }
+  .hs-pay-check .ss-check__fill { fill: #fff; }
+  .hs-pay-check .ss-check__tick { stroke: var(--w-brand-deep); }
+
+  /* ---- Compact: the phone column ---- */
+
+  /* The stage runs to the screen's right edge (the host lets it into the
+     page margin). The window runs off that edge and off the hero's foot. The
+     steps sit in one row so the sheet comes up under them and what shows of
+     the window stays wider than tall; the sheet straddles its left edge */
+  & .ss-stage[data-layout='compact'] .hs-win {
+    left: 20px;
+    width: calc(374px - 20px + var(--hs-bleed, 0px) + 24px);
+  }
+
+  & .ss-stage[data-layout='compact'] .hs-top {
+    height: 44px;
+    padding: 0 20px;
+  }
+
+  & .ss-stage[data-layout='compact'] .hs-body {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto 1fr;
+  }
+
+  & .ss-stage[data-layout='compact'] .hs-steps {
+    grid-auto-flow: column;
+    justify-content: start;
+    gap: 20px;
+    padding: 0 20px;
+  }
+
+  /* One row, one height, so the three labels share a baseline */
+  & .ss-stage[data-layout='compact'] .hs-step {
+    height: 44px;
+    gap: 8px;
+    border-bottom: 0;
+  }
+
+  & .ss-stage[data-layout='compact'] .hs-step-title { font-size: 13.5px; }
+
+  /* The page's payment area, the tinted box a checkout puts payment methods
+     in; the sheet sits on it and it runs on past the hero's foot */
+  .hs-payarea {
+    margin: 8px 20px 0;
+    border: 1px solid var(--w-line);
+    border-bottom: 0;
+    border-radius: 12px 12px 0 0;
+    background: #f5f8f6;
+  }
+
+  & .ss-stage[data-layout='compact'] .hs-sheet {
+    top: 146px;
+    width: 342px;
+    padding: 14px;
+  }
+
+  & .ss-stage[data-layout='compact'] .hs-brand { padding-bottom: 12px; }
+  & .ss-stage[data-layout='compact'] .hs-saved { padding: 12px 0 0; }
+  & .ss-stage[data-layout='compact'] .hs-pay { margin-top: 12px; }
+}

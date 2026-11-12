@@ -18,6 +18,7 @@ OnePoket is a checkout widget that sits inside online stores. A shopper saves a 
 ## Audience and scope
 
 - The site is for shoppers. Merchants have their own landing page; link to it as "For businesses".
+- The "For businesses" link goes to https://centryos.xyz/.
 - OnePoket is the leading brand name in all copy.
 - Out of scope, never mention: the wallet, balances, top-ups, transfers, withdrawals, stablecoin, merchant settlement, sign-in.
 
