@@ -1,0 +1,1464 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OnePoket | Check out in one tap</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20width%3D%22112%22%20height%3D%22105%22%20viewBox%3D%220%200%20112%20105%22%20fill%3D%22none%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%20%3Cpath%20fill-rule%3D%22evenodd%22%20clip-rule%3D%22evenodd%22%20d%3D%22M102.772%2011.1889C102.772%208.56436%20101.198%203.31524%2094.8986%203.31524H76.2504V25.2787C76.2504%2027.3507%2073.3496%2030.7816%2066.7191%2030.7816H51.8006C49.5904%2030.4668%2045.0872%2028.9254%2044.7557%2025.2787V3.31524H24.4499C22.3778%203.31524%2017.8194%206.21607%2017.8194%2011.1889V25.2787C17.8586%2025.5547%2017.8816%2025.858%2017.8857%2026.1844C17.8862%2026.2295%2017.8864%2026.2751%2017.8863%2026.3211C17.885%2026.6607%2017.8637%2027.0236%2017.8194%2027.4053V35.6388V48.0709V65.4759L55.9446%2096.9706C57.6022%2098.2139%2060.9175%20100.286%2065.0615%2096.9706C70.0344%2092.9924%2092.2741%2074.3165%20102.772%2065.4759V11.1889ZM60.5031%2080.8089C73.0909%2080.8089%2083.2953%2070.6044%2083.2953%2058.0166C83.2953%2045.4288%2073.0909%2035.2244%2060.5031%2035.2244C47.9152%2035.2244%2037.7108%2045.4288%2037.7108%2058.0166C37.7108%2070.6044%2047.9152%2080.8089%2060.5031%2080.8089Z%22%20fill%3D%22%230A5C48%22/%3E%20%3Cpath%20d%3D%22M77.0792%2058.0166C77.0792%2067.1714%2069.6578%2074.5928%2060.5031%2074.5928C51.3483%2074.5928%2043.9269%2067.1714%2043.9269%2058.0166C43.9269%2048.8619%2051.3483%2041.4404%2060.5031%2041.4404C69.6578%2041.4404%2077.0792%2048.8619%2077.0792%2058.0166Z%22%20fill%3D%22%230A5C48%22/%3E%20%3Cpath%20d%3D%22M17.8194%2025.2787V27.4053C17.8637%2027.0236%2017.885%2026.6607%2017.8863%2026.3211L17.8857%2026.1844C17.8816%2025.858%2017.8586%2025.5547%2017.8194%2025.2787Z%22%20fill%3D%22%230A5C48%22/%3E%20%3Cpath%20d%3D%22M17.8194%2096.9706H9.1169V104.43H17.8194V96.9706Z%22%20fill%3D%22%230A5C48%22/%3E%20%3Cpath%20d%3D%22M111.492%2096.9706V104.43H102.772V96.9706H111.492Z%22%20fill%3D%22%230A5C48%22/%3E%20%3Cpath%20d%3D%22M55.1158%2099.0427L17.8194%2068.3767V96.9706V104.43H102.772V96.9706V68.3605C92.8266%2076.5105%2071.5262%2094.4013%2065.8903%2099.0427C61.3319%20102.772%2057.1878%20100.7%2055.1158%2099.0427Z%22%20fill%3D%22%230A5C48%22/%3E%20%3Cpath%20d%3D%22M15.7474%2035.6388V27.032V18.4252C13.2852%2023.804%208.46435%2029.2463%200%2029.4185V35.6388H15.7474Z%22%20fill%3D%22%230A5C48%22/%3E%20%3Cpath%20d%3D%22M53.0604%200H67.6347C70.2334%200%2073.5442%202.01412%2073.764%204.55944L73.9105%2022.4874C73.9344%2025.3807%2070.528%2028.1795%2067.6347%2028.1795H53.0604C50.1655%2028.1795%2047.2437%2025.3823%2047.2421%2022.4874L47.2326%204.82385C47.3202%202.15588%2050.3717%200%2053.0604%200Z%22%20fill%3D%22%230A5C48%22/%3E%20%3C/svg%3E%20">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800;900&family=Geist+Mono:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     ONEPOKET: shopper site for the checkout widget
+     Palette   ink #0A1512, brand #0A5C48, mint #3FE0A3
+     Type      Geist (400 to 900), Geist Mono for amounts
+     Signature the hero widget: a returning shopper pays in one tap
+     ============================================================ */
+  :root{
+    --ink:#0A1512;
+    --ink-2:#5A6B63;
+    --ink-3:#93A29B;
+    --brand:#0A5C48;
+    --brand-deep:#083D31;
+    --brand-logo:#0A5C48;   /* logo + footer wordmark, shown at 50% opacity */
+    --mint:#3FE0A3;
+    --paper:#FFFFFF;
+    --wash:#F2F7F4;
+    --line:#E4EBE7;
+    --line-soft:#EEF3F0;
+    --shadow-lift:0 2px 4px rgba(10,21,18,.03),0 12px 28px rgba(10,21,18,.06);
+    --shadow-stage:0 40px 90px -20px rgba(8,61,49,.28),0 8px 24px rgba(10,21,18,.06);
+    --font:'Geist',system-ui,-apple-system,sans-serif;
+    --mono:'Geist Mono',ui-monospace,monospace;
+    --serif:'Instrument Serif',Georgia,serif;
+    --ease:cubic-bezier(.22,.85,.24,1);
+    --wrap:1120px;
+  }
+  :root[data-theme="dark"]{
+    --ink:#E9F2EC;
+    --ink-2:#9BAEA5;
+    --ink-3:#6C7F76;
+    --brand:#4FD8A4;
+    --brand-deep:#3FE0A3;
+    --brand-logo:#4FD8A4;
+    --paper:#080F0C;
+    --wash:#0F1A15;
+    --line:#1D2B25;
+    --line-soft:#16211C;
+    --shadow-lift:0 2px 4px rgba(0,0,0,.2),0 12px 28px rgba(0,0,0,.3);
+    --shadow-stage:0 40px 90px -20px rgba(0,0,0,.6),0 8px 24px rgba(0,0,0,.3);
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  [id="how"],[id="faq"]{scroll-margin-top:72px}
+  body{
+    font-family:var(--font);background:var(--paper);color:var(--ink);
+    line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden;
+    transition:background .3s ease,color .3s ease;
+  }
+  button,input,textarea{font-family:inherit;font-size:inherit;color:inherit}
+  button{background:none;border:none;cursor:pointer}
+  a{color:inherit;text-decoration:none}
+  [hidden]{display:none !important}
+  :focus-visible{outline:2px solid var(--brand);outline-offset:3px;border-radius:4px}
+  .mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+  .wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
+
+  /* ---------- type scale ---------- */
+  .display{
+    font-size:clamp(40px,5.6vw,64px);font-weight:800;letter-spacing:-.045em;
+    line-height:1;
+  }
+  .h2{font-size:clamp(30px,4.2vw,46px);font-weight:800;letter-spacing:-.038em;line-height:1.05}
+  .h3{font-size:19px;font-weight:700;letter-spacing:-.02em}
+  .lede{font-size:clamp(16px,1.6vw,19px);color:var(--ink-2);line-height:1.55;font-weight:400}
+  /* ---------- buttons ---------- */
+  .btn{
+    position:relative;overflow:hidden;display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    border-radius:999px;font-weight:600;font-size:15px;letter-spacing:-.01em;
+    padding:14px 26px;transition:transform .18s var(--ease),box-shadow .18s var(--ease),background .18s ease,border-color .18s ease;
+  }
+  .btn:active{transform:scale(.975)}
+  .btn-fill{background:var(--brand);color:#fff;box-shadow:0 1px 2px rgba(8,61,49,.2),0 8px 20px -6px rgba(8,61,49,.45)}
+  :root[data-theme="dark"] .btn-fill{color:#04120C}
+  .btn-fill:hover{transform:translateY(-1px);box-shadow:0 2px 4px rgba(8,61,49,.2),0 14px 28px -8px rgba(8,61,49,.5)}
+  .btn-fill::after{
+    content:'';position:absolute;top:0;left:-60%;width:40%;height:100%;
+    background:linear-gradient(100deg,transparent,rgba(255,255,255,.28),transparent);
+    transform:skewX(-18deg);transition:left .55s var(--ease);
+  }
+  .btn-fill:hover::after{left:120%}
+  .btn-line{border:1px solid var(--line);color:var(--ink);background:var(--paper)}
+  .btn-line:hover{border-color:var(--ink-3);transform:translateY(-1px)}
+  .btn-sm{padding:9px 18px;font-size:14px}
+
+  /* ---------- nav ---------- */
+  .nav{
+    position:sticky;top:0;z-index:100;background:color-mix(in srgb,var(--paper) 82%,transparent);
+    backdrop-filter:blur(14px) saturate(150%);border-bottom:1px solid transparent;
+    transition:border-color .3s ease;
+  }
+  .nav.stuck{border-bottom-color:var(--line-soft)}
+  .nav-in{max-width:var(--wrap);margin:0 auto;padding:14px 24px;display:flex;align-items:center;gap:16px}
+  .lockup{display:flex;align-items:center;flex:none}
+  .lockup svg path{fill:var(--brand-logo)}
+  .nav .lockup svg{opacity:1}
+  .nav-sp{flex:1}
+  .icon-btn{
+    width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+    color:var(--ink-2);transition:background .18s ease,color .18s ease;flex:none;
+  }
+  .icon-btn:hover{background:var(--wash);color:var(--ink)}
+  @keyframes riseIn{to{transform:none}}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+  /* ---------- faq ---------- */
+  .faq{max-width:680px;margin:0 auto;border-top:1px solid var(--line)}
+  .q{border-bottom:1px solid var(--line)}
+  .q-btn{
+    width:100%;display:flex;align-items:center;gap:16px;text-align:left;padding:22px 4px;
+    font-size:16.5px;font-weight:600;letter-spacing:-.02em;transition:color .2s ease;
+  }
+  .q-btn:hover{color:var(--brand)}
+  .q-sign{margin-left:auto;flex:none;color:var(--ink-3);transition:transform .35s var(--ease),color .2s ease}
+  .q.open .q-sign{transform:rotate(45deg);color:var(--brand)}
+  .q-body{display:grid;grid-template-rows:0fr;transition:grid-template-rows .4s var(--ease)}
+  .q.open .q-body{grid-template-rows:1fr}
+  .q-body > div{overflow:hidden}
+  .q-body p{font-size:14.5px;color:var(--ink-2);line-height:1.6;padding:0 4px 24px;max-width:560px}
+
+  /* ============================================================
+     LEGAL VIEWS: hash-routed privacy policy and terms of service
+     ============================================================ */
+  .nav-back{display:inline-flex;align-items:center;gap:6px;font-size:13.5px;font-weight:500;
+    color:var(--ink-2);padding:8px 14px;border:1px solid var(--line);border-radius:999px;
+    transition:color .18s ease,border-color .18s ease,background .18s ease}
+  .nav-back:hover{color:var(--ink);border-color:var(--ink-3);background:var(--wash)}
+  .nav-back svg{transition:transform .2s var(--ease)}
+  .nav-back:hover svg{transform:translateX(-2px)}
+  .clause{scroll-margin-top:86px}
+  /* ---------- masthead ---------- */
+  .mast{padding:72px 0 0}
+  .mast h1{font-size:clamp(34px,4.6vw,52px);font-weight:800;letter-spacing:-.04em;line-height:1.02}
+  .mast h1 em{font-family:var(--serif);font-style:italic;font-weight:400;color:var(--brand);letter-spacing:-.01em}
+  .mast-meta{
+    display:flex;gap:10px;align-items:center;flex-wrap:wrap;
+    margin-top:20px;font-size:12.5px;color:var(--ink-3);
+  }
+  .mast-meta .dot{width:3px;height:3px;border-radius:50%;background:var(--ink-3);flex:none}
+
+  /* ---------- layout ---------- */
+  .doc{
+    display:grid;grid-template-columns:232px minmax(0,1fr);gap:64px;
+    padding:56px 0 100px;align-items:start;
+  }
+
+  /* ---------- table of contents ---------- */
+  .toc{position:sticky;top:86px}
+  .toc-h{
+    font-size:11.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+    color:var(--ink-3);margin-bottom:14px;
+  }
+  .toc a{
+    display:flex;gap:10px;align-items:baseline;font-size:13px;color:var(--ink-2);
+    padding:6px 0;line-height:1.35;transition:color .18s ease;
+  }
+  .toc a:hover{color:var(--ink)}
+  .toc a.on{color:var(--brand);font-weight:600}
+  .toc-n{font-family:var(--mono);font-size:10.5px;color:var(--ink-3);flex:none;letter-spacing:.02em}
+  .toc a.on .toc-n{color:var(--brand)}
+
+  /* ---------- clauses ---------- */
+  .clause{padding:38px 0;border-top:1px solid var(--line-soft)}
+  .clause:first-child{border-top:none;padding-top:0}
+  .clause h2{
+    font-size:23px;font-weight:700;letter-spacing:-.025em;line-height:1.2;
+    margin-bottom:18px;display:flex;gap:14px;align-items:baseline;
+  }
+  .clause-n{font-family:var(--mono);font-size:12px;font-weight:500;color:var(--ink-3);flex:none}
+  .clause h3{
+    font-size:14px;font-weight:700;letter-spacing:-.005em;color:var(--ink);
+    margin:22px 0 7px;
+  }
+  .clause h3:first-of-type{margin-top:0}
+  .clause p{font-size:15px;line-height:1.68;color:var(--ink-2);max-width:68ch;margin-bottom:13px}
+  .clause p:last-child{margin-bottom:0}
+  .clause ul{list-style:none;max-width:68ch;margin-bottom:13px}
+  .clause li{
+    position:relative;padding-left:20px;font-size:15px;line-height:1.62;
+    color:var(--ink-2);margin-bottom:9px;
+  }
+  .clause li::before{
+    content:'';position:absolute;left:2px;top:.65em;width:5px;height:5px;
+    border-radius:50%;background:var(--brand);opacity:.45;
+  }
+  .clause strong{color:var(--ink);font-weight:600}
+  .standout{
+    font-size:15px;font-weight:600;color:var(--ink) !important;
+    padding:14px 18px;background:var(--wash);border-radius:12px;margin-top:4px;
+  }
+
+  /* ---------- tier cards ---------- */
+  .tiers{display:grid;gap:10px;max-width:68ch;margin:18px 0 20px}
+  .tier{border:1px solid var(--line);border-radius:14px;padding:16px 18px;background:var(--wash)}
+  .tier-h{display:flex;align-items:baseline;gap:11px;font-size:14.5px;font-weight:700;letter-spacing:-.01em;margin-bottom:6px}
+  .tier-n{font-family:var(--mono);font-size:10.5px;font-weight:500;letter-spacing:.03em;color:var(--brand);background:color-mix(in srgb,var(--brand) 10%,transparent);padding:3px 9px;border-radius:999px;flex:none}
+  .tier p{font-size:14px;line-height:1.6;margin-bottom:0}
+
+  /* ---------- pending blocks ---------- */
+  .pending{
+    border:1px dashed var(--line);border-radius:12px;padding:16px 18px;max-width:68ch;
+  }
+  .pending-tag{
+    display:inline-block;font-family:var(--mono);font-size:10.5px;font-weight:500;
+    letter-spacing:.04em;color:var(--brand);background:color-mix(in srgb,var(--brand) 10%,transparent);
+    padding:3px 9px;border-radius:999px;margin-bottom:9px;
+  }
+  .pending p{margin-bottom:0}
+
+  /* ---------- partner schedule table ---------- */
+  .doc > .clauses{min-width:0}
+  .sched-wrap{max-width:68ch;overflow-x:auto;border:1px solid var(--line);border-radius:14px;margin-top:4px}
+  .sched{width:100%;border-collapse:collapse;font-size:14px;line-height:1.5;min-width:480px}
+  .sched th{text-align:left;font-size:11.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);background:var(--wash);padding:12px 16px;border-bottom:1px solid var(--line);white-space:nowrap}
+  .sched td{padding:14px 16px;color:var(--ink-2);border-top:1px solid var(--line-soft);vertical-align:top}
+  .sched tr:first-child td{border-top:none}
+  .sched td:first-child{color:var(--ink);font-weight:600}
+  .sched a{color:var(--brand);font-weight:600;white-space:nowrap}
+
+  /* ---------- closing note ---------- */
+  .endnote{
+    max-width:68ch;margin-top:8px;padding-top:26px;border-top:1px solid var(--line-soft);
+    font-size:13px;line-height:1.65;color:var(--ink-3);
+  }
+
+  /* ---------- responsive ---------- */
+  @media (max-width:900px){
+    .doc{grid-template-columns:1fr;gap:0;padding-top:40px}
+    .toc{
+      position:static;margin-bottom:42px;padding-bottom:26px;
+      border-bottom:1px solid var(--line-soft);
+    }
+    .toc-list{columns:2;column-gap:28px}
+    .toc a{break-inside:avoid}
+  }
+  @media (max-width:560px){
+    .mast{padding-top:48px}
+    .toc-list{columns:1}
+  }
+  
+  /* ---------- footer (original) ---------- */
+  footer{padding:80px 0 0;border-top:1px solid var(--line-soft);background:var(--wash);overflow:hidden;transition:border-color .25s ease,background .25s ease}
+  .foot-top{display:flex;justify-content:space-between;align-items:flex-start;gap:56px;flex-wrap:wrap;padding-bottom:64px}
+  .foot-links{display:flex;gap:48px;flex-wrap:wrap}
+  .foot-col-title{font-size:11.5px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-3);margin-bottom:14px}
+  .foot-col a{display:block;font-size:13.5px;color:var(--ink-2);padding:5px 0;position:relative;width:fit-content}
+  .foot-col a::after{content:'';position:absolute;left:0;bottom:3px;width:100%;height:1px;background:var(--ink);transform:scaleX(0);transform-origin:right;transition:transform .25s ease}
+  .foot-col a:hover{color:var(--ink)}
+  .foot-col a:hover::after{transform:scaleX(1);transform-origin:left}
+
+  .foot-news{max-width:340px}
+  .foot-news-h{font-size:19px;font-weight:600;letter-spacing:-.015em;line-height:1.35;margin-bottom:18px}
+  .foot-news-h em{font-style:italic;font-family:var(--serif);color:var(--brand);font-weight:400}
+  .foot-news-form{display:flex;gap:8px}
+  .foot-news-input{flex:1;min-width:0;background:var(--paper);border:1px solid var(--line);border-radius:999px;padding:11px 16px;font-size:13.5px;color:var(--ink);font-family:inherit;transition:border-color .15s ease,box-shadow .15s ease}
+  .foot-news-input::placeholder{color:var(--ink-3)}
+  .foot-news-input:focus{outline:none;border-color:var(--brand);box-shadow:0 0 0 3px color-mix(in srgb,var(--brand) 12%,transparent)}
+  .foot-news-btn{display:inline-flex;align-items:center;gap:8px;background:var(--brand);color:#fff;border-radius:999px;padding:11px 20px;font-size:13.5px;font-weight:600;white-space:nowrap;transition:background .15s ease;flex:none}
+  :root[data-theme="dark"] .foot-news-btn{color:#04120C}
+  .foot-news-btn:hover{background:var(--brand-deep)}
+  .foot-news-btn .arrow{transition:transform .2s ease}
+  .foot-news-btn:hover .arrow{transform:translateX(3px)}
+  .foot-news-note{font-size:11.5px;color:var(--ink-3);margin-top:10px}
+
+  /* giant wordmark */
+  .foot-wordmark{position:relative;padding:0 32px;line-height:0}
+  .foot-wordmark svg{width:100%;height:auto;display:block}
+  .foot-wordmark svg path{fill:var(--brand-logo)}
+  .foot-wordmark svg{opacity:.5}
+  .wm-part{opacity:0;transform:scale(.92);transform-box:fill-box;transform-origin:center;transition:opacity .55s var(--ease),transform .55s var(--ease)}
+  .foot-wordmark.in .wm-part{opacity:1;transform:scale(1)}
+  .foot-wordmark-clip{overflow:hidden;position:relative}
+  .foot-wordmark-clip::after{
+    content:'';position:absolute;inset:0;
+    background:linear-gradient(100deg,transparent 30%,rgba(255,255,255,.55) 45%,transparent 60%);
+    transform:translateX(-120%);mix-blend-mode:overlay;
+  }
+  .foot-wordmark.in .foot-wordmark-clip::after{animation:sheen 1.4s ease 1.05s 1}
+  @keyframes sheen{0%{transform:translateX(-120%)}100%{transform:translateX(120%)}}
+
+  .foot-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;font-size:12.5px;color:var(--ink-3);padding:20px 0;border-top:1px solid var(--line-soft);margin-top:8px}
+  .foot-bottom a{transition:color .18s ease}
+  .foot-bottom a:hover{color:var(--brand)}
+
+  @media (max-width:760px){
+    .foot-top{flex-direction:column}
+    .foot-news{max-width:none}
+    .foot-news-form{flex-direction:column}
+    .foot-news-btn{justify-content:center}
+  }
+
+
+  /* ============================================================
+     SHOPPER HOME: OnePoket checkout
+     Product surfaces (widget demos) stay light in both themes.
+     ============================================================ */
+  [id="how"],[id="faq"],[id="protection"]{scroll-margin-top:80px}
+  .op{font-weight:400;white-space:nowrap}
+  .op b{font-weight:600}
+
+  /* nav */
+  .nav-biz{font-size:14px;font-weight:600;color:var(--ink);padding:8px 16px;border:1px solid var(--line);border-radius:999px;transition:border-color .18s ease,background .18s ease;white-space:nowrap}
+  .nav-biz:hover{border-color:var(--ink-3);background:var(--wash)}
+
+  /* legal-only Customer | Partners switch */
+  .mode-tog{position:relative;display:inline-flex;padding:3px;border-radius:999px;background:var(--wash);border:1px solid var(--line);margin-left:18px}
+  .mode-tog button{position:relative;z-index:1;padding:6px 14px;font-size:13px;font-weight:600;color:var(--ink-2);border-radius:999px;transition:color .3s ease}
+  .mode-tog button[aria-selected="true"]{color:#fff}
+  :root[data-theme="dark"] .mode-tog button[aria-selected="true"]{color:#04120C}
+  .mode-knob{position:absolute;top:3px;bottom:3px;left:3px;border-radius:999px;background:var(--brand);box-shadow:0 6px 16px -6px rgba(8,61,49,.55);transition:transform .45s var(--ease),width .45s var(--ease)}
+
+  /* ---------- hero ---------- */
+  .hx{padding:28px 0 0}
+  .hx-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:20px;align-items:stretch;min-height:640px}
+  .hx-copy{display:flex;flex-direction:column;justify-content:center;padding:40px 0;max-width:500px}
+  .hx-pill{display:inline-flex;align-self:flex-start;align-items:center;gap:6px;font-size:12.5px;font-weight:500;color:var(--ink-2);border:1px solid var(--line);border-radius:999px;padding:5px 12px;margin-bottom:22px}
+  .hx-pill b{color:var(--ink);font-weight:700}
+  .hx h1{font-size:clamp(46px,6.4vw,84px);font-weight:800;letter-spacing:-.05em;line-height:.96}
+  .hx h1 .ln{display:block;overflow:hidden;padding-bottom:.08em;margin-bottom:-.08em}
+  .hx h1 .ln > span{display:block;transform:translateY(105%);animation:riseIn .95s var(--ease) forwards}
+  .hx h1 .ln:nth-child(2) > span{animation-delay:.1s}
+  .hx-lede{font-size:clamp(16px,1.5vw,18px);color:var(--ink-2);line-height:1.55;max-width:420px;margin-top:22px;opacity:0;animation:fadeUp .8s var(--ease) .35s forwards}
+  .hx-cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px;opacity:0;animation:fadeUp .8s var(--ease) .45s forwards}
+
+  /* ---------- demo panel (shared) ---------- */
+  .panel{
+    position:relative;background:var(--wash);border:1px solid var(--line);border-radius:24px;
+    display:flex;align-items:center;justify-content:center;padding:56px 24px;min-height:460px;overflow:hidden;
+  }
+  .replay{
+    position:absolute;right:16px;bottom:16px;display:inline-flex;align-items:center;gap:7px;
+    font-size:12.5px;font-weight:600;color:var(--ink);background:var(--paper);border:1px solid var(--line);
+    border-radius:999px;padding:6px 12px 6px 6px;transition:border-color .18s ease;
+  }
+  .replay:hover{border-color:var(--ink-3)}
+  .replay i{width:20px;height:20px;border-radius:50%;background:var(--ink);color:var(--paper);display:flex;align-items:center;justify-content:center}
+
+  /* ---------- widget surface (always light) ---------- */
+  .w{
+    --w-ink:#16211C;--w-ink2:#5A6B63;--w-ink3:#93A29B;--w-line:#E4EBE7;--w-soft:#F3F6F4;--w-brand:#0A5C48;--w-mint:#EAF5F1;
+    width:min(360px,100%);background:#fff;color:var(--w-ink);border-radius:22px;padding:18px;
+    box-shadow:0 0 0 1px rgba(10,21,18,.05),0 30px 70px -24px rgba(8,61,49,.28),0 8px 20px rgba(10,21,18,.05);
+    font-size:13px;line-height:1.4;text-align:left;position:relative;
+  }
+  .w b{font-weight:600}
+  .w small{display:block;font-size:11.5px;color:var(--w-ink2);margin-top:1px}
+  .w .mono{font-family:var(--mono)}
+  .w-store{display:flex;align-items:center;gap:10px;padding-bottom:14px;border-bottom:1px solid var(--w-line)}
+  .w-store b{font-size:14px}
+  .w-store .amt{margin-left:auto;font-family:var(--mono);font-size:15px;font-weight:600}
+  .w-logo{width:34px;height:34px;border-radius:10px;flex:none;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;letter-spacing:-.02em;color:#fff;background:#16211C}
+  .w-logo.kola{background:#8A3B12}
+  .w-items{padding:10px 0;border-bottom:1px solid var(--w-line)}
+  .w-item{display:flex;align-items:center;gap:10px;padding:5px 0}
+  .w-item .p{margin-left:auto;font-family:var(--mono);font-size:12.5px}
+  .w-thumb{width:30px;height:30px;border-radius:8px;flex:none;border:1px solid var(--w-line)}
+  .t-adire{background:radial-gradient(circle at 25% 25%,#c9d4f2 1.6px,transparent 2px) 0 0/8px 8px,#2B3A78}
+  .t-raffia{background:repeating-linear-gradient(45deg,#d9c08f 0 4px,#c7a970 4px 8px)}
+  .t-ship{background:var(--w-mint);display:flex;align-items:center;justify-content:center;color:var(--w-brand)}
+  .w-el{padding-top:14px}
+  .w-brand{display:flex;align-items:baseline;gap:7px;margin-bottom:10px}
+  .w-brand svg{height:18px;width:auto;display:block}
+  .w-brand svg path{fill:var(--w-brand)}
+  .w-brand small{margin:0;color:var(--w-ink3);font-size:11px}
+  .w-saved{display:flex;align-items:center;gap:10px;padding:11px 12px;border:1px solid var(--w-line);border-radius:14px}
+  .w-saved .chg{margin-left:auto;font-size:12px;font-weight:600;color:var(--w-brand)}
+  .w-av{width:30px;height:30px;border-radius:50%;flex:none;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;background:var(--w-mint);color:var(--w-brand)}
+  .w-pay{
+    width:100%;margin-top:12px;height:46px;border-radius:999px;background:var(--w-brand);color:#fff;
+    font-size:14.5px;font-weight:600;display:flex;align-items:center;justify-content:center;gap:8px;
+    transition:transform .15s var(--ease),background .3s ease;
+  }
+  .w-pay .mono{font-family:var(--mono)}
+  .w-pay.press{transform:scale(.97)}
+  .w-pay.apple,.w-pay.google{background:#000}
+  .w-pay.cash{background:#00C244}
+  .spin{width:15px;height:15px;border-radius:50%;border:2px solid rgba(255,255,255,.35);border-top-color:#fff;animation:spin .7s linear infinite}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .w-done{display:grid;grid-template-rows:0fr;transition:grid-template-rows .5s var(--ease)}
+  .w-done > div{overflow:hidden}
+  .w.paid .w-done{grid-template-rows:1fr}
+  .w-collapse{display:grid;grid-template-rows:1fr;transition:grid-template-rows .5s var(--ease)}
+  .w-collapse > div{overflow:hidden}
+  .w.paid .w-collapse{grid-template-rows:0fr}
+  .paid-box{display:flex;align-items:center;gap:12px;padding:14px 0 2px}
+  .paid-box b{font-size:14.5px}
+  .tick{width:34px;height:34px;border-radius:50%;flex:none;background:var(--w-brand);color:#fff;display:flex;align-items:center;justify-content:center;transform:scale(.4);opacity:0;transition:transform .45s var(--ease) .1s,opacity .3s ease .1s}
+  .w.paid .tick{transform:none;opacity:1}
+
+  /* method tiles */
+  .mq{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
+  .mq-t{white-space:nowrap;letter-spacing:-.01em;border:1px solid var(--w-line);border-radius:12px;padding:10px 2px 8px;display:flex;flex-direction:column;align-items:center;gap:6px;font-size:10px;font-weight:600;color:var(--w-ink);transition:border-color .25s ease,background .25s ease}
+  .mq-t i{width:26px;height:26px;border-radius:7px;display:flex;align-items:center;justify-content:center;background:var(--w-soft);color:var(--w-ink)}
+  .mq-t.sel{border-color:var(--w-brand);background:var(--w-mint)}
+  .eyebrow-s{font-size:11.5px;font-weight:600;color:var(--w-ink2);margin:0 0 8px}
+
+  /* fee rows */
+  .sum{border:1px solid var(--w-line);border-radius:14px;padding:4px 14px;margin-top:12px}
+  .sum-r{display:flex;justify-content:space-between;padding:9px 0;font-size:13px}
+  .sum-r + .sum-r{border-top:1px solid var(--w-line)}
+  .sum-r .v{font-family:var(--mono)}
+  .sum-r.em{font-weight:700}
+  .sum-r .v.flash{animation:flash 1s ease}
+  @keyframes flash{0%{background:var(--w-mint);color:var(--w-brand)}100%{background:transparent}}
+
+  /* verify demo */
+  .vstack{position:relative;width:min(360px,100%);height:360px}
+  .vstack .w{position:absolute;left:0;right:0;margin:auto;transition:transform .7s var(--ease),opacity .5s ease}
+  .vstack .w.a{top:0}
+  .vstack .w.b{top:120px;transform:translateY(40px);opacity:0}
+  .vstack.s2 .w.a{transform:scale(.92) translateY(-14px);opacity:.55}
+  .vstack.s2 .w.b{transform:none;opacity:1}
+  .chk{display:flex;align-items:center;gap:10px;padding:8px 0;color:var(--w-ink3);transition:color .3s ease}
+  .chk + .chk{border-top:1px solid var(--w-line)}
+  .chk i{width:20px;height:20px;border-radius:50%;border:1.5px solid var(--w-line);flex:none;display:flex;align-items:center;justify-content:center;color:transparent;transition:all .3s ease}
+  .chk.on{color:var(--w-ink)}
+  .chk.on i{background:var(--w-brand);border-color:var(--w-brand);color:#fff}
+  .carry{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:12px;background:var(--w-mint);color:var(--w-brand);font-weight:600;font-size:12.5px;margin-top:12px;opacity:0;transform:translateY(6px);transition:all .45s var(--ease)}
+  .carry.on{opacity:1;transform:none}
+
+  /* link demo */
+  .chat{width:min(360px,100%);background:#fff;border-radius:22px;overflow:hidden;color:#16211C;text-align:left;
+    box-shadow:0 0 0 1px rgba(10,21,18,.05),0 30px 70px -24px rgba(8,61,49,.28);position:relative;height:400px;display:flex;flex-direction:column}
+  .chat-h{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid #E4EBE7;font-size:13px}
+  .chat-h small{display:block;font-size:11px;color:#93A29B}
+  .chat-b{flex:1;padding:16px;display:flex;flex-direction:column;gap:8px;background:#F6F8F7}
+  .bub{max-width:78%;background:#fff;border:1px solid #E4EBE7;border-radius:16px 16px 16px 4px;padding:9px 12px;font-size:13px;opacity:0;transform:translateY(8px);transition:all .4s var(--ease)}
+  .bub.on{opacity:1;transform:none}
+  .bub.link{padding:0;overflow:hidden}
+  .bub.link .lk{padding:10px 12px}
+  .bub.link .lk b{display:block;font-size:13px}
+  .bub.link .lk small{font-size:11px;color:#5A6B63}
+  .bub.link .lk-band{height:6px;background:#0A5C48}
+  .bub.tap{box-shadow:0 0 0 3px rgba(10,92,72,.25)}
+  .sheet{position:absolute;left:0;right:0;bottom:0;background:#fff;border-radius:20px 20px 0 0;padding:16px;
+    box-shadow:0 -14px 40px -12px rgba(10,21,18,.25);transform:translateY(105%);transition:transform .55s var(--ease)}
+  .sheet.on{transform:none}
+  .sheet .w{box-shadow:none;padding:0;width:100%}
+
+  /* ---------- benefits strip ---------- */
+  .benefits{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-top:20px}
+  .bn{padding:28px 24px 30px 0}
+  .bn + .bn{border-left:1px solid var(--line);padding-left:24px}
+  .bn-i{color:var(--brand);margin-bottom:14px;display:flex}
+  .bn h3{font-size:17px;font-weight:700;letter-spacing:-.02em;margin-bottom:6px}
+  .bn p{font-size:14px;color:var(--ink-2);line-height:1.5}
+
+  /* network line */
+  .netline{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;padding:30px 0 0;color:var(--ink-2);font-size:14px}
+  .netline img{height:26px;width:auto;display:block}
+  [data-theme="dark"] .netline img{filter:brightness(0) invert(1);opacity:.9}
+
+  /* ---------- feature rows ---------- */
+  .feats{padding:96px 0 40px}
+  .feats-h{font-size:clamp(32px,4.4vw,52px);font-weight:800;letter-spacing:-.045em;line-height:1;max-width:620px;margin-bottom:48px}
+  .row{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:20px;margin-bottom:20px}
+  .row-t{border-top:1px solid var(--line);padding-top:22px}
+  .row-t h3{font-size:clamp(22px,2.2vw,28px);font-weight:700;letter-spacing:-.03em;line-height:1.15;margin-bottom:12px}
+  .row-t p{font-size:15.5px;color:var(--ink-2);line-height:1.55;max-width:360px}
+  .row-t .tl{display:inline-block;margin-top:18px;font-size:14px;font-weight:600;color:var(--brand);border-bottom:1px solid color-mix(in srgb,var(--brand) 35%,transparent)}
+
+  /* protection list */
+  .plist{width:min(440px,100%);list-style:none}
+  .plist li{display:flex;gap:14px;padding:18px 0;border-top:1px solid var(--line);font-size:14.5px;line-height:1.5;color:var(--ink-2)}
+  .plist li:first-child{border-top:none}
+  .plist li b{display:block;color:var(--ink);font-weight:600;margin-bottom:2px}
+  .plist .pi{width:32px;height:32px;border-radius:9px;flex:none;border:1px solid var(--line);background:var(--paper);display:flex;align-items:center;justify-content:center;color:var(--brand)}
+
+  /* faq */
+  .faq-sec{padding:80px 0 110px}
+  .faq-sec .feats-h{text-align:center;margin:0 auto 40px}
+
+  /* ---------- closing band (always dark green) ---------- */
+  .close{background:#04241C;color:#E9F2EC;padding:88px 0 96px}
+  .close-st{max-width:620px;margin:0 auto 56px;text-align:center;font-size:clamp(19px,2vw,23px);line-height:1.5;letter-spacing:-.015em;color:#C7D8CF}
+  .close-st strong{color:#fff;font-weight:600}
+  .close-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .ctile{background:#0B342A;border-radius:20px;padding:40px 24px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:20px}
+  .ctile h3{font-size:clamp(20px,2vw,25px);font-weight:700;letter-spacing:-.03em;line-height:1.15;color:#fff;max-width:240px}
+  .ctile .btn{background:#3FE0A3;color:#04241C;padding:11px 22px;font-size:14px}
+  .ctile .btn:hover{background:#6BEBB9}
+
+  /* ---------- responsive ---------- */
+  @media (max-width:960px){
+    .hx-grid{grid-template-columns:1fr;min-height:0}
+    .hx-copy{padding:36px 0 8px;max-width:none}
+    .row{grid-template-columns:1fr}
+    .row-t p{max-width:520px}
+    .benefits{grid-template-columns:repeat(2,1fr)}
+    .bn:nth-child(3){border-left:none;padding-left:0}
+    .bn:nth-child(n+3){border-top:1px solid var(--line)}
+    .close-grid{grid-template-columns:1fr}
+  }
+  @media (max-width:560px){
+    .panel{padding:44px 14px 64px;min-height:400px;border-radius:20px}
+    .benefits{grid-template-columns:1fr}
+    .bn + .bn{border-left:none;padding-left:0;border-top:1px solid var(--line)}
+    .hx-cta .btn{width:100%}
+    .feats{padding:72px 0 24px}
+    .mode-tog{margin-left:8px}.mode-tog button{padding:5px 10px;font-size:12px}
+    .nav-back .nb-l{display:none}
+    .nav-back{padding:8px 10px}
+  }
+  @media (max-width:440px){
+    .nav .lockup svg{width:92px;height:auto}
+    .nav-in{gap:8px;padding:12px 16px}
+    .nav-biz{padding:7px 12px;font-size:13px}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .hx h1 .ln > span,.hx-lede,.hx-cta{opacity:1 !important;transform:none !important;animation:none !important}
+  }
+
+</style>
+</head>
+<body>
+<nav class="nav" id="nav">
+  <div class="nav-in">
+    <a class="lockup" href="#top" aria-label="OnePoket"><svg width="125" height="37" viewBox="0 0 543 161" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M102.772 62.1889C102.772 59.5644 101.198 54.3152 94.8986 54.3152H76.2504V76.2787C76.2504 78.3507 73.3496 81.7816 66.7191 81.7816H51.8006C49.5904 81.4668 45.0872 79.9254 44.7557 76.2787V54.3152H24.4499C22.3778 54.3152 17.8194 57.2161 17.8194 62.1889V76.2787C17.8586 76.5547 17.8816 76.858 17.8857 77.1844C17.8862 77.2295 17.8864 77.2751 17.8863 77.3211C17.885 77.6607 17.8637 78.0236 17.8194 78.4053V86.6388V99.0709V116.476L55.9446 147.971C57.6022 149.214 60.9175 151.286 65.0615 147.971C70.0344 143.992 92.2741 125.317 102.772 116.476V62.1889ZM60.5031 131.809C73.0909 131.809 83.2953 121.604 83.2953 109.017C83.2953 96.4288 73.0909 86.2244 60.5031 86.2244C47.9152 86.2244 37.7108 96.4288 37.7108 109.017C37.7108 121.604 47.9152 131.809 60.5031 131.809Z" fill="var(--brand)"/><path d="M77.0792 109.017C77.0792 118.171 69.6578 125.593 60.5031 125.593C51.3483 125.593 43.9269 118.171 43.9269 109.017C43.9269 99.8619 51.3483 92.4404 60.5031 92.4404C69.6578 92.4404 77.0792 99.8619 77.0792 109.017Z" fill="var(--brand)"/><path d="M17.8194 76.2787V78.4053C17.8637 78.0236 17.885 77.6607 17.8863 77.3211L17.8857 77.1844C17.8816 76.858 17.8586 76.5547 17.8194 76.2787Z" fill="var(--brand)"/><path d="M17.8194 147.971H9.1169V155.43H17.8194V147.971Z" fill="var(--brand)"/><path d="M111.492 147.971V155.43H102.772V147.971H111.492Z" fill="var(--brand)"/><path d="M55.1158 150.043L17.8194 119.377V147.971V155.43H102.772V147.971V119.361C92.8266 127.511 71.5262 145.401 65.8903 150.043C61.3319 153.772 57.1878 151.7 55.1158 150.043Z" fill="var(--brand)"/><path d="M15.7474 86.6388V78.032V69.4252C13.2852 74.804 8.46435 80.2463 0 80.4185V86.6388H15.7474Z" fill="var(--brand)"/><path d="M53.0604 51H67.6347C70.2334 51 73.5442 53.0141 73.764 55.5594L73.9105 73.4874C73.9344 76.3807 70.528 79.1795 67.6347 79.1795H53.0604C50.1655 79.1795 47.2437 76.3823 47.2421 73.4874L47.2326 55.8238C47.3202 53.1559 50.3717 51 53.0604 51Z" fill="var(--brand)"/><path class="wm" d="M129.8 161V52.2H142.28L142.6 70.44L140.68 69.48C142.813 63.1867 146.333 58.44 151.24 55.24C156.253 51.9333 162.013 50.28 168.52 50.28C176.947 50.28 183.827 52.36 189.16 56.52C194.6 60.68 198.6 66.12 201.16 72.84C203.827 79.56 205.16 86.8133 205.16 94.6C205.16 102.387 203.827 109.64 201.16 116.36C198.6 123.08 194.6 128.52 189.16 132.68C183.827 136.84 176.947 138.92 168.52 138.92C164.147 138.92 160.04 138.173 156.2 136.68C152.467 135.187 149.267 133.107 146.6 130.44C144.04 127.773 142.28 124.627 141.32 121L143.24 118.76V161H129.8ZM167.24 126.12C174.6 126.12 180.413 123.347 184.68 117.8C188.947 112.253 191.08 104.52 191.08 94.6C191.08 84.68 188.947 76.9467 184.68 71.4C180.413 65.8533 174.6 63.08 167.24 63.08C162.333 63.08 158.067 64.2533 154.44 66.6C150.92 68.9467 148.147 72.4667 146.12 77.16C144.2 81.8533 143.24 87.6667 143.24 94.6C143.24 101.533 144.2 107.347 146.12 112.04C148.04 116.733 150.813 120.253 154.44 122.6C158.067 124.947 162.333 126.12 167.24 126.12ZM258.514 138.92C250.727 138.92 243.9 137.107 238.034 133.48C232.167 129.853 227.634 124.733 224.434 118.12C221.234 111.4 219.634 103.56 219.634 94.6C219.634 85.5333 221.234 77.6933 224.434 71.08C227.634 64.4667 232.167 59.3467 238.034 55.72C243.9 52.0933 250.727 50.28 258.514 50.28C266.3 50.28 273.074 52.0933 278.834 55.72C284.7 59.3467 289.234 64.4667 292.434 71.08C295.634 77.6933 297.234 85.5333 297.234 94.6C297.234 103.56 295.634 111.4 292.434 118.12C289.234 124.733 284.7 129.853 278.834 133.48C273.074 137.107 266.3 138.92 258.514 138.92ZM258.514 126.12C266.3 126.12 272.327 123.347 276.594 117.8C280.967 112.147 283.154 104.413 283.154 94.6C283.154 84.7867 280.967 77.1067 276.594 71.56C272.327 65.9067 266.3 63.08 258.514 63.08C250.727 63.08 244.647 65.9067 240.274 71.56C235.9 77.1067 233.714 84.7867 233.714 94.6C233.714 104.413 235.9 112.147 240.274 117.8C244.647 123.347 250.727 126.12 258.514 126.12ZM317.55 137V23.4H330.99V97.8L372.27 52.2H390.19L356.75 88.2L391.63 137H375.31L347.63 97.32L330.99 114.92V137H317.55ZM439.076 138.92C431.076 138.92 424.143 137.107 418.276 133.48C412.516 129.853 408.036 124.733 404.836 118.12C401.743 111.4 400.196 103.56 400.196 94.6C400.196 85.64 401.743 77.8533 404.836 71.24C408.036 64.6267 412.463 59.5067 418.116 55.88C423.876 52.1467 430.65 50.28 438.436 50.28C445.796 50.28 452.303 52.04 457.956 55.56C463.61 58.9733 467.983 63.9867 471.076 70.6C474.276 77.2133 475.876 85.2667 475.876 94.76V98.76H414.276C414.81 107.827 417.21 114.653 421.476 119.24C425.85 123.827 431.716 126.12 439.076 126.12C444.623 126.12 449.156 124.84 452.676 122.28C456.303 119.613 458.81 116.147 460.196 111.88L474.596 113C472.356 120.573 468.09 126.813 461.796 131.72C455.61 136.52 448.036 138.92 439.076 138.92ZM414.276 86.92H461.156C460.516 78.7067 458.116 72.68 453.956 68.84C449.903 65 444.73 63.08 438.436 63.08C431.93 63.08 426.543 65.1067 422.276 69.16C418.116 73.1067 415.45 79.0267 414.276 86.92ZM523.84 137C516.16 137 510.453 135.24 506.72 131.72C503.093 128.2 501.28 122.707 501.28 115.24V32.36H514.72V114.92C514.72 118.76 515.573 121.427 517.28 122.92C518.987 124.413 521.6 125.16 525.12 125.16H537.28V137H523.84ZM488.8 64.04V52.2H537.28V64.04H488.8Z" fill="var(--brand)"/></svg></a>
+    <div class="mode-tog" id="modeTog" role="tablist" aria-label="Choose terms" hidden>
+      <span class="mode-knob"></span>
+      <button type="button" role="tab" data-doc="customer" aria-selected="true">Customer</button>
+      <button type="button" role="tab" data-doc="partners" aria-selected="false">Partners</button>
+    </div>
+    <div class="nav-sp"></div>
+    <a class="nav-back" href="#top" id="navBack" hidden><svg width="13" height="13" viewBox="0 0 13 13" fill="none" aria-hidden="true"><path d="M8 2.5 4 6.5l4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="nb-l">Back to <span class="op">One<b>Poket</b></span></span></a>
+    <a class="nav-biz" id="navBiz" href="https://onepoket.com/business">For businesses</a>
+    <button class="icon-btn" id="themeBtn" type="button" aria-label="Switch theme">
+      <svg width="17" height="17" viewBox="0 0 20 20" fill="none" id="themeIcon"></svg>
+    </button>
+  </div>
+</nav>
+
+<main id="top">
+  <!-- ============ HERO ============ -->
+  <section class="hx">
+    <div class="wrap">
+      <div class="hx-grid">
+        <div class="hx-copy">
+          <span class="hx-pill">Built on <b>CentryOS</b></span>
+          <h1><span class="ln"><span>Check out</span></span><span class="ln"><span>in one tap.</span></span></h1>
+          <p class="hx-lede">Save a card, bank account, Apple Pay, Google Pay or Cash App once. Then pay at any store that offers <span class="op">One<b>Poket</b></span>, without typing it in again.</p>
+          <div class="hx-cta">
+            <a class="btn btn-fill" href="#how">See how it works</a>
+            <a class="btn btn-line" href="#faq">Questions</a>
+          </div>
+        </div>
+
+        <div class="panel" data-demo="hero" role="img" aria-label="A returning shopper pays a store in one tap with OnePoket">
+          <div class="w" id="dHero">
+            <div class="w-store">
+              <span class="w-logo">IL</span>
+              <div><b>Ilé Living</b><small>Checkout</small></div>
+              <span class="amt">$23.40</span>
+            </div>
+            <div class="w-items">
+                <div class="w-item"><span class="w-thumb t-adire"></span><div><b>Adire throw cushion</b><small>Indigo, qty 2</small></div><span class="p">$15.80</span></div>
+                <div class="w-item"><span class="w-thumb t-raffia"></span><div><b>Raffia table runner</b><small>Natural</small></div><span class="p">$6.40</span></div>
+                <div class="w-item"><span class="w-thumb t-ship"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M1.5 4h8v6.5h-8zM9.5 6.5h3l2 2.5v1.5h-5" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/><circle cx="4.5" cy="11.5" r="1.3" fill="#fff" stroke="currentColor" stroke-width="1.2"/><circle cx="12" cy="11.5" r="1.3" fill="#fff" stroke="currentColor" stroke-width="1.2"/></svg></span><div><b>Delivery</b><small>Lagos, 2 to 3 days</small></div><span class="p">$1.20</span></div>
+              </div>
+            <div class="w-collapse"><div>
+              <div class="w-el">
+                <div class="w-brand" data-lockup><small>by CentryOS</small></div>
+                <div class="w-saved">
+                  <span class="w-av">A</span>
+                  <div><b>Welcome back, Ada</b><small>Visa ending 4242</small></div>
+                  <span class="chg">Change</span>
+                </div>
+                <button class="w-pay" type="button" tabindex="-1" data-pay>Pay <span class="mono">$23.40</span></button>
+              </div>
+            </div></div>
+            <div class="w-done"><div>
+              <div class="paid-box">
+                <span class="tick"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="m3.5 8.5 3 3 6-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                <div><b>Paid $23.40 to Ilé Living</b><small>Charged to Visa ending 4242</small></div>
+              </div>
+            </div></div>
+          </div>
+          <button class="replay" type="button" data-replay><i><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M10 6a4 4 0 1 1-1.2-2.85M10 1.5v2.2H7.8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></i>Replay</button>
+        </div>
+      </div>
+
+      <div class="benefits">
+        <div class="bn">
+          <span class="bn-i"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M12 2 4 12.5h6L9 20l8-10.5h-6L12 2Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></span>
+          <h3>Faster checkout</h3>
+          <p>Your payment details are filled in for you at every store.</p>
+        </div>
+        <div class="bn">
+          <span class="bn-i"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="2.5" y="5" width="17" height="12" rx="2.5" stroke="currentColor" stroke-width="1.6"/><path d="M2.5 9h17" stroke="currentColor" stroke-width="1.6"/></svg></span>
+          <h3>Pay your way</h3>
+          <p>Card, bank, Apple Pay, Google Pay or Cash App. Pick per order.</p>
+        </div>
+        <div class="bn">
+          <span class="bn-i"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="8" r="3.5" stroke="currentColor" stroke-width="1.6"/><path d="M4 19c.8-3.4 3.6-5.5 7-5.5s6.2 2.1 7 5.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+          <h3>Checks done once</h3>
+          <p>Verify your ID once. It carries over to every store on the network.</p>
+        </div>
+        <div class="bn">
+          <span class="bn-i"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M11 2.5 4 5v5.5c0 4.2 3 7.4 7 9 4-1.6 7-4.8 7-9V5l-7-2.5Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="m7.8 11 2.2 2.2 4.2-4.6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <h3>Card kept private</h3>
+          <p>Stores get your payment, never your card number.</p>
+        </div>
+      </div>
+      <div class="netline"><img class="eco-net" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAkgAAACMCAYAAACH+FYkAACYmklEQVR42uy9eZxcR3U9fs6t1zNaLUuyJMuWJS/Ci/Au8AI2YxsDxmCDMQMkISzZww+SkIQkBIgQhAD5EgIJkIQshJ0wYIOxwWBjPGDAgMe75U1eJMvaF8taZ/rVvb8/ql73e92vZ9PMaKEvn8GamZ7u9+pV1T117r3nEoeCdSFBL9LpJ837E+fcJ001hTABAJIGgiTDa0mA4b8kAINnRRwUV23pW/UtdMOhBx5ta1vb2ta2trXt19bkkLsjWviv1X9S/Lb2T4Nlv2V7JrStbW1rW9va1rZDGCBlYIcwDvIC5iFT29rWtra1rW1ta9uhCpBc/hurcUnhuyZAROZ/27a2ta1tbWtb29p2SAIkD8Asoh0WAmdkQxjN4mvaCKltbWtb29rWtrYd0gCpgHkaYI81waA2KGpb29rWtra1rW3llhxqN2RgDfywETg1o6c2Smpb29rWtra1rW1NdsjlILFFZrZZloaUheAYatjaBWxta1vb2ta2trXtUAZIQbyoTgrl6SFm+kcZIjKwXsrWRklta1vb2ta2trXt0AFIRCCOEnQhgZnUsrMbgmd1Bqn+l/kfGc2hC0l8P2mjpra1rW1ta1vbfn3tYMtBEgCCLgC9SCMM8ugN5JGcjF0BDJWE2hp/YFaX1ybANHkmvmfduuGwsYuY22vogaKds9S2trWtbW1r26+F8SC4PkZglDb+cupxc+eJw3GgnQTI8XR4MSkvBKAI+UVkY2sR5L4PgTaDiND0GiN/BCePOO8f29T31JNAQ8uR7ii11AZLbWtb29rWtra1AdJ+MCkDRdOPnX0SRM5X4AUULCVwHEVmUggIYy2/1XKNGIFQS4CU3T0JOgHje5jZXtBWk7zXDL9wleS2Dr/3njW3r9nTBktta1vb2ta2trUB0kRfi0SwoRlQmrxo1jlCXkHwJaCdIc51NGk+khr/KyQkA0AALDJIrElF1gBTLGGrv9bnXit0BEVAEqYKgE8CdhucXJc4+dG63kc218FSt0NPT/6629a2trWtbW1rWxsgjQkwqoWzOubPPjmp2OsBXE3yNHFEJpANwjOU6Af0wnoqUY0VIgzxh4UQWyNAyv1dw2uNhAEMITjCiRNCQg64qW2E8Caa9nDS1Js33HTvrgCU4LAEhuVtoNS2trWtbW1rWxsgjd5cDhhxytEzL4Pg92F4OZ1MCj82I+kzQETmuoawoXy/9n1gj+L3zLFEudcXwVP++8b3jGyTglCApKNjEgsAVR9X8ov0+MLG2x59vA2U2ta2trWtbW1rA6R9AUZZ7k4yaf7M14H6DhE5L7A6BoApmIEisA5iGoBLAESGGkHEshwkC+/C+l0PwSgNlq8Ewgh4gGQijk5g6neS7htk9V/X3fLYnTWg1M5Ralvb2ta2trWtDZCG8Xm1cNrkI2e8FrC/pZOz4u81ghnJEEwjy9MUGmMZKEIIk2U/KPmbOkBCWYitHIgBIZE7/z6gAlA6JkwE5tWD8jXn/cfW9j56dwBK3Q49Pb493drWtra1rW1tawOkRquF0ybNmXYBnXwA5MUBiZiPWCZjjEpDYnk2yJCxQq0BEtBQ5l8ANoMBohz7BDRXvDVcE7PPM3gIE6kITC018rMCfnTdzStWAwCWQdpht7a1rW1ta1vb2gAp+wwCUMydOm8S5YMAf58ZMMrgUL7arA5WrAaYGgASkPtdc5I2ijlJaGaMGkARG8NvpYApA2EtEr3D7400DzKRSgL1upmwD62b+dC/oge+HXZrW9va1ra2ta0NkOqs0dzpbzSzD1NkQQQHStI1lNzX5a1lCNATAdIgDFJDjlGrvKLsPUtAFVoDoXzIrdb1VgrXYLHiLmHiYGq3q9mfbbjpwV/EsRG0ZQHa1ra2ta1tbTsgbTx7sSUA/LRp047oOGLal2D4IskFMPMwkIArIVGieFHt+3q3NCsHdy0RnsEsAJDwZfAw+Ox7hp9Z9s5W+NOyt0NzuxIWdCkbLpQEmJhBLfWpCM8T4U+OumzJstjzTdHd7dpTsG1ta1vb2ta2A884Tu8pAHzn7KmXGPCfQjneYD7mDEku3FVngerMjhW1jTK2psbm5ENsGfNjEaAYpfYZzPKFmDE7gvr75G+dETBllJOQMR8q+73VkpkytqkprBevO8c6FXKZQn6SuA5H9dor3n5vzQ9WrEQXkqYecG1rW9va1ra2te2QAki1sFHHzKl/TuIfQToAKQiX1yQq5gMVQ2wNIS2rKR/VMYrPASlXazVCASMtBLM9AJ8lsdOE/QT7SauC0mlABwWTAU4jcDgTSUjWwno1VgiWBsAUIVP+Gpqr2hoAEutYTGoAzwDzUkkSqG2m4Q/W3Hj/te28pLa1rW1tO+h9KLGs5BXLgzOJ37X3+MHGcVkLTLKfxnAsAVKWb9TRMWPyZ+nkzRaiZQYG5FICkEoBEQDWgUftdwpQIXAUqZFKZugn+AiFKwy4j8AjBjxB2GZ0dG7f7qftwooVA40Xu+C8BZOf2ZtOmwR3eErOF+cWw3AyaWeA8lwKj6bLxCANEeQRpGtkkOqkVINYZSG3ifkInaejoxOot79b+737P4h8Mnvb2ta2trXtwHPiy0Dc2hUcw0W9OoqqZKK7W7BxIzF3rv2atqgSdHczNwYjk8Dp7na1v13SM66CzGMFkBwAP3369Nl7Xfp1EbnEzNKYhM1SnaEcoBicUYInKBAKJbQcIfEQwB8Z7UdO5I7tj2x4chioMn+vg7521jmLDwOqS0jXRdjLQJ4vSVD2NrXAYAml3s4EpeX/ReCUA0ihKa5CYK4jcZbqF9c84X8PK1YMtKUA2ta2trXtAHLmXV2Cub2GHpQ68nkvOX2q3ztwWEdih1VVJztIAgAUmir6zfvdzvHZqZN1x8obV/aXfkpXVxI/49CMJCyD4NYuQW+vL7u/eS85fWrntMph1Wr/jAo4xcQkDL54JJU93qU7+lHdvqlnxc6W4zc6wDruACkwRzM6j+2AXE/hc81QBVEpbwPSDIgaS+yjUrWCgWWJ9rAB3xaRb+04fOMd6EO16Tq6QMyFoaeJirNB7p3oBrExft9bS+yu2ZzzTlhssFeCeJ2InE9HWGCVfGyQWwICW7VBqX8fwnLmXUcl0dTfzAH/+jU/WLG1DZLa1ra2tW0/MkXdsYApB4rmv3L+lHTHtBMFdhaMpxl5Eg1HgTYPwDQAk0BWWEv0IABTkAME9gL2jFHW0mw1iPvVcB87cO+G7z/8ZBNDMs7MyIRZyb0cfdlpC6QDZytlKVWfC8qxAI4iMc3MJpGs1PxkaMJaBTkAwy4Qaw14CuT94u1OmPat/s69TzQxdD09YwI09xUgOQC+Y3rHcxTyPXE8AUAKMimAhXpys6Es2bnIGIXyf4mJzcT3CHzucD/le2vWrNlTH3g4bAQjoLExRt11KrUB8c654PgXAnwbyavEucnqFQA8JUgWNDbAzQOjpvGos0lV6Uwq5vXOtCqXrb/x7k1tkNS2trWtbfsBGOVA0YJLnnN0muLFKnw51M4jeSxdONQbENIvDDBawQNlabOWiyIwV7hjDM5fU+snsQK0Xgq/53bs/Mma26OfO5h7ejbk1S569XNPSb17NcHLAT2LSTK1lkajBjMrqSdHWTFUPe8XgKa+n8Z7TXCj0F+76pv33lUAZ/vYwWJfAFIOHPEmiiwCkDKCo8H0iRqq1uo5RgQpQjPrJ/EVhXxmz1Nb7qjTaEjQiyxmO5E0pKALgl7UwNLsrkUni1b+XMjfoRMXWoyQJMWIwmJoFqMsAUywVDqSxLzeXd2Ll2246d6NbZDUtra1rW0T5tCDM+3qSubamstBeSONL2XCGTVHnuWj1h1QTa44500ZsBEbPayFDhDxTy3mtDqCIoAqVG2lENeoyufX37JiBYCsAwNwcOQqBXIh+q2jrzzjFQL7PQNeLonrNDOYN0DNQ2BZS3nkU3TZiFEYxos1JJpVrROkEyegE2jVewp/ZF7/Y/XWu7+FXqRYFpnAUfrR0QKkEFbr7Dw2qfCHFBxfA0flrTyMQPi/LB+nDhSMhAclAQ0gvkbjP+xas+2+GjipJy/v/9jsMghWgNliOvJFJz7fiPfTyeUBBZsPuVdNDW5zY9JCvBJIXUeSeO9/le7BxRtecNUeLF9uaFc+tK1tbWvb+Bx+IxmBpajMmXziG0h7Jx3PIglTBdR8bG2V+SKWqvCxxL2y/Meoe/wMKimMQkehCMxrvwHfpNjH1/3gob4MuKG398CVhMkxNkddedqlBN8rIl0koakHzNIIaqQIKAv/bIFU2OpHFmGWAqHNF0CY1z51tvypr9/1nX0ZO45yQimmTp2bIP0xhSchVHgljT3MShgkqyc2EyA8sjJ9w+2e9rf9T2//UQ6EHcgZ/oLuOlCa13XSWyD2YXHuSPPeI4Kk/Dg05SCh2Pw20LZWdZ2VilbTnjXX3fu6tgRA29rWtraNL2s058LFV5N4H8WdATOY11A1TTgyUBiZswxl1rCc1641U2DuGytu9S28buGbyIyYErEDg1cF8SWFf/+Gmx55AgdqtXPU85v3ktPnJp34KB3fQhJa9UqGfGI0FkqxiHo4AnCEUnxKg5mCABPnSEJVv8PU/nrVt+56MDJxIyIcRqrknD2cTlfh9XQ8m0AKMCm0BAmMWf3V9RBTvsw/pTCBYQ9hf7d73fbf9zv6H4/XdOAwRq3NsAKGZRBcBO76/Ja7Dl808/8UPInOnRQeVK7MraQJbhbHzofjSDrzWnWdldOmnTBnYMe1G36MbjisaAOkth0Up/HRfrWtbRPr0L8LP+/CE4+bumjmf4vIMpLhcGuwcMCFsITcYIH2YAMFUnDYUSN4GCCpzksxHpvN1DwJx8SdQeMbp58wZ+/Oxzf/AoAdUD6hu9vhuyv8/CtOfUmS8DqpyEWWqsJbyCcOAoUsp9fMcnGU1uCxNUgyZlpBGTtFiqkp1Ewq7mQj3nTYKUdue/bf1v8KQIgC9Q5v7EbKICUA0mRKx5cg/C0CVQCVpuavUtQFqjMkiJVbVAqdGW4XwR/vXrv97hxg8wfngqtTePMuPvljkvAvzIcJXtBEKu3p1vR7A1l1Ha7DV9PL1nz73u8XYuRta1vb2ta20ViNgTnygsXdKvwUhXMtVR8hSua9Wveyyro3lGTLNEGklgAp45oyJsoKIKBAtTCkr0jioF6/B8Ufrbt5xeoDIuQWr+GoV576R0L5NEgx71MySB20QBn1IckNMlnye7Si4WqMW6ac2IqUS2uN46v+cx27nv3jlTeu7B9ufu9IAFIAR5M63gXHfwRQBZHUFaYRVa+zNiBgLqQUv0dgVURo0H/du37HXyCArAQ4yNttZBRj10kXMcGnAJ4SWSIpAqLawqlTjLWxy2KRlkpHJTGvP6pU3FseX9K3ZqTUYNvaNtE2/aiZ53vi8HpfwoZjjytZ6IQ5g6jr6Nv1+IaNqEcp2ta28QBHBgBzL1j8D3Ty7pB4rSmECQsNNaPXbeV32RAaCwp9ls3pkHxcA0Ks987KAwOU4oA8erDgOgGEwJ9LXKLenhbgTU/ftOKW/dqqKoKjo1/x3L+VSuVDlnq1cPFCsDjiLAFIRQSqrIEes1Dm14A0WY9JNQ8dB0M0BiCVzqSiVf1RdS9et+76vs3DAUnDBUgOgHed7mI4d3OmUVTsmZYLsZXr/oRSeDA16Nv6N+78zwlkjYYtErkv4Gjui55zlSTuqxB2QrUx36q8qq0QcgMAVKWzUtE0/YH3lavWXd+3u+002nYwOJ7JC2beKU7OitolQ29ccVbTEemAXbVnzZZv4WBmkdt2IFvInb1sceecnfiCJO51Vk19BEHSDHqsngJR7nDVDEahhFAci+klhTkeOqfHdeFrACqwVS0cfgbRGpGFpeIkgSFVr7+7/ocPfWG/MEkxonH0K077A0ncf2jqPRBCkgagNbIsjmE2FhRxIXW7uZzNMngY2s8raBopGCnCrMH3GjNUk86k4lN/1wD0Zet77t6EXHu00QKkMHmmYZbzlTtJHhNujNJYup4HSHmNI4CeAmfANkDe0L/p2R9E1siPoeMP6etdBcHHVqwL42vDvdXFJUfO0kRwNOfC57zZJfLfACSoZDfqIqEpB6lEQTx1HUmiVX8DNk3pXnP77Xvapf5tO1gA0pQFM39C4flZ7kTrXb/wt55Cp6qv2r162w1tgNS2cQJHtqhrUeceX/kmE3e5pmmVYKXcG5ZGdwwGBUA4Sr4NlXrdBXIric1mti2knsS/Ek6D2UwDjxDiCCahT1at3N3MgzmQ1nQFJeGl0IWBdEKk9pdrb17xTxMKkmrg6LkXUdwtpqaI3VDrg9XycGRmITeJiQMlVApaajtAbCax0WDP0qiRiktAzCQxB4YjmLjJdMzGPRs/KdB9TdlOuY3HrOo6k4oO+J9i2vRLVx3bOzBYdCYZ5ubnXTX5JB2PiS1EklaQsCaAWb9OD8IZbKv37uXp1md/CaACNClhj27i1/WJNAKjZlu6tILt2wUzZij6+qo1INRbAjy6kETANHSSeJyU8y5c/LusyH+ZmiGcKhwGO3s0zXsCsKqrVCo6oNfPW1d5TV/f7dU2OGrbwWUmALPCD1d6DCseyrONyQGO7fFr27iA92XAkhVLKpvX9n+TiVyu1bRKstLox1vO6ijdwoo4ALBU1xv056a4TUX7Eld5clpndX3LNiIAZ156/GEd1Y5jtIoTBP48E1xA8nmSuEmmsWouHJKl6Cqs+QIlKAhZqp4V97H5l57cv+7m3k9NEEgSLIEd9eKTZxP8YljRlgslDcK8WDgMScU5TXXAvN6m3m4C+Ask+ujTqzs2RP/cZIu6Fk2yaYcdZcIT1PNcUi8F5HzpcB2WKkzNx7EryXjKus8bSFZ8f1p1k5IX+h3bP4fl+I3BBCWH2pRCaK3DXQ2Rb4B5IUgOknSMmKhNBSEgt3rHy9MNO36Bsck3cmiocptx0rxjRbhEzU4D5FiILSBknhFTSXTAIBAowL0Q7iKwHsKnQXsCYg8kJo9s6nvqsRKkXC41sHRpBX191XkXLv5dJu6/IooGJSb5NQli5qvWMjXVWA7KUNpvqV532KS0e0VPuydb2w5GBunwn1LkBU0MEsvPUZFRSilMVHnF7tWbr28zSG0b03nZBYdepHNfcML/ssO9OYAjKWWOmEPvoVVIkKGRRGCpphBcT8UXk4HKrWtuX7F1kLXQmNJRetBe0HXC4tQlrwL4Zjo5DTCYrzv6KLbdFGbLmYI0OjrV9LXrf/DwN8e9mCe+/1GXn/pZ15H8vg6kKcikJKHdGmKWPgKjnUZ8js4+u+bae+8v/YxlOTZtEHZn0avPOsWI3wbxB6y42Tbg45iUVMU2KDIAVpWOSsX2pu9cde2dn2gFkjjEpkcA011H8gCER8VEYsmgWB4Q1fV8ahejJAnBTlF5yZ6tYwKOCsDo8OfMOcMDVxNyKcROp7ipEOYYtWaxxkKsWOpZcabYA+IxkLdR7PtpP27dfs+qZ0qAEtHV5dDbm865YPHbXOI+baoaq/ekKaSW++z4fW3s4sUFyi/VLz+9rvJW9PWlOBB1LtrWthEAJDCjhDjUTuPp6NS3AVLbxseZz33h8e9jJfmAVn09rMbB6AIGwd9EHNTUDJ+3BJ/c9KNH7yk48VtrTWyHSs9g/BtiRexin29htWRJx5FH+itBebckcrZ6BdW8CR3NmvSCGuCXRj+210xftO4HD/WNG0iK7zv/FactdYLbzWd5VPXU2jolVzsHGQCTDie+6q81h79Z+617H6mxUV1dgrlzDT09Q49hi/E7+qrTFjgmfwHi7aQkNR3CQarlzGCRMKkCbunqnl+uKCMlOBR7xE73cSHfCTCNVWsoZ5DygIRZTzUa9aqBLXuu20dwVFc7BTD9uHmvhNg7QFzKRCSXFKoANV4Xa1Vhze0+LAClyL2RQoFQpM70qz0N8hqv8h/bfvXYAwDy4Tc/94Un/AUT97GM2qtpPKEs+bqRXWOmRZ+6jkpiqf/Smhvue1PDqaNtbTvUAZIBUDpx9LhiRxsgtW2MnfmcFyx+qTh8XxUpYC5UhVvmA8qAR3DoiRPz+jOD/uXGHz/28xooCl0UxkqjLwCELCy2dGnlyMN3vZ3kcgqnq9eUCALMg8CuELpKxJnqY7v7O563/aJ7nh2Xquc6e9TjKslrtZoGoWcU02vqPA0NhFFEzPxfrbnuvv8X/GhXgot6dZ8jJBlIjeO36OozLjLIf0niTtBqGvQZc4ioSbfBzEtH4rTqe1efeuclWNHNRhaJgzI1lcoSod3JoJLNQscUtuovBgBMKUzM8BcD23Z9HPuWc1TbMKccO/NlTpK/gfAi1hr9Io1MlSCLhJa3O6kzbc3tTjJl1JhZT1LomBCm2Eviyw76wfU/f3IVAMy94IQP07m/if3XpDguAJnVZuZZq5wmRmDbqtKRVDT1X1j73fvfknsWbeaobYcQQKofTgZjkOjZBkhtGysTAJjfdeKsNPV3U3iUhQJ0Yau5yBobIyBhhvdv5PwPobc3nYCmsYUmufO6Tj5VKvg0E/ciTX1KgytlkYpprql0JIkfSL+8/qYH3zgWjVpLxlQXvuK041PY/QQn1bqhAchLEVmdTFKKiDd969rv3Pd5dHc7LOkZj3GsRXWOv+r0uam4r0niLtYBHzt8tIA7BKDmXWfiNNXfXNXT99XGceOg7FEluZaCVxNIwZxa9mAACUjhmEDx1YFndv/mPjBHNUGv6UcdcaJ12gdJeR2ixihCqEoKekvlTXDzDJLV1bwbK/BY1/4K96mxGi2RSgJTv0Uhf0boua6SvN1SH7LnJaeWnWOHCtfQANYs9lzTVP977ffu/704+do6R2071AGSlWztKR2TNkBq21gzHUe84PjPu4p7k1a1WFjEVkBdHMyegbc3bfjpyu80ApcJWUcxZwpdSOZXTvkkE3mbVr3P9YErpTdim6pUkiTxqb52/Q8eGNt8pJgAvuAVp/0VK+6jWe5R4VIK5Ay8qzin1fQda264/1NZzu64jl5WNPWS06d2HpZ8VxJ5kQ54D2GrjiEBxCUilupjKh2nr+m5fW/ud6US/w6Ar1QqS0m7IpY2JiVvXP9nffNTkIkpHh+Q3X+EITQGhmCNDIBOXTj7/9MO/IKU15mZmqoHIAhJoMyVYFr+qoL8hDVOvxI9pMbkrULOXgLAIl032wm+KCJv19RrXoOh4UMbRsryo2VmVnUdSaIDaQBHy9rgqG2HJmIqHnULP2bjGmwjoraNJTia+8LjXiLOvUmrGgsGLO+rUPQWUIo4NdvoVS/d8NOV30FX9HkT273A0IvAWPXCr7v5wf/Pqv5vJXEukgJlC8xCIZkBBjFVI+yfZl66dAaWtCqlHoX19ioAmtkVptoo5FgbzNCvPUvI9tesueH+UF033uAoXGOKbrgNN927q2OXvtan/gkmjGNXdLE5nsdZ6tV1JosdBl4PwNDV5QpUZJml5t8bS3Zz8VYrAYz1GZfRagb9HWzFsxhdsnECwE89bu68qQtnfZuOnyLscFNNAz8Tq2OsbE+u779W9luD5W6l+UX5uzTkOu0igZmZV2+qykxzqRHWWHPNqOU+xWCpqyQVHUj/e+33V/weli2TtkJ22w5tM2tZ9JvLWHDtgWrbWODyJTBctrhTVT6Wcwps2OOLUhMkDbbNqnbZ5tse6wtMBNL9ti9noKyrK1n3w4c+bFV9j1ScAywtoSiy87yRFFP1UnGLOrnnr7Aciu7usehzKAD0mCvPmg/D2eaNoEkpGUcYCVGvez3sPQCIi3p1Qseuu9utvPHuTfD+TTAGMcpM5Tw/fMyGkTA1M8XbQp+2Xt8KIAkAnyTJ80heCZgCcDYUCg2f4kE6M/3X9Jm9vagLQY4UHKWTj551HtL05xReaV7TiPaT4nzgkBdU8lO2eoEVnrZZPQE/hwdj4z1r+DMrRfW1cwozcCSVpKJVH8ERBMuX/7qBI7b4atvwx+vggEW1id26R3ebQWrbmFpXl8Ny6Jwd+gapyOkhRzTzcczjcRajHlAz/Y3NP1951wHR36zGJvV6dHUl62558B+0qp9mxSVm5tGETIL3iqnnzqpeRfgn81520rHo6VHsazPo7u7gw1J/OhOZAjVf5mlj8MQzcTTT69ddf/9D6N4PcjU9PR5dXclT37r3NvP6r1JJIotU3jI4skgmTp63aMVZ5wIwdHe7MoDEgHTsnRlqDElYLH1+ucHxAJyZPV51U/4uA1qjA0czXiNiP4TgOPMWc5/y7JAVnkYxTmYtWMgm4JIjvzIMyTzSoRmG44/YBIgaGLz449RVksSq/r/X/iADR4c0c8Q4B5L45XIOsewLLV7/6waGXG4MOIyxcvu8+Y3zDQ3vJW0CtW1jMN16ez0WL+6E4W8QkrJR38etZNcOpfyW+ndv+slj38fSpZUDBBwVQVI33LofPvgnWvU/kYpzNZDU8NIs7dVgykSmicnfRGe/b3vpxo1Rt0efGyUFLCtrKpzkGOvXww96ABAbu/bPPt7b67EM0jGl8nda9U/TUSLhU0CUuYtTJkIAr28EJQX2CJOwiCleHQkXVxrFLCZcZpiC9HgXtm99FnW9opEyR91CfM1gQjWPgmK3DXWItpIOgjlSCIjNUbLLLZL8DXITzN3jUAGCfGyvkMkU+CMvlSTRAf+ZdTc/+P8dwuCIOWfta6ezomWOvSN+X41fmvvKWxZ50f04XgRGFQHSYa4BiV9pyaFCsAgd2D0ngYhhw4b++LrG9ybq+X7jMU4yBBBrqqlp2Zi71eI1c6MGx10AemEYXXK3q7UnGtEGPKI2SYJuEBuH+JzeFnOmG27Iv21lUZZkP60dqbVzGu/rzrTpjtA3MHEnW9V7Cp3lDvPMnV/NzEviEqvqjZt+9vj/Cy2j+g7EhukWc4nUqG82lbsoMh1mDYKIdcUkgs5Sb6T81oJLnvPBNT09T4+F8DANxxU8KouphqHFLJ1W/UC1Yn0ADBf1aml3i4kYt1u73Mre3mePec1ZHxeX/JP5VMnyiI8ZxLzCjJcv/YOl7+r7bE8VNZ2A+iaoksqbAUwJG7ElMTu+mFsT5aAjhgiiTGo3D+zcew1GXoXiInPUTdpXDSAtNsMNEo4sbrdWIJTKcQyRw7h1yqn+VjTLOiyzziAVUrgJ0FjojWB1DGZsKmssgfQWwFHVf3rdzQ++Hd1wcZIeSuAoq67wuec+BUmyRKinGuwMwC0kbT4MswFMic82ACliD8CtgK0nucoM9wvt/nRqej+2YEfDPDFMvAyCAePSLVsagFQlmT35TCdyLhVLFTiOxDzbxWnEngRK4xHT9hqxFeAawFaq2S/FJb/q37D9idzYj0cV2PDAHlm1Jlg0PL+ugu1xnEc+1vu2Aftx2sCziqTQBqlnH95p3wHO/mp2raXtnMaLMeiGwxq+AwqLpfqFipu8OyRJVd0Fw9tz4PTA3JeXQ9HVlWy4qfeJeZec/J6kM/mUVr0vemMw3yPazFJXcdPUKr8HYDlu7RJglLlAc+dmqSTzyvKQ6314YRAS3tYn6aR18dr335iGXCJ2Tq7818Ce6l9RZJ6pKhiEduL8sFAIb1CvRuEJ27boGQDuQHe3JLmb9QA6zPDblPoGPtj5zwCLij9q4HtHdXoDfOfRMy4i+JXYy8lyyHiQk2l+I65zpiEV2xSkGIKAI6XO87DGDEYp+YC7BYQUGCXWQGEOVjU1XrYGBik/NF6SJNGqfmL9Dx98Z6yuOJTAUUG8E8AcEXmpCV9J4HzQFiE2XK49wkJZauODretomRFuZ+VpTLafmfF6dR03YteujRMMlASAdh7WeYKCf4JMRb2lz6+lOngSnVR+q3/7rptRXslZAzGVw6eeLgl+C8CVAE8Ob5UpUVidF60rsR8HYCkgcAJAdc+kudNvN+JL/bLja1iH3TmqVcdiDCYdffhvC3gOzKphjTbMgPCNQW0xBTDk8z6GYJAY9Gwd7J1TFs68UihOoSZlxIO02IZERMy2PDtz84fRh+owAQEB2GEnzHm7OZ5oZikAyba+QuJGg3KxCStU++Kzj274ZcnzrZeGh0RfzDhp3rFKnEpxi2g2l8BUpSXZRQrpTaQDprdsv3/dtSjKfsjhzz3qb01kDk01iwoUPlSya5X4M4VAFMIK1K/Ydu/af5tgkCQAdPbSRa9mwhebxwBornztZHfS/HArHe5D629buWnIa4+Va7PXnnAhHZeaegUo5UymwQCVRJxV/cc2/eyxx8a9PccYAsANeOjfj9x2yu+Ik7PVe8942DRrOJgYIyOCt85/5dL/t+763j2jngNLejI/Nz1fclTk5Oo0hQG7113ftzv3wv3HvnV1JSu/3Pvswtec9U0m8jarqobNChbCkbXcGgJIJXGJN1wI4I6ujRtrDFIIrzl3MWmLYVk/k4IXq48FcycE0pnihnTnnl9gZLlHAsB3zptxrBi+HirFQmPbwQ6e+e2WxdkfHFiQeAzgztuAma2H2laD7I7YaKoJZhM4kolU6lPGNICzJs2E8syuHMlYEFUPBxfvkiTRAf8P63/00HsOMXDEwnNOknMJ+10CrwIxt2Gw0oYTR7E4lbkhy+UZAnAgjgbYTaLb+YHNmJR8S4Sfqe6u3pUDGeM5pgSAlDjGUf4EGGpW1CclSSj8swAaAVL2V74yc+pzRey9AF4LShJ2OAOUqcVyyBpfaTkSG1lFhmXzbzLIi0lcPMkf9tc2V/+5f+POf0etCew+bfzhetVey4pcCY27Sv7X5V2nhpNblC0bMTOI8EqIgAQErnx4ydJnQBLqbTvWzv8YsK46gnszI94kzj3fVAv35djIS9fBnjiBVtNHAPwyNsvWwot64KeeOndeovJGGK8G7CwnMikTqM3TrpnKryQCHbAKgGvje6Y1x02c4SruteYBycX+XdNYEC5fzyKAGgemnXnkN3bevX4TJg4kGYIUywckcacpS9L12bgt1Ns+0Ql0IH2i01X/ZngUZDeAHlD1zawkMA/NBAILTGZoX6AUiqV+na/y4wAk7s0HuhnQHRKQL8X7QNzAQQiEUElmKhVZZNU9lwK4bgzEI1mr8B6kSIo8gMYzsF8E7FpTexsMWaINrcXZjcA5ANA7d65J8Rf6hphjpS02FBbLtuIplenfD+E2St8LS1ER2ldIzjFDinxLb7PBXZHVJIY8YKSjg1BM7X5N7Z9guFIhp07fLic/c/+6s7bf//QLn7nv6Qu23bfmrE6rnuJMT1XT15vaZ83wBEQkCoVpTXOisZC/nhhuLXxlDKu5xFcjOOrqSg4hcJSdbD0qWMqE1wjt5yR+H8Tc6IzTHHBxMCQxlOtyfkEiyyBBMoEOZQnKhhQGD+AICH9PDb9wkzu+WJlaORX1PKdxTVKmsGpmqZlVzSxF9qXhv6aWxusM4SG1vQhshLYYO5s0e8rfCPErUN4AMIFqGvTGaHFjT1DP+8nGKlt/9XFiZNPMPEKD2BMp8m+T5h12c8eR006JY7TPFfQkdphaaqp7w3+zL03Nxy+11KygAlb8p7UAXxbCITB4U0vVWwof/mtqqfnc53lt+N5S8zag3lIAW+DcaNbY9nj9/eqzzwufA9XUsv/VPlv3mte0pLI3e75uxsnz/zrx7j6KfIzC80FOMlVvqU8t1fDlNVWvqaY+Va97LdUUsF3lXsk+YdU0NdUBTcP/LNXa/8zH90x9/Hf8b9X3i7iOxNzLAABdE6KmIABs1jkLTwZxsh9Iq/n7rl1zNXxpNf6u6sNXqnvh1ZvZZ1b1rtobr9kG9SU9PX7hBQtnAnxlII9iDKQgThMchpkpHWngJ7f+cuWzMYH54Nibe3o8lkHW3/zg98zr7UycRJ3CAiufC20oSDPDb40VSGtItGmuUgrntklLupd0jBATjNeYKQBLnPuVer+RIoTBW0jYVph5M/OBnKGaaqqwk+O80nz+yHQYXxZJM1c/5hfPh7m7TUmIGX6Y7khvHxV7tGb6eyByPsxCzxmUSTm1OIqGC/UUOoBeVb9Or5c++/D6M599aN1fPvPA2u/sePDpR9esWbOnkcHYcO+GXZvvXfvItjuf+vrWO1f/YScHToXhVab6AwagJDD47DRcq9djA3fFQpl/SMhOXKJV/4ENP3roPejudoWmhAe3JdHpT6Xjx2hyO8CrIoRMc4faJAeECkxCQdecNToEJfn12euSGlMUPqNC4o2q/JWbXPkggEnxmsZv46/WriOp3V9ovZMASMja75IABsOXgFMLp2lAMW/e1M6ZU75hlA8DmByAlFltzIraXGzahWo/K5RwxiRyOjNTqKUkXizGn00+csZrxggkxeR6VlgYB8YvJKwD2zzzbkPukbFaogH41cc1P77xs3LPo/EZjMZc/rOs8Ll0OcBaf8ZEIobJjXGiKScfMX/GyUfeSMePgJhjqaam6sPt0cU543LjFa4fcRyNRbAfwj7cNmndL83sEVI6GJiZJPsqjBPjYaQ2TkxAGI1vCGGaCTjZx6RsKi6nk0pkG8LYItw3G6+fSCB0IB2ITvNqxsoNw7rmCPr2ePdiSdwRsQRd0JSLG84XFCZW1WfE6+eiEzy49uYVAdDR8M+1gGE8geQVx+Lm68wrQbt0wUuXzIrs0cgBy4ps3+Geeuy/VBaZUSnyiF27MOuAAEiAYRnk8Z6+7QTvZSIE4TI/z8Q5qSROOpxzFdfBxCUEz1zU/fx5iPkEEgMWXSDmIyTONlJ2ZSVkDAkE/HcUK5iG3JAA+ClHzThTyHcHBDfkBt44yAogsEZq3wN53o6HN75++yMbfwjAowsJuguMRTEAkF1vNxy64db1rdu95Y4nr9tyx6qXwesrYPYrJuLi86+zP1EeiQ00fXaKl8QlNuD/bsOPHl4W6cxDhTkK7WISnE8nPwf5F6jpXBmiAxkkVQ2oV5LUThosjKVZazwcctJcxiqRmETyvW5KR29lauX0CAKScbnzCpoDSjbIbaKWtDipwCzMmnVYZ3Xn9+HkaqhV48uSQuNADD6CIbrNFvy2ZSfnxAye4OEAvtk5b9rvjtn41BlV1iN+zSuUuYwyG7xZbZ5dssFPRC156DGJB7F8o2nZ2kEZAdKmAI5mLT56QQJ3M51cqqlWQ25jBFkNarqNlEVdMEXLAUDIq/oahIgn38bIprUYHzGvNKJr1hkLjkarZJ+xtN7skMwri+eiyHCwZPiN2aJRilANP936i0cfxHA6McytyW29vIHxb1qrZubpBAZ8Y8PPH98YRRQPrt6XwadQds74jqb6pDhxEYAXnFx2MjFVL87N8rQLAWBUwpG1Un3bXHxyTbI6NDUVJ4d5kZMAcJ8lBsbCbu0K96x2T4wCbDXVjfD+cXh/p1Z9r6/6b2t/+sV0b/ovZvZ+q+ztB/KnPuVlMU3Zihq3hUyDrJQwCEiqrqoeNvtG7NwDjDDXQVP9JzrpgCENUcFBNrAiweBjntBOqv359kc3/mcOeIVdpnfISphwnz25ZxsSK21z36rvYunSm2bb1veIk2VRTENrGdvle7JnCKv93cbeRz4Ywmo9hwpz5ACkEHkrDZ8BMAmGagRFRVVzDgZuy7FF83haGQStqWvEU2hgD4FzzHibm9zxFr9n4BqMvu/fsPxobS2QQ96w0SblAWaH7f0GhC80tSoLsKuBnRzujGFuVJpRhTOYwgCh/NekudP7927c8SXsa05SoSLCmg6OjBRzrpg6vryxGLVMl8aYT29kQ4wv62FQwIY2dmdUG/GL4vOdDJs/f/6U3Ul6rTi3xFKtkqi0SPdhNhTNZ6yWgEPDBoOvO6/vJVlBszw5G4p985/nJZFp5v0rAHy2IWdqrE0A6JyzTljskZ4DVSuWordK+aj71wiJvh7AYZfEFhetV0EPPLoWTbIBXEy15oN6Lg+JhEANZvxC+FHPwbgfG7q6kjW9vXuOvPTkHnHuXSEpve5FG2ZUDGHzMgDfzjSNRvnRTzbSv0UEjNDw14mo+ssB9O7b540VaA/K2B2JfbTa7//bTerYutPv2LVw5uT+vs8O3gIlC4slJC5CSFzKt71vJsQzEELCjN/AunW7gSHjxHkmwk+eO+0qilwCszQmZ6PxoGnNJ1cASEk6U10p0BdFcORy9zFaUJJpbii64dDXV93yqyfeb96uAPAMHeux3oaQY8YcIdUIjpAcQmE1B8CLyHtJ/A9CSMtHXiV2caYN7aRYRhCYlVIBHJQrYO0cHuaSAdNJfDOZ2vn/RXCUjP8WVabd2CCjbswAUrUyc8onKPISUzSAo1wM28rRd2PrqBqlbq3QWW0ca1WGJP9r8pGHPT8+O9nnDXqI37KQtVd2pCh7i1x6o5WNd8knjcnWmwvADD4Hi7g9C7H1obrrMP0QnXuepr4KZs+39Chljdi/2AGh9NEolkF23Lf2YRh+AiEt7kVNec6tHk2gmK7KA65xsRheM5e+UhLXGfIH607UbND5FBi3VHcYk2/nHdtQD29OteNkkseaaiZmV3vP3PoJydmqDz23ctTPc3v+wWdze2NZkXzDUo2pDUVp4/p/KVADgBdg2TIZxpi2JjWAB7Mko/yHWHHdinoPQn5z3htPnxqvdX+L2RoArOy5e9Oqb9314BNf+8WGTT0rdubAEdHd7dDVldS+ctWiBuAEACdltOygm1J4jYOZUXnNSA5g2QZt4HuazsHW8lCYnY08hYmaregQvXj7ys13xYaCfkxp0hj3RxeSzb964nrzeImpbYQwnG0sR2qHpnyJpumy9RlztD97+IytJQA8yX8w4oMRfBSKZwrs4mCbX3O5QIgTWa7wdpDNHSXNfOP0dKxp9NinksnJ28YcJFVbushWMC7yITYNADpmT361kG8zs5QhDyOPATgICLO8m81teDAYjdYChxZ+LhaSoDvN8KU5c+ZMGwPOhYWTaQMEbujqPZIEWA42tIV6vvyxiWO5ixqKAuaDha84BQCnnzLvXArfEdpaxKpgDmPscv/HoW7i1gg8KF8qi65y8DkpYSrxwlmnHb0A4xlmi+BLYVc1+g8bDCTRAMTwl9mtW29/9OlcE+9BAFkInSj9ueJC8m3D8DJXla4QgQE/6O3tTaMTPDgtArsF2yffZWqPUiQjb8sGjKYGgCfN+9m1ixBzckbIwCgAJKnd61NfhbCUELFsvnnzrMiCZJsuQw88li49UDojMN57Y/smQ0+PR29vWvuKt5MN1LnIwhMGDnLSy7RVCNjj6d69d9TB5bDYCOucO/USkEstVIpJcysTa94ZDQqhU9XHOugv27py6xoAyTBCaaPfK3uRYikqW371+B2q+ioAe3Mx7hDiqUiiVb9s449XfiD28DlUWkqFuSDyTgjfHUGHazi0WgEZDRJtamLdMlATQrXGoRkGNvqBnJ/IGgd7iPu0m9Zxde56x/lQwkb/mk9EcgAqpvxk9LNiuQVJtnyfbNoXVWob0WVdw7SMj8q/uTOzlMITd7q97xkjB1ly802icVlEbpgbY911ZofUEkQ8DhVH1jBZC2rLYFmHxXA5kxGKxt8XelAOeVgoHbtMiHcI4OEBwHek11vqt1LCXmpooBfLYSlhloqTqaS8Ms/0jLEJAJ3xvIXHE3KOhVYfrmmMS8OAOUUL6tcBMAOFw2FSqDy/GLBl/ahiufBakHq+Kf+3B611dSV9fX1VkLcw1H57Kz9UEGYqiXQKq2cAyBK9R0gegWt+sOJxUu6NMotN+bWx1UgASVX1krh3Hf2K034ffX1VGBDzgvcvk1QXarayg3fZpAbI84ZFqIfjVNb07UcABjD88FqEs+5tJOu6RfXDcqtTkIa9ynYC/jXbHtv2FMY316Rufahi6dLK1l+uut3M/loS5wAbsAiOrKrLNt5WAEeHTs6Rw6sIfLwMHKGsRbsNNoOYApZVUJDMyvszNG+KujwAWuiS146FZi24G5hS+bnK1MpzMTbhpMYPsQKvWbzWYhiQ3FOZMeWNIlxooSJSmoTX6yRFJo/g4yk4+6oS8EEDvjSG0ogi8sgrf3EOZh7GP+2cc9gJowBJZRuJxYVrjQiH9RbqNgKCOUqEwkgY478bPtsK18MaKLV93znLjmZsZM7zILV62JI5iym4HN6UDbk25bHC5sld3/uG0IzqhtvZt26zAddTBHW2pAFMl/911G6xq/NMz9g67HD/CXgZE06Cmi9ClCE44tAwdFNawQ3xgDr0YbMn8yF6akOEyZrYZ1LM67N01Ttyf3vwm/mf5LpCW4HyjLu00TTo9cqZADCqvKCuLgdATe3blBYa0vWQAgET86ZScZ9dcMXpf4+LoqZXd7cbMYO1H03iwJ6eO5wWz6rN4l4ZLP3RCOh6AeAnz5q8ANCXwowcHrDKVLGdmb191xPP3Dth4KgGkvqq6OpKNv/88X/RAf2qdCSd4iSxqv5dAEeHVM5RVtVxPI2fi8BFUN6Nr0gdsXTjiyDFsmoeALbNDE/D8JQZNll4lhLDE4KythbFBJFWE04sCJxOV/BLACZjLOqcKq2cW8vtPh6i7AQSf2HBAwobFQdDHomPypKOwgSkg9CRoeSZZCX+lwbzpYVew0nvCbmFBuFkCt8FjDg4lT2BhiriYvSvJH+QZSrqxdEsPKIQdbXG92euH5A1fnbGII7yOdez/2tYg2xE4c2oUwCqvJUijJVlRDlUHsanY9iPwxFfjMyW5I8rBhuEhIeYKkBcOOO0hcdjPMJsF9XW7KvqyfzMnyQKIbbc5KXF8BqIm7bftnpbZBqGpYQ+44KFhwM8zspTcILgqsEohAEPbupdtQH7r/XKGI53CHvRoU9TXwWYlLZ1KPT+sdNGzZ7Fz0uFX9aqH4idJ8q1kHKrwFLvJXHvWTDj9B8f86rTLkRPj48sjuRzfQ5khzgLwOK40DhEsa0REJhVKRxJeC3EisW9HCJTzcxbcWdstb15OknM9Fu7n9z6+QkHRzWKO/R02XT7Y2+0Af8RS/0fb/zpyg+iG+4QyjmqbToU/ieAmdFtSDlzW0ewJVPFR3TtAKwxxX/C9LfUeJpW/Ck6kJ7iB9IlOpAuUZMlMLsSpv8IswdQZ5Z8uetvHZAIoNtSkme6qZX3jQmLVG1x5G2VFBupfIJnQPBchLRRacit8yAEQmfQrTD7rql+EOp/x7xdrd6uhvdvNdW/h9nNZjbAWm/CQpGYDUJO1HcpwmKIwUB9w9R5U+fWntFICBZroqZ1GFS1Dc5O51M8qajpv+a/8griuZ+H/EWN+8coGYH6dl7rt2hWTi7FJFRTA9SON8NVMb9DrPSWavujrwmJWvErHhBSM0tB6lBsyaw9U35iXh9F6BagxhKnWDYNFCmddDqxK/OMz5j5keXQWWc852gDXmiqcc9vTANqedKgmQEmXxn2nFwWXlfxHceSmBkFR1sdFzTyK3cHNq5bDvqdOvY4O/ww9wSMTweGyKxMTY7GMGeJE5FV/o388xTd3W7jDfc9DrOvSCWRyHzXNySymUcBna+mniLnm0nvMVec/uWjXnnW+QC0luuzDILu7gMlT6lgCYDjATui1qiMKDanLertGwgx2KqBHdUnhsMNF3wKcWVWsFtUny4mXMaPDPkTqjtT83+OsekttS8MPADYxp899u7apnCwVkG0OJwC8BD8PoBLEJsVN/UBRi3nmlZ+EMuECVfB9B+0ql8D8KxlvqIIOHZiYGCzBx4F8B0A73WT3WWm8m4S56MeRpFsQg7jTC4IOkB/Xpla+XJ1V3UFhqOnMhRqrPX3aBoNlKXjWB3LseEVCjIxs1Uw+2Qi+NruzbvWDUpizZ16mijeReFv51w1S4ukyJoWh9UvJmN/UhGZocrXAvgMsnBqawvz2w28S2Ty38OLwUJcHehHR0cnMNAPdHSQVWoq+jURnmkaOo1bPgXZSsVAAYtir4a3iZebPdNOivjSXaUsHNUJWL9BEkmxZk3/CPakkqfIMj/LJrIphC6eD6AzhjEkt2nmwKMlICXkbDQIRRVnTsLEQQfSqYNeYheSlb0r+2ecevTXSb4HMI2F8UUBAStN1o57rF0N4BNjGmaL0gGS9F8G56ZaqvnqZJYernKrRITOVNe4vXtuRaguG/raQo6SGm2hOKGl6hvaRFnJCnkAAA6I0vOx8EnLICuWrxg48tIlj4rIsaZeDbVQfoGqiwzb3IWvOO3w1Tfct21ULFoQ1SSM79NUXwXh4VBkEjjZZ5R0BKKzVBWEsOJ+03n9zQVXnnmrmH3VKNc/tfyutTXJhWUQ3NoluKhXIwjcr+RDAuA5MfwRaK8SF5BbygpAaHg4nq2H43gIwM+cOXPGbkvPicqqUvi9lUxmg6djAo/P9T+1/QmMT5fykfvK7rghHVrgKAOfRxD8EPItPNhauYTFyZIxCs6Iz9mAfxeALTnwhRZMQz5cUvV7/HcAf4NM6vhrwv4eIZE/XwQzBFCywD6RnWb8EIBX7+vJxOrsaYlGaIM8VnEm55NYQk5NqCr6twGfvAfbt28bqDOs0uDcs7/V6sZd9wF4U+cR028l8R+1xsqtRAFIlMluMgu1ARlAGpaT3PPUnrXAnrWNPx/AzsL3UxbM3Nn4kSzVmC0MoYGAenl855pNKw+EhTAImMs5fE5ucPyZwrHC0ZHh1G6KVTB7EGarTGwtgZ1m2JMxXmHjpQnNkbg7MNYtnkv8uXj5qlH/upamwJIBbr58sUB3nTPnrAWLN921ZuW+Hhzq4RcoegEDrmb5YAL5RKR8CNJMISLw/tsb7t2wa/iNY7sA9EIMCzBYfh5zrB/4MICDP0G7BhK7BOhVAitBvKT0yJbbnQnMSrU6B8A2LAMzFmoEpujudk/39Kw5+hWn/aEk8nU17+vpE+XLBvX2g6YDqYJ0THgRKBdZqtuOufKMH6ngWlbwozXL73ka6FX0xr8NzFJomLt84gmSyCDlsSZKmlEWGCQY8AjqG/twAJLtYHpKQsxFLCWworRZ2ZHNmVqVws8cQNSbHWLACLnn6EH8FYA5qJXKc7iIIcs3SmD2bqvqR3Lzyw8BbBuZ99Cjfu/Ah12HewAiXwExBSV5E61lg2q6VVckk5Pnp3vSX43aGVRQCyRZ03IgSkilVsI/ATwa3jmwddcnGsZHh7g2AeD6N+/4n0lHTN0FylcRJCekUZEkT2Ow+Zok5kg9f8oRU+bv3rx73TBPkkPlcmVqkFLzgy0wRsmTD9wHqp3Zfe7DQUj3dXmX7PIt8rUi8W21lCWlQCjizPQRqH0Z4A0z93Q8sGrVqr1jdB8KQLY9+NQDM049+ud0vNDUPA2uDgfY+hkZUibSkVbtSgAfHyPRSGI59IilC+creCFCKMeBzWujOC/jeYdwpgZSvzrKJ7ZoUEY3LAmBmjrBmuBsD5mUiGwkHxt6WpvSSaLgHACPZO1DRmw9PT6CpJ6jX/7c5dLZsUyr1RSgY7Fne9kOlKVdmKWqBhhFZtLJaxztNdqvzx5z5Rk/B+wHnrxl7TOH34+eniLD3dWVYO5cm6guFQmI5xQGuxAUaKJ2YladjOSkJwDU0c6Ma8UDlrA8lSw7ZXg4OjP76a5VWx5CvV9c28YHHCmAo0j+UYE9alJAbtjpwgwxBsYmAe29GsBR1rctHfl+V8uNqfgBf53rwOvg5LrcOWiwZO3c+dTiNbm/AtLuUY9OFU2CAXXnX+o7mwnmUInpTO2vBrbt/kSEXekIxicDUJW9m3f9X+fcac+j8C+hDXIGZAHt5Jmj+lI2pXCaSeVcAN/C8HooDkV1N4EsjigFnBnVpJjwUPoQAdNB8qhz5XsxTGi7THXZlGn8t3V963YDwPZsjQ0n56d3SKBcC2eB+BLJC2v9jwqtSlvCOoYVZK8F8PFhVYoNTeQ49MKr8GUiMi2EuuBq4dCWZQ1RTlVETO3hhX7OLzdh9Wiqy+YOsfyMJE1tu086twLAKJiTAxwh8enGhViApjmm1jzmRWoGo1YS7+nx6OpKnv5e7/uPuvy0DteRvNtSD1PzYBQdaD6mFTr6kHQWCmHNqmlIOBc5jIm8DMTLXNVjweHPPMSrzvyJGX4kFb19dc+9T8S8pfrtdnW58QzHCYCjCnt/4YjM0gVmtNWlc36wHZZ4bpOgS3G5NIkhkXZ9/N6hbeMJkAyCtwCYjqCn0SD1Z+UH7fD/CjAxw9d1QD/UwIrsy1G+GkHSd83s/bFzvbasHK9VutXmroubwitxWOdoStsbfXjDkm9ZCNY4WB6AU8V3Brbt/n+oFxqMZjF7ANKf7vygqa2NY9KkW50je+sMe/1EonGJP781ztzX/bpBXYhD8VRZv979Qwo3zWlrUaliDbA37MlKoTPYEwBftP3h9f+0rm/d7ihiKzXA14t0yK/hrJkIalKrftu8bgeRhMduNjhkDWvd1MzA5806a9EpxcPQKG1ubGKudkVhKycLka+ySWZB3w4G+0ZfX181jtnw1kUUL6TZ7MHmcU5PdccU7HrmkNq5s1Ch6SYLKkhiDTUkWVpQqPMkiNhEdl/zsHp7U3R3u7Xfve9vter/AOReBhmc1GpiAyyyR4Vnnyt1jFW7ZmY6kHqtpikAiJOTxbnfl0S+YlXef8xVZ/5iwavP/OcFV55x1cKrls4HYOjtTWvaRl1dyVhLCAjBIwouxlpu97XFRNNNI6WLaTihlrNZksXVkLQdKoHUfjlSINa2ER+fUwCTafy9+pxozGdoKOWvR1E0aIPZRkv923Ns1Fg9rxSA073pR6B2L0Bhxna0LG8vNPH2ICYlqb0hBwZH7UaH7KbaJEdAIygw2+nMvyPHjox2fALI24pnafhszMTWMs/DvPYMc0eTqH1otCXjtbbyIlkFYRa2Jm/26wnIRkAx5e8rtHEBzLZpFa/c/tC6O7E0tOHJAR4b86vthtt1/8YNavo9igQGt6zpcSmDZF4SVqD6mhojtS/7Rw/8/KXzjwB4cZQScDXPbHn6ogxI05lX9RmV0Tuiscpc//RWPUxyJ22AfHZVby3UeWj4kxgqNEmeyaop0cwe1+ZrVLA4fMw+Pwu33XDff+qAXgLVu1ylklBIg6UN6NiafYo1uhWSdERQpNdUVatpalXvSU6hyDmuw/2ZdLhrzPyDx1x15i0Lrzrrr4+96swzaqBteWShx6gqTsxsRv36WrQvyDsdQyqJPDOCiZb1MJszyIZkDVuPmNlOSzoeKbxH28aDPQrbJHFcA8vS+inVJZI1Aqp/ArAJY5X0WfxEAkgN/HConBvyL5qricnXYnihpGEhytZkUfFfBvMQ0CCf3/vM3lVjND4KgKrogVqaY5FK5YprBGCuf1L4nsdgvELXZRmiNsjTBeH3g3pHgeTiSKFTLSFeTO2Pd65cvwJLUUEfqhPkgCmQL8acMmmSUG19BQzYxV4DQPYpzNYVBGT3SuclTGQmNCcdUVKuxuKPPYWE6Z3PvPzJ+0YxF2MfcUwZggnNZDJ3jBdjut9Pub66A7C0tBES84wnYV6njemHx3Db2u/f/3O349kXpFW/DMCzUkmSKPmfxkNccym0NWwDDdM2EF5MADozmKXq/UAATCBnSCIXS4d8RMG7jnnNmX3HXHXW+xd0Lz0NWeuQIOmwT0BJSE5vJCSbTsosqO33D6Ru5wi3yg40ArHymgtDOHWDhg27Jm/c1sYwE7HC+FrUE4kx1EYSz6pqIS6yTlP9D4xfnpgHQN1bvQ6mT8ZkQB1EDIn1FRjDh8RpUV175CGFynBWlzWfa7O+dYbUzD47hhuzAsDA1p2PGPBwrElv3oAKegDN4o2kzcX8+ZPHw2kwxxwMWnJIHghn+aY9z0gMPS7mQ/6M/vjZRzb8HwAXwdH4W8jTsanP8Efm/ROUWlHC4G3ZSDAoShvJM+ecefRp2JcwWwyviUaF7oZwL4qEakNTF1iAdfw/LIdGsDVSCE4QkwZjkHJ/svuQ27eXx/86tyfqaTXIrqIhgmygoHPMr6O3N8UyyKreVXvXXn/vBwbUzrJUPwkGoBSavZuHmW88yJU0Fmt+znWZ2MAukQIz1ar3fiBNAVDEnS0dbpmo3nnMa86+eVH32W9Z9KozDt9XoCRAYcCK0qewht2VAFBFx57dI6Iq582rxOaODRsjm1dOlIkFsR0rouRK28bp3AwPYBKBS6Mvk+E810hXaGAn9OsIuaiC8XF3WU+n3TBeHxeQDjrVrVZbRBg8CWfgxQ2s2cg8aCQaalRNq1y9ekRBg4qv3lt9Ztd9ObA3VsxfSrNftXpehhblvvVdacY07Jgyzrij4Z+NjFuekkz23zqwIslFK+/DWRYiJOUTCM2tJ5KZMHQhWbNmzR4T9kTNK0WLfKnCnAhZpp5OxIOvikyQjGrceuAXnLdglsFeHMNr0ujtrGS1WBDqcua1X8R9KzjZUTCr3RBag9Z9wy3nAEP/IcggGQCkKQcYW88U2nZZI8YAAE4aJ7BWC21tvOG+x9d8594/q5JneK/LzfQJqTgnFedioUgKg0eD/HlJ3pwN0q5HgrwAE8SqOB1IUxgSSfhiinzOErlnUffZHzzmDWcdNVqgJKhPsJLmUiwJKVgVyQj58DQVWBQOQ1Ybm1vF+YNkPfV+b8tha9tYOVkAOA3AwgZ/mgtdW6uNR0Kkxn1jAjadLKh3c2RmOWjJAgtJU9Hf8UUjAvUlK9KGENFuYLECE0remgN5YwluocL7WsmONK5dFjYcAwwdqSVTx8NpWMlBv5xK4oHhswqzpTTelsHevDKzM6+b0dnxIwy3d9iYntoDoDDaV03Nk1m/xEiItZIvY7YmDAZcFbsBjPzagx4cd1flEnEyO4bXpHgILlYx5YKASkea2o833f7Y2OkxtSIz92HdHxQnXSfWeg0WMw7GOVclC20Jurvdhm/f8+TT377n/V47TrXUXm9evwVwl1SShBVxDKq23gKzpKU9NodXDksQQkawVPVeB1JPciGdvJdV3HPsa8/60DFX5oDSMJO5paSjZMvzXgZ3sGWEk03EwLgIs2wxa5rFDUlc1llwjm0bH7cgOD8+Al/cVjlYM3azAK6fQpr2oTk8Nx4AybzyPsD2MoSurEmit7zhe4YNzgbQgZG12GhAaK02n5JtOPZkU+Mvxo+esces8aatJCGWJRwIIeZ1XGgb5lSZ0PTPptuwA2U1WIHVKt2E65WAJMxw5/Z7Vj0zjuzpYKYAZPs9a+8x0zsgZGhgyzor1rRoazpPYmpG8owZTxx1+j4AeAP4apDNOXDNQli5gspQLU2wZx8YrJK3bm/oTbRLg8yCTNTczIBSV1ey7vq+3U99556vP3XdvVeJ19M11beb15uMtls6nJNK4iCMIDmySxkjOvhBtAhdalHdWBXnTXUgTQkegUryt+zgncd0n/2n6OpKstYpw2ERGoXpaYN3oc6nWw/PZmyqEtiDXN+gwn5NNqnvm2FaLPts2/iBDtB4dv102UgStRSKzB7fnQD25DZXjtNXeO/+/qcArMu1oilCNqKBY87r0nFBx/SORfuwozKnj9m8NIpSiha0YGBw9mjOoY3pszN1a7L+YOV4KHd050Q6FDayVhzkFE/gQNLxaNF5Pv/jTJKRuH9sHPworSvLsZMvsybMZcO5wxB6FqFUpTu+18iaF/fAzzpn8WEwe7F5Ixqa59YZJGtmMgUJqrrDKv6GPBs2YlsSddM4jNMVrHKobuQd1p9YLbxZ5wmtsCXXaNCJZDqzfmuhqmwZZPUN9z2+5rp7Pr3muntfKh041VJ9q3r/DRieFiciHUnCinMhzwgGaAozHWzvGORII0GCxtT3pynBeS5xn1g4d8fPFnWfdX4EcYOK4AqAvWVHpaInLFxCBX7YG0L4w5UYMMOzzV7LiiebmtSAAeCcGU/MmN7GMeN6AgVCiK2ss5cNIVwDAvmGxTaOX9n7Vw1BDdesRcklS9SEDUqyAh+bMo8EIVSzttS5FJUmRGnFpJ/asrHdVWLdIOBgn0xozyAkZ7IRD5WSa3mEO458h1lD9lNZ0nPDtrRfq9hK9BtY7mXZsDpW7dcVHENj/Y7fVK87ITWB1kFvNmuoFffdV6OrKxlRmC0mVIsfuJCJHAkLfbZaUYkNU80zRBRu2vKzp9bGUMfoANJyKIj+upOyhhNVwadNHq91uN8sNuxFkkxGSRJfI6aPx7s9+2WF9fR4LIdiWWCVAMjqnnufeOrb9/zvmm/f013pcM/1Xi9Jq/4DmqY/gtkWJk6kUkmYOKnnLuUSvYdTs5ltlURiFhglEXk+wB8vvHrp+2oru0XILTHYboAzW9VtlHiSzil7p0zdjd3PDncfR+g6vYnZ+mSrBNLC5x6eOh4DYHSN9do21DHZAMwAcHSLp9Csh5g7lkR8sArANExMn7zwGYatQe3DrCk5ulCzVUAwHmaiQTX+e6OhUCKfVmxNzhZ9xurUyTPA7p3jsuEAcJbuVspOgIejuctVsVMcGjDLEOz1voMNQxOjkD8fNZ6S9h9ZXN5zubxXSl6pHYRs2c/r2LAMsmf5U2s7Tzvq+3Tu6tAUtN7ypflpZ62XKVBTipw889knn78N+Pmw+6CF6jV441UONA0FG9I8fs2YOAh5g17xdQDMms6OYpZlfPHuPP62khNebEA47ZADSLXTaXUq4ZJS6jzbp+IEEGL/VvMthwJB5LPWmHZurz3e07cdwI/iF47sPnOOq+rzRHERzC4GeIZ0JB0AYF5hqvFEVWhQXL5s6zuiABSteg+hc53uAwu7l561B3vetGn5ip1YtkywfHlhLiYAnmVwkrWNy2jGgvBYbpKTU6qozgMw3D5OYQGYraqRu2jOrc/fjhlScUxMeSqAezF+SXy/7gBpLoCZNTdRJvJTUqcbqsIAGP5FEvl4thmxwOK0gFshPlZvVZlxPhmpwRzlUJ6BPC2eFZMCVzRUplqIyS0a8UjFXmwcsklu6bXuxqbxq8R0HW7AV1EtqHCwhK5hmZsax8nVovtWKRCvzZV0f64FwPLV/WjVpJn5DZewvXnAsF8sAAwzky/BcLXVGs40cEZxWVrdg9DMvDhJomjkz7FxWLOC6IGf07Vkmu7ceZmpkbUm54OPnwFKoVPvN+pUfB/7ltwedSRs5yDzkGa1Y8xhgSnrTQ+ZA3fsp6YDbgYrpCkMLOmpjWxSGIy6/YC5/jxYCmE4wcaNxEW9un753ZviYfZ7AHDUq08/EVW8mMBlCrzIVZLDAUC9RygQMIKU1jndOf0Vhi4Lvr9adZ2Vq6YMTLrx+O6lr3h8+fLtWAbJN8VNYNja0p3VGjjVxJBC2wRwAYC7R+QvKA+VHQEG829m7ALwlTZ7NE5OAZhjQEcm+NiAvktzkFiMbh9e60FYykE1OkjL+m41gHs2+vbC5zWefrPZaKWTqKH/D+u634QdPZpTZEPuEVtisYZkCyoGMLE9BGvMTGHErJg4TYzjisqpMlk+JtWqhe/+P9RbUysEK+D44tTLtkMYlBZKx3v249UHgGFTOv0P9lTdUxQeEzWRpBHb5cBR6KFIipnBzK5AV9e7hwUeuiHogU937brQiRytqp6glJGo1vhvM6WImOF723tXPTNsxqrMYk86AttzjRGbSKwaMgOmH9b/2GHPAlsPnW089lMjZkEIqGrsNsBmri0KhJocqNqCWQUc0NsAmHp707XfuvcRAI8A+LdjrjzrKE39pWa4msQl0pFMgxos9d6CGreU842FBFKCrPj+alU6khf61N8wp3vJZZuWr9idX+USmaAixGoSLK4xSZGy1JHkcoS/Eb23xihZcypkwxtJjI9fungxOjHKyqNDwpaNawLobNaBRAtqsnHTscJ8Qz0/qDkPyUxDr7ao3RwLu0peF/8Ls3pCXigCy35X61/AQQ/5TWyFFWDSrBF75GphInOQurWyqT8uDRQHXWslarpNgHTQpu9jBb9ZSiS2gkj7VQephahiiwPoCLa+CXrmXUjW9a3bbcA1FEFMam1at8WrZkisVlNSTpq57fHzagBoOINm9mqQRivnbq1sgURApsavAsAwGauWCCm+98YhjoGM0nqHd6Jz1oH28PbJYj81I44iCwG1so5hDIdEF9qEZX3cDlwLgClrTpvlLi2DPHXdXWufuvbuL6z51t2vcuSplvq/Nq8PsMM5SVwQTW1qwcSmDgPhvM6KDqRVqSQvnIzOLwBQvK4766EIAfBE80bQ3Mml+BJZMoIb1bj93WdmOxCkBazVNhmXrsDMi/D4tQNHXAqAwH6qFDkgaMgxX9DZ+80Y/GRtGWxpAiWZBkDQQypUsdSrz0gJcd8szzn+1+r/zn8FBQhK7mdS08gvJPuYmQ2GjZrxvRlhxsNHDJAqeZY6dyH1zyqTCrZ6E6gJ3YwLyqstNkoMs9hptNtanC7DwoY5BaJ0f2/HGAJ5N4DQA8i/xCqwRPklU9Va+xkrh+zMQRgzKB0BsdcMA7Rk4pCTCVxmpgQpVloy0SQSoxSKpfbEttnJrTn2a1/R7dr6fC6t2yDDZ3cgcfMiCDykDtvC5tSBGmsXHzYZGhWLYAOAWh+3g8oPNvZaWwZ58pq7Vq2+5q5/nJb0nw3vf9NUb2dFhIlILqHbYM3NnGtqeWTF9/uq66hctei1Z/9Z7DEnGUB6rAx1I1cVkJvl2W8zgOSHufXIro27NgC8O5bUaBN9xEZ4Ftkq6h/j1y/ERgCY/8qlRxxzxRlvwQiErUZokwbhQeozgWw6GbLkCB5VekuOkSxuWC1QA/Pxu5bDYoN4sBbCg5Yl1WLqPjJIJUGhFkxDSVv4CZg2NtQBeThNNMYEejcs7HJlngPmrHqwcwoKgFvuf+pOM7uLIiHQyRJWjMU6CwTHCQKvXnDegsmxyW75aER2aU/VnQuRhaamyILmQz5fUwoB2PW4cWV/lHDZhznRmz26VaEmr4Qfq8vjhKbCmj4ngMCuQwMgzZ2b+cvFjceNQjQp00Ux295PvykCjoPZp9ar4qLW0oqeFQOrvnn3V1d/864XaKpvMNX7pDNxcedpWuHWIP5IItEBryA/cOxrzlqEnh7FMogAWBlf4+qgM5ttbNjiQ2yPwImYiRkj2FrC39F+mLs8FlKd8ttr+G1iakryskmLZp4fwZjDr4PF8k0m1VmoyL8tePUZ5wRhqzG+f0EHypFw/iTNYRy8rbYBD+UzS2cMc0lFg/eDLcoel11Nqd5pdpkdqMdyhrdJVgqcUF3srix/poAHOHGbBdnMZg2hsDb+NFYDsWZDfeh+CrGR5cJRg2FbG+8Y5SgslN4rYV9pnZNjTRUXzMJsTo7b0y8vyAOhJovsksJeFde6YjA5dLP8iImpmhIhvLavie3x76l4Cqogc/6LJY9PCJKnHFKH6LqOz4mmluc2rYFtsPC8uHnTrjmbDzFvWdRaAuypa+76v2q/nKcDugyCNLBJdTKnRVyMZqpScdON/AAAw4puCoCHLfTSar3bFTozw0AekaTJySPYbRUAvOr1ERu5hkM4m3qwW21bdc7k4xFkTXTIYv/YrV0CAInK6a7iJhH8t8WXLe4MSXljeP86CAcyGAFSk/2xeleNsjlX4/Ib8h+GouMHQT7Db04xSMeckVi1fmpgU+y55chN5PGM+WNQHaexXo9eHgAZn0vMzY3CkxgOzD5A/E6u3Yi1QH52wJHaWesR1/FN9bobLGdoLEdxWn4nIGGmrx10YHqRYsmSDhpeaaYgKEOCzxp7JGIeK7Ydu+qXADDq5OzMesLlq6s8rmq7I0VS27aaFAbUANgZAICLeg+ZiujZl541H4bjw/3FasKGhjkGi90r7MkIJgSHXlSmnuTd3e3WXd+3e/U1d37AqrwEZmtYERdDbgU9lIZIiNOqN3N8wzGvX3oCenp8lqT9pDVyOa2P7wG1qnt+nh0ahitmdfPuuwHcSQFDYYE17fENJ1AHNc+E5005dvZfIiQq/NqoaxvsYkvVpOLO3jtp2l+jp8ejq2ssWaSyBo6DJqKyNQ9hJfJd+Z9Z7mRjKP4bDdSP5Y64kSBmFh0wsqWgZB7Z2Vh5XzZwXzY0G2MTG7exAqC1Rl6L5ZzduOELFPUyD+xFZs2TuChcW8YfhbtMD6g7USyDPHPXk6to9sOQrN0kjdJK30FMDQBfseC8BZMjeCm+MLJKR0zacS6Fi2N4TQZfNTVKw0JtlX0DPfBj1CHBAGBL5eGNIFaH8F0pr4uYfwMznj77BSdNH6e8zom1mCPTgYHTmMhUU1OQrY6CxqCM9UBgG7tk7Ff9AUReZMza0qWVp759508kTV9saqvoxGUFDC12JpqZd5WkA4o3ZeDGE/ZAvDMlhzrg1dIcRtr80wHwVHyhjKlgi48zUEzNC/n3UxfNviic6ScUJE30Qyd6e9MYTnuRwaipT0X4ngWvOu009PamY5CPlA3xnkEP8Sz/Q7Lln7AcQxVlp6M+CYpx1pr8UXOLkZiVbVlzbmsiksoWZ5kQwL76/ZyIdgOPX0cFQIkWzYTMmxx8K5fWHudrsiLi5aA0ZPHS93vsvGXktilAeOA61lvjviDypdZd0EvpW4YwG4/ZvZcX5AFRzWJ4zYNXUVgEX4PAbwuVF05TTRXak2e79nm2LYOgFynUHopzX8sfK0OCpOP8RHRJ6f0dbBYr2AB/QSzs96WPg/VjphruGtVnZRVk2Vd3t0M3XM4PlRxSDwB+oa+vij9YWnniW/c+4r2+CoZdkOIZt/EkTUDMK8Ts6iXdSzoyTeKf5TdTG1SghBJLVV6AkPQ63BJ8BQBx+lVT256PGZcKEdc3LDJsT4kIe6YeP/PUyCSNf2+dbrgJf+gx/2jB7tNPAXGKeQsMqZMOSvLv6IbDiu6xQuvPDAWHm+6+SWfQsjyOFglIZC4El28MRLY+uZc4/9zxiE3gqHz21P9EOHy2s2iVJr+fL1suogIbOtNmHNF7vm+tWQmgHfep3DQraS2cctOU8/t/O20xSLn51PiaA43LjlVh3NV5o3pdB6FDqcCu5edF9tQ0Np3tLj+0wWPJkg4Cl1sM51hjm/O8v6mfTZRCwqxv26+eWoGxFP2NqQgQuSPuQcUkxvqypBk8nUDNLg4A4yBP1O7tjeEiXpQ9jxZ8hpEU9V7FWZDaGWmIMasgy756ejx6kCVJY+nSpZXFly0+bN5LTp87nAawE2qfDSDp6WvvvkdVPywVJ1lvNys9zZPmFSBP2olJp2VL/PYcy2MF39Usvhd0BoRHu6md5/hd/bdmTNQwAJLbtWHXxslzpv0XKH8Bs9KQmTVsrVnZv4kcQSTfnXHCEa/e/tjmO+Pf+nHY+UOJeQ/8ggULJq9Zs2YPJkp99dYuAXoVCS+XinNa9SmEiaY+dZ3JCxYOnPUXq6/p+cecKuy+2KYGT1b0uWW67WHT8QAcFX+qTn8CSxxIBQNqrdaxRSFzqBp/VrXc7wFUK/Xvq1WgUsGQuK21k7Pi7li7lUQo6R7UAyPDe5ZV5EsD6rqW9Ui2NQDA+Hk2IWxDc3lGkUtqcBbGppYsY3w9lr8M43Ce2IFz5ByEIrISrfkDzwxdSLb2rnx25unHXEvh2yy1hj5phdBX3gRqNOLy2SedNH1Lz8M7cpNEAPhZk3adTeGJZqZs7HloBbqmOCNEYMqvxOtzY8Qg1bR8VPQXEuqiXe7TremsrQbCLgfwEdza6w/iIJsA0Lkvfs7xIJ5v9fwjazx4hodNMdM17rAZD0XAYyP5nKMuO/0sOusy02kwziJ5OGizzDiDxPT1NjAVMml6kti0o3bcf/Fa4K5GRer9DJJSLIMMPOY/0bkbf8hEjjFvyjKtaoIG8y5xSZr6CzJw8gBC48VFaKhMCPkeTYE3BSBCvNrH3ikj2s+9/2cT/gEpU8N7tVC+rO3sDCy8mafwGAVvmr74iDfvWLn5+hywG5tDaBeSWOrqZ5933BX9Ih+dfdTxb9/yy8dv2Sfl15GdDAi118WJn6kjO616T8f3L3rN0utWXdP7UFnvmBH6gi0IeUidLEuaGUK3neRaVHFXPhmj2oAtyvBG07+rxe+r1fEY2DF800LbWpan85BAfIAT7uYbYpe578e9zwjZ1CVvqIPI/gdJxUgpa+eF4ooYJP3uALKsOozpV6DJ2xqjlxk8atC3z/J0vCRytJ+y+2IA34lgJkUXiF7AYK8khVDzRiR1iXq2qp0wkImlvr9C+05kucbOafaE90rT6p3Cjq0UzspVmza2tBFThQHnzjnvhMWb+NjKA8qJj8hHdQl6e9VJ8kqpJJ1aTVsTDYTSiViqv1zTc/sedHe7WjLzMD+Hoi9LJnd8WAd8odNjjchA2OpYEXjacwDcVTvoHygHh1u73Ibe3l0LX3PWZ+nkg+ZTzVXlF+Zu/VTA50sEF3th6EVdEblha20qbJKwD9trMG/EYTbZs3XP0wT+GRLZqKH2yPo7O1PzAGYR8p3pz5n7UcybV//8EBIbzeZV/9tepLNfcNL02ecc9y9CXgfyFDr71/lLl06J4lrjtzlGevLoy08/hyJnaaoK1mX8TQ0UN9lo/w6AuPVW2UeXsMGAzeWnebYOeWXXQzsxnjI6438P5C+HUYbYmsatBSYqBmImtI4tzxA3cWm5dWutilzHD3MQQ0fZ9mcOEuuFazmircTdNyT9H6AJ6DHBetuJ62431ftidyrf8qE380DmwKsBWARbjKE7R8OVmRQHy3TaG7PyzVQcAeDHG365+omYs6JjOs2WQZ69fc1Wgr8IuVHWKjeKMKRScR1wMYx4a9fBmYeUhdcMrzPVxju1HK2Q/+HNAHK5S8MB23MzKYWH/UCaaur7tepTraapDnhvVe81Va+pejMbgMGgPOuAHLMQVqSYfUcHvAJ0zfKmLASLzXBCTVLbyO82I+9mCiEXt/akLKjsnHRljsUZjgWQlHZ8DGpPBGaoyMoMJmRLBokAMzMK/+qwGfbLGSfNeW1uczAALlZKZE6xUY1Z0B1fk+UZRWZozjnHdVva/0txfId5VUt9VZxbUq1s/RSWQ7EUyTifII2Ob2EiAprCMgk0kqTTNE1dh+ta9JqlfxSSuUcV882A3i4ATzVlWDTTeKXez8yOi8/Tx/8eyF9+VJtztdHTo3XutzXCpAkiGvLVg7H9b2Oi5iDtfyeGnuFgwG5/5iBZoaxykOo+FuoqD2iGocZ0fyWKU+Q5z9Y5hoSDGhV22cylM2egBz4mM9sRz1t0OoXPhYUebqWYqLxpCyz006wnkY+l1UHODWyUZrAm5CBQAw1vWbp0aaXG1h9MFrXwjrz01OeJ8DzzaoEJqWXFZ+kS2bNONNX+CuWmHFAYni3pMQDwxlXmzQGMOnJMQLrwBRejOy4Wy52bB3EHjIWwoqXJpEdg9jRdsyixwWJ9NCUqI8yp5w6p/hDAM4Xk6VLd5PqmFpfc23PAZ/jOecuWHR729lz302G1rsxfkHn1AJeAruewk+b+fMYp83536vHz5gLwWZgMZb2/AEVPfE0P/JEXLJ4z8+yFvz/7eYtuN+LrQpxsqfroVipa1VQS99Yjzj/+T9CHahRlG/ujbE+PHnfFqfMMeL2lCoKu3lyyNgCiVVVz+MjC1zzvePT0KEbXhiW7hxX5tEq03D1LcfJp8XuPQ9wINKSRl4Ck/Fl64tpRWENiOrJ1zlLUO2imzViPV7G1iQ13eu0XEgkc/KpaiqcfeAxD2IvV3NfNaz/ye7rZYPdIU/PiZC7tsEsAcPFdi5PgJPXVdBQz+KjeYSWYqKEAmU69356IfC9e19jvE73R4ZM3aur7QSZoUaVEQNSrZ8Wd+NSkba8EYAdfNVt3vK30z+gkppZkOpAN7IJB6cRoesdTNz7wGACOKKQYc5Wc+SehtjUTvcvT0vW4FMVSgwFnz3vJ6XNx4OnTGwCu6bl9D4hVEXbE1qLNp8egFWvTpca4AJsBuylOfJ/ddZO0Tb2Ex5mZgjzfTe28KAKR4QIHDyAZWL/ju+btMxQmhnyZIht7IuTVgnPNHMI1BMVtOReQ/0o68MBhpxz57RknH/nOw08+suuwJQsWzzht4cx5p8+bOu/0eVNnnLZw5ozTFh5/+JkLumadecyfzjxr4bUDewYecIl8lsJzLFUNmhK5cB3NqVcvwn8+4tzjXx7j8mNbwxL0jaxqfJPrcDPNNM2zEYWJqGoukcPg9N/DIt+HqjbarzLvwOG7rSz75hQA8yZ4MeyH+nnkHAJaK15ao6z2RG8AxWh6DSRZbtVMEDqpJ4Iwt4ZbPckDCnG0WgYsMK0HNoukWAbZft/qxw12a631SNg/OIQGloXuZXo1AFu5cmUKQGi4MpcTSZQn4Od/5uloAG7c+IsnNgDjVhGsAGTTz1Y+ZsrbxNEyQcDc2dIKjzBoD/wtQiHOwdNoZhkEPT161MUnnQTKazRVgwWfa2ZlFcdGkgb+X87HjBxU/GDFVtAeoWuUd2DhxGVqXipuRtJhXQA4xpp9YzF+2YzYUqt6ZFNRQW47ZUehwahBvhioudIGnHnqID85KeT7RrHregBub2X6X8LsDrJWkdZQ8p0tSqsf9opuSBCEztTUPMgjRORKJvJxOLlVqA9Q0wf3WvJgP5IHSb9CxD8glFvp5BPi+GqAczRVbz6r+IgUMgszgQZQEvnqnBceewZ6kY5h6w+it9fP6V4yzYA/tdQbBlOpJZ2v+tRVkpcs6n7e7+Sb641wYwEUt8fuxw61mv1sU2m5bwgAb+BhzuF8TGwzYctdg4tfSclX9rssB2l0m2ClTjJkjiXIUJZGE4odoMCJSEJmsXqoPILCCdasLPJIKA+/HBAggy0uhYPj5QPdpd6azXl+sfncX6qVk/3bmVcCeNn05x81G4Cf8fxFpxNymqkZACFLMlrLxslAM+sJznIcR6yr1srqy2Cx1WNJqZ0zryqJe96RFyy+GoAecI685TPtEgCmjstdIpMB8y1EYLOK1URT3dGfVq+JbNvIGbw4Ngb+khTUFewK45vLTAYA+y0AdsAplgd5HBgtbSIe6i3J82u7KjmwYvD+h2ZYHfN8tP53OYXS4mJIACgEl7gZI2aRwm6+Zs0e79FtZutBhkq1xhcGX2McjOIghICDwcyrN69pTNjrADlPyGMYvo4EOMnUVL2mlqqPXVZdVg7L0kNV6FkEYgbEXTP7BScdFeP8+w4MArixzj3uj10lOdp8VKm1unOzhhxRAqKpV4r9v0wWfYTXkr3hAwBW1p275cKYg3owIwCle+0EuToWIUstr8gjlNE1fmW/y3KQ9vkaLe9caIOBA7byReMDSnITpUhv5ZSRGpcOx/cpoTiThuYC95cstbW6REPrtgIHPuMQwllmcDdoqptY00SyIbAyCTPPRI7o8MllAOiq/go4ZpXC2dHbClRhw+GLpAtaTB03AbBxCa8V7xXeyze1qusoEpLBc+vRCnApCEd62EfmnT5vapQLOLCfaXe3Q29vOu/iEy8R516nVZ/vTVoSwDZPJzCzb2+95dGnR63pFxO1Qd5iqnVN7rIzjsFp6g0iLzvm1c89AcvHrcn66CzmVBEyI+tAGlQG6+2wQolnKMyk4dm8EmYCYDdgny8wDHVfWL41RMEXMXx4FGBBAbj+DdufBPUqmO2MC9kXGrUVEkDY8lxeP6vSgUysDqbVzBRqGilCA01IJFkozRrO/qU7eThdpSLueBH/jUVdiyYB+yxbT/T06JHdZ84x4G/UqxU0pWtPj42YN3Thdm6WgCfGRcQReoYEQNVgtyBXwcjhlTpFoTh7JYAjM6p7nKa2A2DJ5I4/c5Mr97nJHT9LJld+KFMq33KTO/7XTen4Fze58oFkasefV6ZUfsdN7uh2UzpflkxPzq9MrTwXkyYtwtSpczGaZsfVghQkh8F+cD/60AZR2AIHWr8o2njxN8zyEopQzUpPV0WdKrdfT/HN7WOMTTyLNSC/A6vVSPMtdcNtv2fVMyL4VpRK1ew2WneUimck0mB2NQAzyhX5lKOmZPbm3DKFEASu3/rLlc9OgOCuoasr2frLlc8C9rmQgNussZED7GJe1SXJ8Tp9+gdC+5MDmkUiliyxBectmEznPo2so0BjJ4Giem/wD9TP7NMnhxxXJMBPLNXNEEqjNn+hGwLMu0QmaZXvRGz4esCM4vIQeobZfFNkQsKFvnXxLjSGDzdJA1iBVTr/G4bdmVMaclqTDgZPynmVGZ1vjqeMkUw2D8DteXrH7UK80sx2AHTNnY6ssWhzEBdkjac9YbHkuxkA2GDurhA1STRNq5K48/eklc+iqyupxTb3gT1yu6ofkIqbZV4VeZXagn8rMIJeEkdf9fcdMcNuRr2788j9guGbqIfJGrT+Wg6LxGc0g45vR11Qbjw4CQPQYbB3kDwJwPkgLxHyVRS8mcQ7KHwfgH8ykf+m8OskboS6nxnkviSxlQnTH2JRjX3iKC6CbDoplBVClE3WCXKIZmzFERUYJBsvBMc0biwNj4+Nkt5NHpnODt9P7Iw1NxkeglDIXNFB0hXSm30lTgApbZPQlBtGMa804LyZS4+5gLDTLBxZhUWk2Cr1PsjAGL8xcYxZKOP25j7jU90J1huis+GxZfeoqfd0fOecFyx+KXp7xz6vdKxs6dIEy5ernzrt467iQgERm/da1quLVRIRS/WWtd9/6PaQuzRqBs/Q3e1W33DfNgA3SyK5HOXmXpo0Oq2qUtxbFlyxZDF6evwBwSLFazjyvrOOIXA8cvIIpbUjYaI/3giQHPbuXWXANRkaLJH+Kt0yzKCAfGTq1KnzRsEmeADJzjXP9Ap5udG2QpiEM1rrqlRrUk0uZFw0yk02u7wWmQTNQYqmVzhN0wE3KfntObb2SiyHjiofKYp2HX3ZaedR3O/bgPeUhtwjtsA0CtAJCXym77N91VGegDL268cAHon/VuYh6OCV/oG2p7wDwPHxTD3Wi8EBUOms/BbB481QBSyEzwxp85el8fdZWM1HV3Y3VmEvRposWikkaTdKxqCJZWCJ151IZ8+ivgBLaa0xT43K7npgKG6mJeLwdtx+ot3K0nFskFcaDpI+vJkm0vbkyJ+q1wfj3jKMznwWw/ucR8OnQE5ifZ8vIClrnEwGo6OY6mOztie98TomIhdF0Q3ZevujT9Pss+KEsADr6hWdhRABsxsQxy/Mu/DE48Y4r3SswFEFfX3V+Zee/PusuD/SapqC5fmp1iAOq04+GFicfVxXmXYS8SXTWi9Ma8BlWdSDMDNJOFXNfRLAgaE3Fa6BFceL2ZlMNrM0261ZxoWFG7tTSnYzGv1HERRghI2NwcuI1YBmjeTcaqL/PEo2IQWQ7Hxq221UXGTGBylMAKbIVbEx3/eq5TZnI0ijbI6IDJqwafAERZzr0IHqP0vn5O9HhK4j35h7sHTp0grEPkOhq7XF5GAJ0gRgKk7ED1TXOOCriEneo3KoATAMGOxzDZ5z0CBSJsnMEJ08jIl8toFaGStwlGLq1HkkPhxAjzmADgZBY2I2C8nZBWxghs+NHnUgP58sNx9HoIwwni6eOZKL5Wca5gPt40XUcHc5orDBAjKZPMG5aBaqnRh8VFpNZ625prKGDgeqdcGhr68K8GsQQdbQtSDDYC1mPSEgzxjR7kl4CGGwb61cubI/sjITsyrCHkyq/aOmuo0iAhuUzRVTUwjnAXrtwgsWzozaTwcGSIrg6MhLTnw5KP8epWfKxJDrahpmqVQSp6m/bsP3H7g1HML3Mf8r6kU9PVVvMp8+zESkpDFwvoW4+AHvXcVdftQrTw96fUuXVvbrWIZcKqO334UWDpHFxBozI+gsVTPB7VLCKAiquN8MPUF4Mg5u9Ae5HPaGLc8c1FKQv1GZOfU3MsAzCpDkdq3Zdp9LBy5U028GkATG0s18cIB57bZmCrW0EV2Jexi2MK7BkLIiDmI7vPd/uOEnj/35hpvu3RW1JUa2CXR1OfTAr5u79wNScWep9ymD6NZwwJ0yERL8+OM9fduzMN1oGXiEqOt/w7C5xgoNWuhSOJU5wDzJF7PiPp2jX/d1k8mSQiviB74Icl6YfaGKpvSpGRtJE2UA7/f7Xf0/zn42WnoE9S4azCoHBv+riRKKtALbbSgt4zEWFoiNpdPKBn5b86Jia7WouJmaqoG4cNLxMxeinhs3YaRbyb9bUaesB57tQM9Bis4NMYdEv2beD8RCGBtaDas265UltNMgFFpi3pS0rwXHNKFHBkM3ZOMvnthg4AeZUIA8i1TSUIlwlqqHkzP2suN7MzKQ1NW1P8NtRFdXgr6+6pEvPvEyce4bgGXV5RwE5RtIqtd+M/kbALXE5H0e164uh54VA0L3SYqUpV7kylZIkmKpeiE/Of/lZ7wQfX3V/QaSuroS9PT4Y64++3VScReEBHe6bOAa8mwsKrI/MWc37mrF8tDoP4x6yMTyFVUsRRbMmCQl7NOdhx12AkYXcvEA3I61O7bsXrXttTD/RwZsoUgsNwzbkg2x1WEI4UMr/tZaMGMZKkxJkhWXmNcfo2ov3HzbY58ddWuTLiTo7U2PfOmSy8S5v9bUp4wPrDkg2pTZqhRxvj99elJ/538hJnnvo4dwADYB9ukiiLBS12FNUU86GFICb2Pi/guh0syXsDnDsYwZ8gCmyKTk6xS8BLA0vpeZ1Zw9y5doMVuRwL9m4HtsT7M2CCayiaOTWoh6N7ADjSrKHIcrWNtqLZZ6VOaArMhUl8on4p+GZ9VVYASH8zW6Sy99VFYOj3KHs4MkB0kByOZ71z4CxU/zrUdYhH2tgL2UJXS3yCbzFNJU79vyq6fuDHvTBIvI9oR0h839Mz6lVb2LTpK6UHuLNSlwVtWUTs7tZOcP517wnONzrMfEUoVZQntvb3rUpUveSnHXmWEK1IyDSb+E+/OSOAev/7j+5gceRHe3G7Nec5FFSln5vFbTJ5mINAngN8R0gug6OqSC646+/PRzcyBp4sY0NnU/6lXPPYbEv5pa7aDYlIcTvlcmAhA39F3ft1taAJTIItn/RF2gxl4+tfc1K/DPEhw6Z5qkX8WiRZNGuRlnEvCy88lt/5Fa+jwz/QIIi4wSYoKwDtJOla1WcQ3pFQ6/TbBIM2AkFZeY2TpL9e2bfvrYRRtvf/y+XOPakXnBZRD0Ij3qpc89RhL5PMwAhVhJzo/FE0HDdmdMhAb7+4ev+9mOfWSP8psozfCvANZHkKItH1tuZ2Ut1mRJSNbH70pFfoIkuQD1UvsMhLVyeEmONVAAaTI5OUcmVX5M8tU05hP/SbYQr7GGOUQIzFZWp/d/KV71yDfralnMsQXB0Hg9MiH7QAkFYk3+f2IuRB/Nz4zctXDwKgg6U1M6XjVt0ez/m37s7JNQVMMf7tfoho8lg1ae/DcMwe0D0Go6Qfgic7ufDYp3bCRHg6zQ0yCECL4JQMep48Dw1kNfX9WZ/qGZDZDDuFUisVRTOp5Fh9vmXbD4lSE0GSrkxt2pL4vtr3rgF1+2uPPIS0/+JAT/Y4YEQZBZMGhRkXlJJNGqv2tqUv1QeK+ese17190t667v2w3gfRRhc0Za8eIIiKmqELOQ8LsLXnH6y+KYYkLCmBEcLXrVGYcnSec3RGSueVWLQLNsDhMQS9WM/N/BgEv2MOa7juQ+EIdH6kjIfGQrdAhDrVtYbemlFEmM+MLAll1vzjECo9lVslALpi+aeb6Ke5cIr6Sji49HCWqMl8fCPdTbKWaUF3O189n1Sv37iENCqExIcRSIQNU2gPbvCfiZDT9/fGNufEYz+QSALepa1FmdPO1WqbhzLfUeFFfrl8XYSoe58awH+r1UEudTvXfuEXxe3/w+n/WYGYPpFMZZ8FaC/4MsRMrWARI2YnDWGcDIfn2Dxn/z3t8GYGA4x/lkcvJ8M/wewLfW5g3hWE+ztIzEbb6uwvWkIBI1fYPuqv5ffh6NZDySmZMuEOVPLIBxFvhSlg5KBGd0UHtg4JndZ+QA/1h5VQKw6UdNnz1QxYMUzInyFVLHbrmO7U1NV0nABtRjSf+mZx/bh/mcn9c6ecHs5wv1l6FMvARJBvkZKzy74gUqhWJe94K4icSvDPKwgc+QfhA4nJDQvTuf2PzTEdyHANDpi+feQseLzZtn1jOXZWfLXDQ/JiKr2RU7Htpw/Sjm1sSHbACbfvJRs5NJ8ijJmbmu9w1rZ4hDQDyhGKwIhOvZDlUYT99yx5MPj8G82jcmpgd+zguO/yupuI9q6qsEKw2evGSU4ClhPzbDv4rqB9fftnJTzeFe1KtjuOcS3d2CJT2WMT3zXnLiJTT5mCTuLKt6zU6hofksWXZIBUxJmhED3vtzN9788H3jNvbLIFgOPfoVp90kiVyqVe9BumZhDBajHk7EDEbT9z717H3/GA8/gu7uLAIydntjV5dDb28KAMde+byTrMN/hc6dnV1rfgo0rPKUFZfogO9d/c07L8KywY+4DoCXjuRPKPxkcDhMcsSLBUBSayMQRexrC6ZKkYrCf6C6Zc+y6OzSfdiAawzAlMVHnCXGN5G4ik4WZfutha0/ALGYr1oAcEVAlBUmZa91dMIopw6Y3a/gV5zp5zb9atX6/KIb/WIIydxHv3TJ19iZvE5TnzL0DsrAZuEAW/8+gFKCyopz5v2lq7951w+zKrgxnP4OQeTt+yBeEsq2SwIJLG6nJb6wsYrxESN/TuBuwp6kcFuNtVKbYeQCkqeb2fksJoWGLuK5DTmb0yweVxo3+hRkArMb010DLx+lAwsAadqkC+j4k8hWSrMydamidgCJhvsHntl95rgDJGJObRwaxoWsrYt8m3oabMDGDiCFe5szZ9rkzuojQs6PgFIKY1SaPdH0wwBUhCUqt60+nTDVLTsHJh2DNWv2DHOsiwBJzbPGUrLB+zfw0gZPR3cQAaTa3jXzjAVfYOJ+21If9vPSacwSpr20dXnev3gm4tTrT7feseqC/QqOao4SDr1I577ghG+y4l5TBEmt5xIsdCqViqN5fRqKD++V/i9v7131TIGdmNtrsVXJcAETsQzErV0S/7Y2Z+ZecuLpjvIuCN8Y6sctjcg/W7fFGrU8RUukkriK70/fvP6HD31hHPxCI0Cyha847ThP3ElgulnOS7HFmjUoCErFUVP9mYDLVl939831+dntsHEj47josMcz/K2Ev51r2X0vXbq0svF4/B7NPkSRmZamgYjI74toCNgQShHRFBes/uYdP0N3t+MQHy4AKJ2Vn5I4B4SPKtuZJDeLTr3A0hgATyeJgX8xsHnHxxFyU6r7eFLNHDBmLZ51WBWVF4ngFQZeCNqJdFKpAzWrMUmWuzZK7lozYdAgqfkEBbco2LNNn7wFfajmNpd9QbnhpNDT4+e/bMmnXUfyNq2mVZCVWt+5Roar/rPsJlLXkSR+IP3iU9fe/aZxWgQZc3gURe4C7IjIaElrFmlQB5bpdbCs0HwQR+mR16tqsTGzvLeXRjXgzRVzZ+3Zs2ctRpec3QSQsk2gtmGV0DN1BgkOOv4AqVrFgyDnxKoSKfNkDZcZTwUYS4BUG68pCw7/OkVeG4sqktwOabnG1Dn4UWdrClqthDbtYeUnfyUpBlu9c2DSc0cOkObcQicXm7fIVJYPWgNrpQcpQNJZZxzzEjh+PyRSQ8rB0SDfspB6n++J7JlIoql/x9a+1Z8KeZb7PY1dAGD2C06aKkx7xclZlmo4PJWnOhc1MM08nTg6wrw+ZWZfE0jP+h8/cgfKqjGXgaUl9T3l1ZmzrzxpeuceXKQqbwXsCnGSqFdDyLGUYrEFG9ZC7V9VqSQVP5B+eP3ND/5tFlYa37kU5WlecVq3JPJ1TTXL72SewS65VoNBWREX5ZtvgpP/cao3rvr2Pc+UPr9uMDborVtg3EpB6XFvOHeeVgeuMuMfS0VO11QBVQ+ha0pZLZSsWOo6K4nurf7nqmvu+oPsHjmcTaRSqZylDr8IGxGkrj8JDAKQIksDpRNn0Lf3b9r16QiS0n10FmHgimwOp5901IlCW0LYqUqeAGIhgSMonGJghWJCUI3cS3I3YBtJWUnyAaO/Y/o0d++q3lV766cEJJlk/z45s2Whi/JRly75KDvdX9VOb0WGKBeijOPK2o6k4azHLYmmpz5+zb2b8P4RdmYeaajN4TIavweyCFZy8SUrZOWwXAswADyLyk154J29tg48w4BIMzGV/yyW+cr6Rk1oqIzCK/zuge/tg/NqCrEhl4PCJpq74OsD22R2/8Aze8abQVpBotg9u2UEa9xCbMgY4slHHX6FJHKdmXmCzmqH3VCDw8ZJ0jJdsoSlK9+tYn6Grd45MOnkUTBIP6TjJUUGqQUYY47lEnFqevAApHgHS5YsqayrPHs/RZ5jZnWWj8Xj/lAhtjrOrq07GrDLUD1l2x1rnzoAGKTCc575wuMXVshbKO6EUDHMZJDnm8fvZmYqThxEYN4DZneDvEUFP1XIA0nSuWbDTffuGupC5r3k+LkcqCzUhGcL7CIYL6CTY0DAUgXMfFCqzg9xa9BqsKrrSCra7z+/7uYH3xLBkcdEJMhlyc+Xn/p3rrOyXAeqVYAJWbJYm7tveJAiScicUO/XEuyF2k9A96sB51dvuPbejcNhsxbeu3Qe1B9nxPNJXgTBhZK42aaGkL4SxrPs0Gj1s5uXxDnz9lil0529cvEvd2YAjMN1FDIp+VsR+RCKuSkWqyJyAClHFmThN6GCdGb484HNO/4Z9VJyGwNHIegCBz2tLFnSMS/ZUkn7U0k6E91w0oa9LUNlWfJYz5hcX8bI2JGXLvmk63R/otW4OIcAl7kcJAPgXYdLfKpveOqau/5vXCnUPEgSeRuJT7didDjYImjydE25SkYUj6GtnBLzejrZfsyS0z3pQSQw+9N018C/YN/Cuo0AKcs2pjWVzOfCDRnoC737Jh4gkWhydWUAyWxAdUwBUviUJahMefbw+yjynFiBKfUS5JLILNhUfciW84llpRchb8kmACDlGELKQcYg1Q986cwzF/y9OPceTTUFkXAUACmfg2SAl0Sceb1hyx2rXpnlqRxo4cV555x4nHX4myjuBEt9GsWI0YpFq7VtC//RmCyd0AkoQenDUvVGrCVso4EbSG4lrAoAahAQUwWYbeCRgM0VJ7ND+JgwU4S+m7SMaS9Mu0J83IpZ0DQvlSTxVf/l9Tc9+NtZ+gYmsnqgDpL+2XUmf6YDPo09TYkhfQMjUALpROgk0PxeAbWtBttAYr2BW0DurD0KQwXEVDPMoWCuAXNF5HBxQSTevAXGKERdpNV6ruUgmWlIOOceM33R6p47+/KpNMMpVFUATvemH+XkyktJdiFLxGU+CM1W48Ag6mcqwo93zpk+o3/TjvfnN6l9eERBKbm3DjPQDWIjiLmwGrW5YsXAhnyS8L2518cKj/h6HbOy1AzELF1amT9zz/9Ih3ujVtOUqC9KsxJH3xAKgZmXziRJ+9PPr/n2PRMBjrIQVwLVz5jIJBL/hJBTYhZrsyyGxgv6Ii1rB60c99S34uxeSx2TNbwtazJEteHSGouh9u509z6Do7pVgzRlw3kup4fD8k4GNqja53hYk3J8ayUmG6/Pd1iBAS7gMhBfjWXAksOWzdtljiGsoRo2PvQMRDVj6jG4bOa9YM0ZDQcMHmwWNZFg/Kp6/euYlJ5Dp4PPmjw4Krb2q4n3fgUAcOsBwx5lIS6PbrgNPY88MfeChS81k++wwy2xVKvIml/n68PYNMkC0I+8jnlV87UDiRPhMaAcI1KI7BVo99AVlTA1g1e1LHUhH+a0QSZ23aMrSEiSJH4g/Zf1Nz/0p8B+AEdAKP3vhlvbc/87j7r8VLrO5E91wPtwjDEpKXIo1mjHwipTM/OpxjxbR+EsiswCeYqw/LBitTlngKp51RgOo8sSsRv+oLD9ROk4JYUgzarpm1dfe3dfo3+VYW58BsB7c79thk15YMPh7L+siet5ES7rnDvtf7EIWaPXZAw36ABwepFGoKO5Da3xK7y+F2nu9WNTmRCFqeZecuq8+TN33SgVqYMjNlDVLZo/RCfsmbhEB/zDU23qO4Jid89EbTxpBEkfp+EdCAnKAiC1AmVSm+zNGJks9SklP2XLU3uL9Mfc0KW1jUbxJ+nugY8gU+AeJxSQO16y1bw3jh8SaYE1ayufjUNnrf5kXIC127Vm29fM23UUSUJrGLZkZOrzvriZGpsEL9BC8jr36Z77/GwHA0fDaVV8YJsCkG33PLUCsJ8HydUYOraG+2o5fw15CTILpf3OvH+mHwM/iEDswGPTIkjaeNvqx/fsdS+y1P9AKq4S719znmGovFwiCPomWb83U1NL1WtVvaaaaupTTdPUUp+q96ml3ps3jYwqIYx/DylAMA62bg0GS+lEKBSr+netv/mhP409xmw/zUnLdKfWfvf+P7Oqf58k4igiuf3XWvZ+rKVKB6CZRVbMzDRVtar3Wk1THUhTrea+BlJvVe/hVaPoKQPxwKT0+bGMlraUIgIH9ep/a/W1d38j89uNNPNwF5bD3r1PgfztXJuF0gXUpBRSHyAxtVRE3jx572G3dM45bDHqAn4c1wfZ/DX2ljXl6+1N519yyoXO+Z/RuUu0mhZVxZuTjnPCUjXAqyAJ1T2i+hsPX/ezHcCyid6cUwBOVT9l0KsRlJIzZsaaJoGVoPZGcMShrr9cfNGaJUAUsZQfZuvNcEW6p/9fxzPcQeR0zg2DTyWbWAHhMlDKQdjt8XbCTtPfMbV7xEnFYANhf7em9kDW4ApivURJxgDHfUzZgo4/iDmjZuvKhH/5ZZIwM7UAELRk/RFNmL+hG1EoizcDvruzb93mmtDhgWjhECw7fvXQlo23PfZyraYfoVBiS5K0sPsOdpywJigpEDgwr+kWHbYxASn1YpUW67c0kFArWVAY1CVJYoYnzfRla29+8GNRCNL283iHarxly2TN9ff9vab6OoNtYcUlUdwXg5+McnDbarsrSUgAopKArI8nGIAp6SwLSw61OIuHKwMslYpLQGxiisvXfOOur7VKbh9xQ1m/u//7gP1l7pRuTUDRWjEFDIJcaimE54vDzyfNP+w3UddISg7SbSewRpmWxUUn/pWJ3QLg+ChrnpT5M2u9SxtoykQEqf3BquvuvSsshuX7g7YO4VSPa8zpC2D2EwBJ3DTSuHFajncv2V6tiWa1IUjH8gle+9OMNUqg9v1U5QV+98D1qOttjRcMyTeaGFzMnTmfMuE71hBja+N6aQYAO9bu2GLiLjPVX9BJRxwUX3AvhdEyyz3qctVtDt45Gc7ZPqzgFuC2dLEevHApsjv9Vfm2et0Zq34lOPHmPgloaEpquYZ0ef8WW4uE9IaDgEUDYBtve+zdqvpygz4sFRdbWuWYZw5CYhPDisOyrA7XBsOhhT55CsAjoTARUZ9+ztzAOetueugHObbjwACjy5crurqSp2+4r0dTvEBT/wOpJEnIUbYUjSHXTGFn8IOIDXfJYrCDeraoY4Na6UgSTe3Haepf+OQ3+36A7m7XqvJvVA1l010DHyfsP0hWYldcDEqAM9tyajIsCdQ8yCOE8uXJ82f879R5U+fG9ydwgHVUHuwZ5aTh577o+NOOvPjEH0rFfRQaexJJ/V6sYWGwNZZIpSNJbCD9+9XfuedLWLq0MgF5R0ODpAE8ZGoXGfCXALbFfCrmHF/zjG2o7jfLhYNLJ3ur07t5AGnMbU8M9rSq/lG6p3oZ+vufwDiG1ZpIj+KxxRpJwPxF7w9cxP1PfigA2b1q0/pdAx0vNtVPGFCly+YLfHxWOcDE/KhxmPDZ6q577IHlIKNnBzFGMiyD7F6xar3BvgTYepiuNrWnTXVdeTy2kcur/b9SxKnXtejYfWvYBw+Kar7grLu73abbHrvRp+75lvoPAXwmMAskzFJYvbEvWzVZHmzycJBDMBugUN6Tm3kYVJwIE+dM7U6f6hXrbnrod9bfuHITuuHGvZR/VOC7N0U33Nrv3fvI09+572Xe6x8o7GnpSBKSEsa0mCtlg3X1y5DDMJljtnwylgKkdCQJgWd1IP2b1d/ou+jpa+5+dKicXhnFMHgArrpr4G2mdi3JCizoBbUKNsAKwpVZf7HQNFHNU/hmS5I7phw1463IEq/3qb/SBAKjHvg5XUumzb34xPfRJT+DcxdbqmlMBhGzsoWB3DAU2TeDVaUzqWi1+oWnvnPv+2LTwgNhMWSVbIpU/0lTPdtMPw7wmcjcSI7d8Y1Q0IZ3KGjcxHx2oiPoSCRmtt7MPuilepbuSf8DddmA8dmYKzAW21mE0J5l3zO7Tp9z/Gms0PATMBNz10YPszT2K/RWuJ7868wPSn+P5Ul9w4Zdu1dveye8P9dU/xfAdgoTCpOgTZIXSrL8OKeW+zfM0njNacOz8BGg+1HPa4Onhblm2TgFJ1X8zPia8F87cE7vIz7th7yjZ56z5u14dtdJ5nadngzsPRki76eTMCYcGkSaQRlKNr615WdbdhzQ4bWyW+np8eiG2/Kzh3ds+MnK9xI821L9JICtUnEJnRMLgCU1a0qCtsHgEeuswBCQnAHhm/lAGoBScU4qTtT0LlX97fWHP3jOhh8+dH1M4Zj4/nYjsR54LIPAwKevu+c//YCcpVX/dwask44kiT3cAmgxaI2YHOwkRw46etbMzmm2B1MCMAKsqlX9nKctXf3Nuz6aHRSGIh446m052KTK9M7vIVS25ZS2mStTz74vavswx0GSoTUDQ5PgXqos3/X0lh/lPitLCt/fi0/Q1SU19L5kScec2dXfIPE3ruJOVq9Zw0ZX0zbKHnCxdD8+92KZP4iga1H1182bX3ntGLcSGUvL5/kslETeaMDrSZ7eNIczZfPGRotNbecKi6EmOpZ7xS9Jfjl1A1/FTmwquY5xucfk8EldArm1tLqkTGAv1+LP1FZVt+0+AeNU5j9t/rQj0pRPQTipOHzNCQ0s2cl9VU8c2LzjUYyvZk0BwE46fuZCSfFSEBdBcTbJBSCn56M7pUrtHGSrCkra23buqSzAunW7MTKhyF9IxZ1j3or70hDPmkKkA+lrdj668VocPDpIg9rMM4/pFScvslAm7UrJXBbYUaNQTO3iLX2rbt3HTgP7+8Ar2bXP6lq8IDG+HsBvkFxKJwG+q4WU7KAKjaxXAxrSu2OiYk1M1ooB7UCaSC1i7ygkJeRrm9edZvgRBZ9bNzDvOzVfczCObY6dmXfV6XMrnm8G8EYKT6cQprUx9Vkha015mvliKjY1d2yCRKxFfB0dGZ4ZoKlfDyfXKvBva3r67mu8rmGzUqMCC4Bi1qzDKtVd34HIiwhUQVQKfdBqeIlFoJADDrU+aKEZrQsS3fg2RT6+88nNP25wWphgsBQWzxLU+uUs6lo0abd2vF5o76RzZ5gZYsgw61VX3g8OAKVBHDKr8KFVXWclgKO1ldf2BdZoNArQEwcWiw1gHRKcR3MvpdjFAJ8LYhbK+7WVRN3R2FZ5oxH3C3gLxW6s7q72NcyD8Z4DBGBTp06dN5DYlagJRfrBic2wKgwCR9qWga17rhmH6wyDunhx56RnN3QbbDIILckCK7lWDwcHT+jUqvvG1q1bnx1j8Dbc+QIAnLx41tFQHsmU8wibSeik/CUHGsoNfgwXiBl27jrmuT3RoQznfoKW1HOOuJyQY9SYQoqJWS5PmSP/5GkQcSK4cduKdasnaPzGZ46Hdhx+9pkLnmciv8gVVrAVUAzsSOyvpfrQ1j3TzsCKFdWRUsQH5J5WFCDm3BedcB6NrwD5YgNOFydTMg0kIDr4Rmddkzwhc9qoxf6asZVOAAm6DuQvSHwXkO+vu3nF6jKQcZBaoTcaurqSow/b9iIQV9FwCYCTpSORWqdNzUr4DUVfz6LOS9avVAJGzfxqICnsKQC3EXZ9Vfd+f+23HtpSG8tc37vxBkhFkJTu/jaFF8EQWmiwwJzUW0NEoFQCkLLXehASkrsIg91C4/90JHr9tse3bS/sX0EgUjG2lWkBEG2svXdtMOdduPA4tY7XEfZWOndSWCDwsY2vFMEgGvqr5Ri1ZgBZdZ1JRav67cMmp69b0bOieoCDo8Y5kC/rzGxukiQnKHWJgccKsdCMc0GbCmASQpK1h2EvyB0kNsDsKYM8KWIPpEn6OHZgS8N77kvT47YdWPPFDgXW5aC3eo+2z0jF/XGtFUdLTbOohWShEkhT/5GtfavffYC0Fhm7OZqPFESb/8LjF/qOyplQfwYhZwE4FrAjzTiLRCeF5cUEQbNHAdsF40Yj1pF81MzuksTurOzpXLH6tvu21V6/DIIVY97E9cACSvE+F9515slmeL6JnQXDqQSOMdg8gtMgdEEHW5rG09QMwG4QmwCuBfkw1e705B3T/K4HHr7u4R0FkDlCYDRWAKkOkuZhamXPpP+lk9fCkIJw+UaxjcChhg+aerrVZPiUpFAC62bAKtC+Ccg1O2XTHViJ/lL0XxeJbDzNNNecd+eqLjKhyIYJecSFC+fLgHuxCV5r4Euk4qbEB+TD/dVYo/LWK/l7qhGItfCbgVTpTJym/n+e3jHrD6NU/MECjhrnUp4lsDGaW1n4R/fjfY02F24iQMC+SGTsb7CZ1yUb/X7UBaB31GMdDlqjsd6DHqwTAGcuPX46tPooyTmoycoM8keMLBqhVDt3852r+4ADTBxyTA/LXWzVwmPWZYsPm7TLZqTmZjqxGRCZouYrkRQAyD2muttBntGOdOukAf9soZ1VHhTd2iXo7dVDcBwbxrQ7IJ4SZmxJ95KOrTs6ZkiHn0XDTCfJVC86ydU2VA7AdI8Rz7ikc/PAHn123fV9u5uBf3fsiLFvIHOsSjFqi6Pj8Cn/DvIPg0pl4FbqAAkNoaUyFqmpaasnCAgdHbP66kcJ/BjAjxOTO5NJ+uSmFZt2jsWNHHnmkXPSyqRTDPYCiFxM4PmSuJkxpwSxU7ww9HhpBn0yRPsQIGhRGxRCSsURXj+y5ob73g20jLMerJuvlNxTvnFjKwc51qxg29rWtsb1uRgdWIn+mWcseJdU3D9aqqHJcrmQqDHrnGDwcOJMrW9r36pzfo3WajyEd2Vd5/3o36ebo+hef+jNwWUgbu0KgOmiXh1li5oAusZhPDmmNxuZj46ZU95F8h9rnc1jwl+BaUErYJEDEUBDjhKVhIOQ4fVBPsWA1SQeM/IhkCtJWeNoawnb6hPb41gZGGA6YGrsZKXiTToEOtUEswkcLeBCOJ4M4CSQz6HIbDrG5M+QRFYDe4EVs3oyWTF0VgdNOVCI3Pfh25ROEoADhL5tzXcf+O+s23YbFLStbW0blXXDDUuHKJc6MOv0o881JzcTnBL1y3MbbxEg5fxFKhVJLLV3b+lb9ZFDLLw2Or+3DMCKQcY+5LDaIXQAHs/xBJaBYTy7W4xnz4SMJ8fh/QSA7zh88hUU/hdE5tZDbrGZZkMVWyNgKm3aWgMjtYRujeApgcQkrVzOT64Nxl4jBwgMxF9WKOgEpZPZ3wmL4sghQ8yTgqDmWY8AtmS8mgBRBvYK4Tczg7rO/7+9swmx66zD+PO877lJ2k5MYzTVTKA2ioiQFuwm1uIYpbUoLkSDFMFuulG3LsQi2I07qW6kWLqx4EKLH1SIoVEYW7UaY9MqE4J2oilM5iPJOJ2QzMc579/F+f6406mZ6cy9eX5wmbn3zr33zMD5z3P+7/t/nshbkkwGs0cu/mbixSHYiCeEGCDeceTgO/0Sv0SH7wK8HcFC5vZcphz2ma7OAiJWXBIdvnRmcrOnIIXYYrW28UQA4p17dh4y75923n/CzIzMUov7CqRahyndJNjoKLXG5NO9PZVRP4IOBJht9G6IGlZPdObjgZYJt8zinMXUQUsEobFUWN07hfaUWnGcWQI4ex4WwrNJ7L8+8/yrs/0szoUQ4i3Ucdt794GvgjwM2Ep7Z2tWIR1HYBgFcbfz/g4LoZ0G3d1Bykmcdy4kYfzK3y4clTgSw8xmRXvEAPzywvIkgE/tetfItwE8BqKHWvZal/EwG0PfViZss25XXCaa5CtedQFUD4ZgWQcyAwtUQlJZP5RuI/hm2nzuZFH1vjHLQ5/zVwYzM78j8mZhIYnjb06fOPskgHyEU+JICHHDAsmMX/Y7oo+lnk4dP8SiSKWDVXGILe/s19+q5UXV+DQ64CcA0my3cQkkMZy4TXzv3HnZli5dfdwFftzMTpFF3EBcNTuwSqCcrREmRXTGWDbETMWiqzTxqm4IprFWNVqSLI0Fsc4EJus282kmHhjMYjo61/M+xOHXIV796PSJs0+WjqhaVhNCbJhOWrDVEFuSLFsc4uYtrKZJ85ZYYmYGIiKzWlde8lkjKrVa6gJJF5JwadnHPweAAYkWEWLbCSSgnEby168svrQ8d/V+M/uGmc3DMcrUSVKRRh3Cg2s521qnUikebnk1W+0BopE4XzN0zltBZVpM8WndabPloxaDpOtFEYDXQhy+cvH5ic9Nn/zn2SyBWZuxhRAbjDm4PE0eEVj5ytp9n1dV6wySb+dfZfszAzxJ4KnFU1OXByxaRIhtJ5By8m7SytLs4vdAd68l9jRgMcn8JCt8Jjr0UC3crkspZfkub3qJVfm2Q940lJk1rJPYuLKqt68MzIRRFEUgL1scP75ky/dOnzz7DAC3nuwXIYS4MZ3EzoqHdC9Cv4JYLXRdVTjQ01kcLveSHU8gzQTT0pqQQNogsqgG+OWZhfNLs288CuA+AL8gSKT5ZWlHyaonXh6x0hnwne76scrkReU8r62QsbmAZ2zJsWo/qvacNT+0FGUBwVIbALooigjM22ryBMGPXPztue/Mn5xcyEyr/l+PByGEWA9E9xWm9bkq7LMRu8PWKM2YdAZ8a/rMv+ZwrJh4E2LIT6itEWbF8tquA3vvI8LXSH6B3u1KNQyT7ELGkaWJUD3UkqUbN6pZN2hOurUn0NAxnl+6YNd8jppTbCACU18mz8iRzsGSZMrofhwl8Q+nXnjtdQD5JmwtpwkhNruehtsPjx53kXvIkpAg7cx3F/128K8VeWHVfwvl9eEqe64XVsMv51++8PkBDqUVYiAEUvXEBrIx0ZH37vtQ4sMjJB52zt0JFmvkmVgiM8HUIXiAdQqkYm9Rd2Za52stE0QGwtO7NC04BID4E2HPuGvRT6dO5aF4Mn0UQmyVQLLMEbsUQNVa3xJI7PNvIR38jRm5niXJy8be0fnTk4uQy72QQHrbT/Ay6Xvfvt23jNgDLtjDcO4oPfcRtRH/OBMuLstxS3dYs5z2b5o05rOpa3aikOfAMe8Spe+Zx5x4BwSDwc4BOA7Ys3MvTv6h+C3UMRJCbKVA8u4hC6FIL2hXfPbVQ3VBxQSEZ+Rocfh9L46Ozbw6OQv5HgkJpG0ilADcdtf+OxDCJ8nwGaO735Hvy2NAKtbXWXcnN3pEuwtUCiRDoZ1YNXQMmXGkh3NwmcM2AFhi1+Hwd5C/g7nj+xd6L01MTKwUR52aPSplXgix1QLp04VAKit8fQKFra1KVrkxTVF3MAurgP3gyvXdjyGtdxJHQgJpmxxXvvxWrnUfPHjLbn/tHnh3xMAjJO4BeZCeI3QsR1arwbBkn/v1eBPn00xdCxaMmHaO5wCeDoY/95CcnvnLhfO1Ixwbi24gXE8IITZaIJ1wkX/QktDhjF2KI9aqf2NbggEWwmVzfM4S9/3/nvn3K9XP0J9aSCANgljKTtq97z8wutpbOUTzdxH2RTr/WZgFuKxfVO0g5Ru6i+ZStpTmnDPDj4z4FXrJ69HO5fNz43NXW0cyNhbd5OnLQohtKpD2Hh59Dp4PIrHVYg9Sn2W27BJxFcA1AG8AdgHAK4T7YxQvvTD7j9kZANpPKSSQBux4HcZAjBfeSQV7Prj/UfaipywJMRyj2h6kZgepFE+Ji7wPxgeu/PX8ydpnjY35TBCZrp6EENuZd3/4zvcsM9xGz3XVKpfEcXwrri3eOrWAcdQjj1JhpLonbmqiATveVBSN1wQT8QH0MIokXMSIr/4kK0vvTR/IyiRH6oyU7MExeEzC4TRiAKYQWSHEoDA38Z/pG3i5wxgc9iPtkGuMX4i31ShyswRTwCgSjCMGGawWLMSakqq8pp1mYkzwMyQ4pHayEGIgybcjvJVb3mMPGEecCSPVPyEweB2kdaumplm+lTZHRb5asV3RVA+EEENR+lTMhNgg3DD+UsUk25vViooPkhBCCCFEztB1kAp7pDX0ENahnYQQQghx8zJkHSRjsZZmFQ1kHQqJWYtJzSMhhBBCDLdAolmuhoiGIRoaXSMr59q0B0kIIYQQwyuQ0B5XQ5/7ae/IWuP/QgghhJBAGmJ91H6u35NqIAkhhBBimAXSmqtl1pJSVPdICCGEEE3+B6QtazIaQRI4AAAAAElFTkSuQmCC" alt="CentryOS" width="584" height="140" decoding="async"><span>Works at stores on the CentryOS network that offer <span class="op">One<b>Poket</b></span>.</span></div>
+    </div>
+  </section>
+
+  <!-- ============ HOW IT WORKS ============ -->
+  <section class="feats" id="how">
+    <div class="wrap">
+      <h2 class="feats-h">One account for every checkout.</h2>
+
+      <div class="row">
+        <div class="row-t">
+          <h3>Pay with what you already use</h3>
+          <p>Choose a card, your bank, Apple Pay, Google Pay or Cash App at checkout. Each order is charged to the method you pick.</p>
+        </div>
+        <div class="panel" data-demo="methods" role="img" aria-label="Switching between payment methods in the OnePoket checkout">
+          <div class="w" id="dMethods">
+            <div class="w-brand" data-lockup><small>by CentryOS</small></div>
+            <p class="eyebrow-s">Pay with</p>
+            <div class="mq">
+              <span class="mq-t sel" data-m="card"><i><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><rect x="1.5" y="3.5" width="13" height="9" rx="1.8" stroke="currentColor" stroke-width="1.3"/><path d="M1.5 6.5h13" stroke="currentColor" stroke-width="1.3"/></svg></i>Card</span>
+              <span class="mq-t" data-m="apple"><i><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><rect x="4.5" y="1.5" width="7" height="13" rx="1.8" stroke="currentColor" stroke-width="1.3"/><path d="M7 12.2h2" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg></i>Apple Pay</span>
+              <span class="mq-t" data-m="google"><i><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><rect x="4.5" y="1.5" width="7" height="13" rx="1.8" stroke="currentColor" stroke-width="1.3"/><path d="M7 12.2h2" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg></i>Google Pay</span>
+              <span class="mq-t" data-m="cash"><i style="font-weight:800;font-size:13px">$</i>Cash App</span>
+              <span class="mq-t" data-m="bank"><i><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M2 6.2 8 2.5l6 3.7M3.5 7v5M6.5 7v5M9.5 7v5M12.5 7v5M2 13.5h12" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></i>Bank</span>
+            </div>
+            <button class="w-pay" type="button" tabindex="-1" data-pay>Pay <span class="mono">$23.40</span></button>
+          </div>
+          <button class="replay" type="button" data-replay><i><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M10 6a4 4 0 1 1-1.2-2.85M10 1.5v2.2H7.8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></i>Replay</button>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="row-t">
+          <h3>Verify once. Pay anywhere on the network.</h3>
+          <p>The first time you pay, you confirm your email and check your ID inside the store's checkout. At the next store, you log in and pay. No new ID check.</p>
+        </div>
+        <div class="panel" data-demo="verify" role="img" aria-label="Checks done at one store carry over to a second store">
+          <div class="vstack">
+            <div class="w a">
+              <div class="w-store"><span class="w-logo">IL</span><div><b>Ilé Living</b><small>First payment</small></div><span class="amt">$23.40</span></div>
+              <div style="padding-top:8px">
+                <div class="chk"><i><svg width="10" height="10" viewBox="0 0 16 16" fill="none"><path d="m3.5 8.5 3 3 6-7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></i>Email confirmed</div>
+                <div class="chk"><i><svg width="10" height="10" viewBox="0 0 16 16" fill="none"><path d="m3.5 8.5 3 3 6-7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></i>ID checked</div>
+                <div class="chk"><i><svg width="10" height="10" viewBox="0 0 16 16" fill="none"><path d="m3.5 8.5 3 3 6-7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></i>Paid $23.40</div>
+              </div>
+            </div>
+            <div class="w b">
+              <div class="w-store"><span class="w-logo kola">KB</span><div><b>Kola Books</b><small>A new store</small></div><span class="amt">$12.00</span></div>
+              <div class="carry"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1.5 2.5 3.5v4c0 3.2 2.3 5.6 5.5 7 3.2-1.4 5.5-3.8 5.5-7v-4L8 1.5Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/><path d="m5.6 8 1.7 1.7 3.2-3.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>Logged in as Ada. Already verified.</div>
+              <button class="w-pay" type="button" tabindex="-1" data-pay>Pay <span class="mono">$12.00</span></button>
+            </div>
+          </div>
+          <button class="replay" type="button" data-replay><i><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M10 6a4 4 0 1 1-1.2-2.85M10 1.5v2.2H7.8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></i>Replay</button>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="row-t">
+          <h3>Pay from a link</h3>
+          <p>Some stores sell in chat or send invoices. Open their payment link and pay with <span class="op">One<b>Poket</b></span> the same way.</p>
+        </div>
+        <div class="panel" data-demo="link" role="img" aria-label="Paying a store from a payment link sent in chat">
+          <div class="chat">
+            <div class="chat-h"><span class="w-logo" style="width:30px;height:30px;font-size:10px">IL</span><div><b>Ilé Living</b><small>Business chat</small></div></div>
+            <div class="chat-b">
+              <div class="bub">Hi Ada, your cushions are ready. Here's the link to pay.</div>
+              <div class="bub link"><div class="lk-band"></div><div class="lk"><b>Pay Ilé Living $23.40</b><small>Payment link</small></div></div>
+            </div>
+            <div class="sheet">
+              <div class="w" id="dLink">
+                <div class="w-brand" data-lockup><small>by CentryOS</small></div>
+                <div class="w-collapse"><div>
+                  <div class="w-saved"><span class="w-av">A</span><div><b>Ada</b><small>Visa ending 4242</small></div><span class="chg">Change</span></div>
+                  <button class="w-pay" type="button" tabindex="-1" data-pay>Pay <span class="mono">$23.40</span></button>
+                </div></div>
+                <div class="w-done"><div>
+                  <div class="paid-box">
+                    <span class="tick"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="m3.5 8.5 3 3 6-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                    <div><b>Paid $23.40 to Ilé Living</b><small>Charged to Visa ending 4242</small></div>
+                  </div>
+                </div></div>
+              </div>
+            </div>
+          </div>
+          <button class="replay" type="button" data-replay><i><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M10 6a4 4 0 1 1-1.2-2.85M10 1.5v2.2H7.8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></i>Replay</button>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="row-t">
+          <h3>See the total before you pay</h3>
+          <p>If a store adds a fee, it shows up before you tap Pay. The amount on the button is the amount you're charged.</p>
+        </div>
+        <div class="panel" data-demo="fees" role="img" aria-label="Order total, fee and amount charged shown before paying">
+          <div class="w" id="dFees">
+            <div class="w-store"><span class="w-logo">IL</span><div><b>Ilé Living</b><small>Paying with Visa ending 4242</small></div></div>
+            <div class="sum">
+              <div class="sum-r"><span>Order total</span><span class="v">$23.40</span></div>
+              <div class="sum-r"><span>Card fee</span><span class="v" data-fee>$0.00</span></div>
+              <div class="sum-r em"><span>You pay</span><span class="v" data-tot>$23.40</span></div>
+            </div>
+            <button class="w-pay" type="button" tabindex="-1" data-pay>Pay <span class="mono" data-btn>$23.40</span></button>
+          </div>
+          <button class="replay" type="button" data-replay><i><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M10 6a4 4 0 1 1-1.2-2.85M10 1.5v2.2H7.8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></i>Replay</button>
+        </div>
+      </div>
+
+      <div class="row" id="protection">
+        <div class="row-t">
+          <h3>If an order goes wrong</h3>
+          <p>Contact the store first. If it isn't sorted, contact us and we'll take it from there.</p>
+          <a class="tl" href="#terms">Read the terms</a>
+        </div>
+        <div class="panel" style="min-height:0">
+          <ul class="plist">
+            <li><span class="pi"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.2" stroke="currentColor" stroke-width="1.3"/><path d="M8 4.5V8l2.3 1.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg></span><div><b>Delivery deadlines</b>Stores must deliver physical goods within 30 days and digital goods within 24 hours of payment.</div></li>
+            <li><span class="pi"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M5.5 4 2.5 7l3 3M2.8 7H10a3.5 3.5 0 0 1 0 7H8" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><b>Refunds to how you paid</b>Refunds go back to your original payment method, for up to the amount you paid.</div></li>
+            <li><span class="pi"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 2.5h7l3 3v8H3z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/><path d="M5.5 8h5M5.5 10.5h3.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg></span><div><b>60 days to report a problem</b>Tell us about an unauthorised or incorrect payment within 60 days. We reply within 10 to 15 business days.</div></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section class="faq-sec" id="faq">
+    <div class="wrap">
+      <h2 class="feats-h">Questions</h2>
+      <div class="faq">
+        <div class="q"><button class="q-btn" type="button">What is OnePoket?<svg class="q-sign" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button><div class="q-body"><div><p>A faster way to pay at online stores. Save a payment method once, then pay at any store that offers OnePoket at checkout.</p></div></div></div>
+        <div class="q"><button class="q-btn" type="button">Do I need an account?<svg class="q-sign" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button><div class="q-body"><div><p>Yes. You create one inside the store's checkout the first time you pay. It takes your email and a quick ID check. There's nothing to download.</p></div></div></div>
+        <div class="q"><button class="q-btn" type="button">Why do you check my ID?<svg class="q-sign" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button><div class="q-body"><div><p>Payment rules require us to know who is paying. You do it once, and it carries over to every store on the network.</p></div></div></div>
+        <div class="q"><button class="q-btn" type="button">Does the store see my card details?<svg class="q-sign" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button><div class="q-body"><div><p>No. The store receives your payment, not your card number.</p></div></div></div>
+        <div class="q"><button class="q-btn" type="button">Does OnePoket hold my money?<svg class="q-sign" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button><div class="q-body"><div><p>No. Each order is charged to the payment method you choose at checkout. There's no balance to top up.</p></div></div></div>
+        <div class="q"><button class="q-btn" type="button">Something's wrong with my order. What do I do?<svg class="q-sign" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button><div class="q-body"><div><p>Contact the store first. If it isn't resolved, email <a href="mailto:support@onepoket.com" style="color:var(--brand);font-weight:600">support@onepoket.com</a>. Report an unauthorised or incorrect payment within 60 days.</p></div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CLOSING ============ -->
+  <section class="close">
+    <div class="wrap">
+      <p class="close-st">Checking out shouldn't mean typing in your card at every store. <strong><span class="op">One<b>Poket</b></span> remembers how you pay, so you only verify once and pay in one tap.</strong></p>
+      <div class="close-grid">
+        <div class="ctile"><h3>Look for OnePoket at checkout</h3><a class="btn" href="#how">See how it works</a></div>
+        <div class="ctile"><h3>Questions about a payment?</h3><a class="btn" href="mailto:support@onepoket.com">Contact support</a></div>
+        <div class="ctile"><h3>Use OnePoket for your business</h3><a class="btn" href="https://onepoket.com/business">For businesses</a></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+
+<main id="privacyPage" hidden>
+  <div class="wrap">
+    <header class="mast">
+      <h1>Privacy <em>Policy</em></h1>
+      <div class="mast-meta">
+        <span>Quantum Works LLC</span>
+        <span class="dot"></span>
+        <span><span class="op">One<b>Poket</b></span></span>
+        <span class="dot"></span>
+        <span class="mono">Last updated [DATE]</span>
+      </div>
+    </header>
+
+    <div class="doc">
+      <aside class="toc">
+        <div class="toc-h">Contents</div>
+        <nav class="toc-list">
+          <a href="#p-1"><span class="toc-n">01</span>Who this policy covers</a>
+          <a href="#p-2"><span class="toc-n">02</span>Information we collect</a>
+          <a href="#p-3"><span class="toc-n">03</span>How we use your information</a>
+          <a href="#p-4"><span class="toc-n">04</span>If you access Poket through a partner app</a>
+          <a href="#p-5"><span class="toc-n">05</span>Location data</a>
+          <a href="#p-6"><span class="toc-n">06</span>Cookies and social media</a>
+          <a href="#p-7"><span class="toc-n">07</span>Who we share your information with</a>
+          <a href="#p-8"><span class="toc-n">08</span>External links</a>
+          <a href="#p-9"><span class="toc-n">09</span>How long we keep your information</a>
+          <a href="#p-10"><span class="toc-n">10</span>Your rights</a>
+          <a href="#p-11"><span class="toc-n">11</span>Security</a>
+          <a href="#p-12"><span class="toc-n">12</span>Age requirements</a>
+          <a href="#p-13"><span class="toc-n">13</span>International data transfers</a>
+          <a href="#p-14"><span class="toc-n">14</span>Changes to this policy</a>
+          <a href="#p-15"><span class="toc-n">15</span>Who we are and how to contact us</a>
+        </nav>
+      </aside>
+
+      <div class="clauses">
+        <section class="clause" id="p-1">
+          <h2><span class="clause-n">01</span>Who this policy covers</h2>
+<p>Quantum Works LLC, a Wyoming limited liability company with offices at 166 Geary Street, San Francisco, CA 94108 (&ldquo;Quantum Works,&rdquo; &ldquo;we,&rdquo; &ldquo;us&rdquo;), is committed to protecting your privacy. This policy explains how we collect, use, and share information when you use Poket, our digital wallet, whether accessed directly through our app or through a partner business&rsquo;s app that has embedded Poket (see <a href="#p-4">Section 4</a>). This policy applies to anyone interacting with Poket: registered users, prospective users, and merchant/partner contacts.</p>
+<p>You should read this policy alongside our <a href="#terms">End User Terms of Use</a>. We may update this policy from time to time; check back regularly.</p>
+        </section>
+        <section class="clause" id="p-2">
+          <h2><span class="clause-n">02</span>Information we collect</h2>
+<p><strong>Information you give us:</strong></p>
+<ul>
+<li>Name, email address, phone number</li>
+<li>Date of birth (self-attested at registration; verified against government ID at Tier 1)</li>
+<li>Government-issued ID and liveness data (Tier 1)</li>
+<li>Proof of address (Tier 2)</li>
+<li>Source of Funds Declaration and supporting documents (Tier 3)</li>
+<li>Payment details (linked bank account or card)</li>
+</ul>
+<p><strong>Information we collect automatically:</strong></p>
+<ul>
+<li>Device information, browser, IP address, and internet connection</li>
+<li>Approximate location, collected at every login and at every transaction (see <a href="#p-5">Section 5</a>)</li>
+<li>The pages you visit and how you arrived at them</li>
+<li>Session data and timestamps for every login, deposit, and withdrawal</li>
+</ul>
+<p><strong>Information from third parties:</strong></p>
+<ul>
+<li>Identity, liveness, and document verification data from our identity verification partner</li>
+<li>Sanctions, PEP, and adverse media screening results from our identity verification partner&rsquo;s AML screening service</li>
+<li>Bank-link risk signals from our bank-link risk partner</li>
+<li>Card transaction risk signals from our payment processing partners</li>
+<li>Blockchain wallet-address screening results from our blockchain screening partner</li>
+</ul>
+<p><strong>Public blockchain data:</strong> Digital Asset transfers are recorded on public blockchain networks. That data (wallet addresses, amounts, and timestamps) is public and cannot be altered or deleted by us or by you. We screen wallet addresses and transactions using blockchain analytics.</p>
+<p><strong>Information we do not collect:</strong> we do not track or collect sensitive categories such as race, religion, ethnicity, or political opinion.</p>
+        </section>
+        <section class="clause" id="p-3">
+          <h2><span class="clause-n">03</span>How we use your information</h2>
+<p>We use your information to:</p>
+<ul>
+<li>Verify your identity and age, and determine your account tier</li>
+<li>Screen you and your transactions against sanctions, PEP, and watchlists</li>
+<li>Enforce geolocation restrictions at login and at the time of each transaction</li>
+<li>Process deposits, withdrawals, and transfers through our banking and payment partners</li>
+<li>Detect and prevent fraud, including device and velocity monitoring</li>
+<li>Monitor for money-laundering patterns and comply with the Bank Secrecy Act and other applicable law</li>
+<li>Respond to regulator, law enforcement, or partner-bank requests</li>
+<li>Manage your account, provide customer support, and send service notifications (e.g., transaction confirmations, security alerts)</li>
+<li>Improve our products, with your information analyzed on an aggregated basis where possible</li>
+</ul>
+<p>We rely on our contract with you, our legal obligations (e.g., AML/KYC law), and, in limited cases, our legitimate interests (e.g., fraud prevention, product improvement) as the basis for these uses. Where we rely on legitimate interests, you may object; contact us and we will consider your request, though there may be legal reasons we need to continue certain processing.</p>
+        </section>
+        <section class="clause" id="p-4">
+          <h2><span class="clause-n">04</span>If you access Poket through a partner app</h2>
+<p>You may access Poket directly through our app, or through a third-party business&rsquo;s app that has integrated Poket as an embedded wallet. In the embedded case, the partner business may see information related to your activity within its own app, but we remain the sole operator of identity verification, screening, geolocation, and transaction monitoring, and independently collect and process the information in this policy regardless of which app you used. The partner business does not receive your verification documents or compliance screening results; those are handled solely by us and our verification providers. The partner business is responsible for its own use of information it collects, under its own privacy policy. We do not use information obtained through a partner&rsquo;s platform to market to you or to offer you services that compete with that partner&rsquo;s platform during our relationship with the partner and for 24 months after it ends.</p>
+        </section>
+        <section class="clause" id="p-5">
+          <h2><span class="clause-n">05</span>Location data</h2>
+<p>We determine your location using IP geolocation, VPN/proxy/Tor detection, and device signals (OS location where permitted, timezone, language, carrier). We check your location at every login and at every transaction. If you&rsquo;re in a restricted jurisdiction, you&rsquo;ll be blocked from proceeding, and the attempt is logged.</p>
+        </section>
+        <section class="clause" id="p-6">
+          <h2><span class="clause-n">06</span>Cookies and social media</h2>
+<p>Cookies are small files created in your browser when you visit our website. We use cookies to operate and personalize our website; we do not use cookies for advertising.</p>
+<p>We publish content on social media platforms (e.g., LinkedIn, Twitter/X) through both organic and paid methods. We may place social media &ldquo;tags&rdquo; on our website to understand engagement and avoid showing you offers you&rsquo;ve already acted on (e.g., removing a signup prompt if you&rsquo;re already a user). We do not have direct access to your personal data on social media platforms.</p>
+        </section>
+        <section class="clause" id="p-7">
+          <h2><span class="clause-n">07</span>Who we share your information with</h2>
+<ul>
+<li><strong>Banking and payment partners</strong> to process your transactions</li>
+<li>Our <strong>identity verification partner</strong> for identity verification and AML/sanctions screening</li>
+<li>Our <strong>bank-link risk partner</strong> for bank-link risk assessment</li>
+<li>Our <strong>blockchain screening partner</strong> for blockchain address screening</li>
+<li><strong>Regulators, auditors, and law enforcement</strong>, where required by law, contract, or a valid request</li>
+<li>Other service providers who help us operate Poket (e.g., customer support, analytics), bound by contract to keep your information secure and limited in use</li>
+</ul>
+<p>We and our banking partners retain and use transaction and account data for settlement, disputes, fraud prevention, tax, and regulatory purposes. Each of us acts as an independent controller of the information we collect.</p>
+<p>We do not sell your personal information. Where we don&rsquo;t have a legitimate business or legal reason to share your information, we will ask for your consent first.</p>
+        </section>
+        <section class="clause" id="p-8">
+          <h2><span class="clause-n">08</span>External links</h2>
+<p>This policy applies only to our use of data. Our website, app, and Poket Widget may link to or appear within external sites and apps. We are not responsible for the privacy practices of those third parties, and we recommend reviewing their policies directly.</p>
+        </section>
+        <section class="clause" id="p-9">
+          <h2><span class="clause-n">09</span>How long we keep your information</h2>
+<p>We retain account, transaction, and verification records for at least 5 years, consistent with Bank Secrecy Act recordkeeping requirements, longer than the general &ldquo;as long as needed for the service&rdquo; standard that applies to non-compliance data (e.g., customer support records). Logs are retained in an append-only, tamper-evident format and can be exported in response to a valid regulator, partner-bank, or law-enforcement request within 48 hours.</p>
+        </section>
+        <section class="clause" id="p-10">
+          <h2><span class="clause-n">10</span>Your rights</h2>
+<p>Depending on your jurisdiction (e.g., under GDPR or CCPA), you have the right to ask us for the information we hold about you, and to ask us to correct, delete, or stop processing it. To exercise these rights, contact us with the subject line &ldquo;Information Access Request&rdquo; (see <a href="#p-15">Section 15</a>).</p>
+<p>Note that full erasure or cessation of processing may not always be possible, for example where we&rsquo;re required to retain records for regulatory compliance (<a href="#p-9">Section 9</a>) or where you remain an active user requiring ongoing service.</p>
+        </section>
+        <section class="clause" id="p-11">
+          <h2><span class="clause-n">11</span>Security</h2>
+<p>We use industry-standard safeguards to protect your information, including hash-chained, tamper-evident logging of account and transaction activity, and we limit access to your information to those bound by confidentiality obligations. If unauthorized access to your personal information affects you, we will notify you as the law requires. No system is completely secure, and we cannot guarantee absolute security.</p>
+        </section>
+        <section class="clause" id="p-12">
+          <h2><span class="clause-n">12</span>Age requirements</h2>
+<p>Poket is not intended for anyone under 18. We verify age at registration (self-attestation), again at first deposit (against your verified government ID), and again at withdrawal. Accounts that fail age verification are blocked.</p>
+        </section>
+        <section class="clause" id="p-13">
+          <h2><span class="clause-n">13</span>International data transfers</h2>
+<p>We may transfer your information to, and process it in, countries other than your own. Where required, we rely on appropriate safeguards such as Standard Contractual Clauses to protect your information in these transfers.</p>
+        </section>
+        <section class="clause" id="p-14">
+          <h2><span class="clause-n">14</span>Changes to this policy</h2>
+<p>We may update this policy from time to time, including in response to changes in law, regulatory guidance, or our services. Material changes will be communicated to you before they take effect.</p>
+        </section>
+        <section class="clause" id="p-15">
+          <h2><span class="clause-n">15</span>Who we are and how to contact us</h2>
+<p>Quantum Works LLC, a Wyoming limited liability company
+166 Geary Street, San Francisco, CA 94108</p>
+<p>Privacy and customer service: <a href="mailto:support@onepoket.com">support@onepoket.com</a>
+Legal notices: <a href="mailto:legal@onepoket.com">legal@onepoket.com</a></p>
+        </section>
+      </div>
+    </div>
+  </div>
+</main>
+
+<main id="termsPage" hidden>
+  <div class="wrap">
+   <div data-doc="customer">
+    <header class="mast">
+      <h1>Terms of <em>Use</em></h1>
+      <div class="mast-meta">
+        <span>Quantum Works LLC</span>
+        <span class="dot"></span>
+        <span><span class="op">One<b>Poket</b></span></span>
+        <span class="dot"></span>
+        <span class="mono">Last updated [DATE]</span>
+      </div>
+    </header>
+
+    <div class="doc">
+      <aside class="toc">
+        <div class="toc-h">Contents</div>
+        <nav class="toc-list">
+          <a href="#t-1"><span class="toc-n">01</span>Who we are</a>
+          <a href="#t-2"><span class="toc-n">02</span>Eligibility</a>
+          <a href="#t-3"><span class="toc-n">03</span>Registration, acceptance, and account responsibilities</a>
+          <a href="#t-4"><span class="toc-n">04</span>Accessing Poket through a partner platform</a>
+          <a href="#t-5"><span class="toc-n">05</span>Account tiers and verification</a>
+          <a href="#t-6"><span class="toc-n">06</span>How your money and Digital Assets are held</a>
+          <a href="#t-7"><span class="toc-n">07</span>Payments, transfers, and conversions</a>
+          <a href="#t-8"><span class="toc-n">08</span>Purchases from merchants</a>
+          <a href="#t-9"><span class="toc-n">09</span>Monitoring, holds, and account restrictions</a>
+          <a href="#t-10"><span class="toc-n">10</span>Fees</a>
+          <a href="#t-11"><span class="toc-n">11</span>Your responsibilities and prohibited uses</a>
+          <a href="#t-12"><span class="toc-n">12</span>Intellectual property</a>
+          <a href="#t-13"><span class="toc-n">13</span>Third-party services</a>
+          <a href="#t-14"><span class="toc-n">14</span>Disclaimers, limitation of liability, and indemnity</a>
+          <a href="#t-15"><span class="toc-n">15</span>Force majeure</a>
+          <a href="#t-16"><span class="toc-n">16</span>Governing law and disputes</a>
+          <a href="#t-17"><span class="toc-n">17</span>Refunds, cancellations, and returns</a>
+          <a href="#t-18"><span class="toc-n">18</span>Notices and electronic communications</a>
+          <a href="#t-19"><span class="toc-n">19</span>Changes, termination, and general terms</a>
+          <a href="#t-20"><span class="toc-n">20</span>Privacy</a>
+          <a href="#t-21"><span class="toc-n">21</span>Contact and customer service</a>
+        </nav>
+      </aside>
+
+      <div class="clauses">
+        <section class="clause" id="t-1">
+          <h2><span class="clause-n">01</span>Who we are</h2>
+<p>These End User Terms of Use (the &ldquo;Terms&rdquo;) apply to your use of Poket, a digital wallet and payments product operated by Quantum Works LLC, a Wyoming limited liability company with offices at 166 Geary Street, San Francisco, CA 94108 (&ldquo;Quantum Works,&rdquo; &ldquo;we,&rdquo; &ldquo;us,&rdquo; &ldquo;our&rdquo;). Quantum Works is the legal entity you contract with when you use Poket.</p>
+<p>You can use Poket directly through our app and website, or through a partner platform that has embedded Poket (see <a href="#t-4">Section 4</a>).</p>
+<p>Poket is not a bank. Fiat accounts are provided by our program bank, cards by our issuing bank, and payment rails and card acceptance by our banking and payment processing partners. Where a service requires a third party to hold Digital Assets, a licensed custodian does so. Poket is not a licensed broker-dealer, investment adviser, or gaming operator, and does not offer those services.</p>
+<p>In these Terms, &ldquo;Digital Asset&rdquo; means any stablecoin, cryptocurrency, or token we support, and &ldquo;Business Day&rdquo; means any day other than a Saturday, Sunday, or bank holiday in San Francisco, California.</p>
+        </section>
+        <section class="clause" id="t-2">
+          <h2><span class="clause-n">02</span>Eligibility</h2>
+<p>You must be at least 18 years old to register. We verify age at registration (self-attestation), again at your first deposit (using your government-issued ID), and again at withdrawal, against your verified date of birth. Accounts that fail age verification are blocked and flagged for review.</p>
+<p>You must also be located in a jurisdiction where Poket is available. We check your location at login and again at every transaction. Some jurisdictions are blocked by law (including jurisdictions subject to comprehensive U.S. sanctions) and cannot be unblocked.</p>
+        </section>
+        <section class="clause" id="t-3">
+          <h2><span class="clause-n">03</span>Registration, acceptance, and account responsibilities</h2>
+<p>You accept these Terms when you create an account and again when you first fund your account. We keep a record of each acceptance.</p>
+<p>You are solely responsible for the confidentiality and use of your account, including your login credentials. You agree to notify us immediately if you become aware of loss, theft, or unauthorized use of your credentials. You will provide accurate, complete registration information and keep it up to date. We may monitor and record account activity to confirm compliance with these Terms.</p>
+<p>Each account is for your personal use only. You may not share your login credentials, and we may suspend or cancel your access if you do, or if you breach these Terms.</p>
+        </section>
+        <section class="clause" id="t-4">
+          <h2><span class="clause-n">04</span>Accessing Poket through a partner platform</h2>
+<p>You may access Poket through a third-party business&rsquo;s app or website that has integrated Poket as an embedded wallet. The partner business may control the onboarding presentation and branding you see and owns its own relationship with you. We own and operate all compliance and account controls described in these Terms (identity verification, tiering, geolocation, transaction monitoring, and limits), identically to the standalone app. Your contractual relationship for wallet and compliance matters is with Quantum Works. The partner business does not configure, alter, or bypass any of these controls. The app identifies the provider of each service.</p>
+        </section>
+        <section class="clause" id="t-5">
+          <h2><span class="clause-n">05</span>Account tiers and verification</h2>
+<p>Poket uses a tiered verification model. Each tier requires additional identity information and unlocks additional services and transaction limits:</p>
+<ul>
+<li><strong>Tier 0 (Registered):</strong> Email, phone, and self-attested age. Limited monetary activity.</li>
+<li><strong>Tier 1 (Basic):</strong> Government ID and liveness check (via our identity verification partner), plus sanctions and watchlist screening. Unlocks deposits, withdrawals, wallet, and peer-to-peer transfers.</li>
+<li><strong>Tier 2 (Standard):</strong> Proof of address, in addition to Tier 1. Unlocks higher transaction limits.</li>
+<li><strong>Tier 3 (Enhanced):</strong> Source of Funds declaration and additional document validation, in addition to Tier 2. Unlocks virtual account details, wire transfers, virtual cards, and the highest transaction limits.</li>
+</ul>
+<p>Transaction limits at each tier are set by us and may change. Current limits are available in the app.</p>
+<p>We screen you against sanctions and watchlists at verification and monthly thereafter. If you are flagged as a sanctions match, your account will be restricted and, where required, reported to regulators.</p>
+        </section>
+        <section class="clause" id="t-6">
+          <h2><span class="clause-n">06</span>How your money and Digital Assets are held</h2>
+<p><strong>Fiat accounts.</strong> Fiat balances are held by our program bank in accounts for the benefit of account holders. Poket provides the technology, ledger, and program management. If our ledger and the bank&rsquo;s records differ, the bank&rsquo;s records prevail. Fiat balances bear no interest unless we tell you otherwise and are not deposits with Quantum Works. Any deposit insurance depends on the program bank&rsquo;s terms, which are available in the app.</p>
+<p><strong>Non-custodial wallet.</strong> Your primary wallet is a non-custodial wallet. You alone generate and control the private keys and recovery phrase. Poket provides the wallet software and interface only. We never hold, control, or have access to your keys or the Digital Assets in your wallet. We cannot freeze, hold, reverse, or restrict access to a non-custodial wallet, including if we suspend your account, end these Terms, or become insolvent. You are solely responsible for safeguarding your keys. We cannot recover lost keys or reverse transfers from your wallet.</p>
+<p><strong>Temporary custody.</strong> Where a service requires a third party to hold Digital Assets (for example during conversion, settlement, screening, or a pending transfer), they are held temporarily in a custodial wallet with a licensed custodian under its terms. A custodial wallet is not a place to store Digital Assets. We move the balance to your non-custodial wallet, or convert it to fiat, within 1 Business Day after the reason for custody ends. If our ledger and the custodian&rsquo;s records differ, the custodian&rsquo;s records prevail.</p>
+<p><strong>Risks.</strong> Digital Assets are not deposits and are not insured by any government agency. Values fluctuate, and a stablecoin may lose its peg. We do not provide yield, staking, lending, or investment products, and we do not guarantee any return.</p>
+        </section>
+        <section class="clause" id="t-7">
+          <h2><span class="clause-n">07</span>Payments, transfers, and conversions</h2>
+<p>Poket supports ACH, debit and credit card, pay by bank, push to card, RTP, wire, and stablecoin transfers, depending on your tier and the features enabled for you. Each method has its own limits and cut-off times, shown in the app. We may decline, hold, or reverse a transaction for fraud, risk, or compliance review.</p>
+<p><strong>Finality.</strong> Transfers between Poket accounts are final when posted to our ledger. A Digital Asset transfer is final once confirmed on the relevant blockchain network. You are responsible for the accuracy of the destination address.</p>
+<p><strong>Card-funded purchases of Digital Assets.</strong> Card-funded purchases are limited to USD 10,000 per user per day, and identity verification is required before cumulative purchases exceed USD 500. We may approve higher limits after enhanced due diligence and may reinstate the limit at any time. Converting Digital Assets to fiat above USD 1,000 requires enhanced verification and source of funds evidence.</p>
+<p><strong>Before you confirm a purchase of Digital Assets,</strong> we show you: (a) a description of the Digital Asset, including its type; (b) the total cost in fiat currency, including all fees, charges, and taxes; (c) the destination wallet address for you to confirm; (d) a statement that the Digital Asset&rsquo;s value may fluctuate; and (e) any restriction on return, refund, or cancellation. The same information appears on your receipt.</p>
+<p><strong>Conversions.</strong> Where a transaction needs a currency or asset conversion, we convert at our rate at the time of execution plus a margin, which is shown before you confirm.</p>
+        </section>
+        <section class="clause" id="t-8">
+          <h2><span class="clause-n">08</span>Purchases from merchants</h2>
+<p>When you pay a merchant with Poket, the checkout page names the seller of record, which is either Quantum Works or the merchant. Where Quantum Works is the seller of record, we issue your receipt and, where required, a tax invoice, we collect and remit applicable taxes, and the charge appears on your statement as &ldquo;QUANTUM WORKS*&rdquo; followed by the merchant&rsquo;s trading name. In every case the merchant is responsible for its products, including their description, price, quality, legality, and delivery. We do not make, store, inspect, or ship products and give no warranty for them. Contact the merchant first about an order. Merchants are required to deliver within the time stated at checkout, and in any case within 30 days for physical goods or 24 hours for digital goods after payment is captured. Refunds, returns, and cancellations are covered in <a href="#t-17">Section 17</a>.</p>
+        </section>
+        <section class="clause" id="t-9">
+          <h2><span class="clause-n">09</span>Monitoring, holds, and account restrictions</h2>
+<p>We monitor transactions for fraud and money-laundering patterns, including structuring, rapid deposit-withdrawal cycling, and unusual geographic activity. We, our program bank, and our custodian may hold, decline, restrict, or close your account or a custodial balance, return funds, or decline any instruction where law, network rules, or risk requires, and may act on legal process without notice to you. This does not apply to your non-custodial wallet (<a href="#t-6">Section 6</a>).</p>
+<p>We may contact you directly where a service, network rules, or law requires, including about disputes, error resolution, account notices, and legal notices. We log account and transaction activity and retain those records for at least 5 years; we may be required to produce them to regulators or law enforcement.</p>
+        </section>
+        <section class="clause" id="t-10">
+          <h2><span class="clause-n">10</span>Fees</h2>
+<p>Poket may charge fees for certain transactions and services. Applicable fees are disclosed to you before you complete a transaction. Network, bank, card issuer, processor, and on-chain network (gas) fees are passed through at cost. We will give you at least 30 days&rsquo; notice before any fee increase takes effect.</p>
+        </section>
+        <section class="clause" id="t-11">
+          <h2><span class="clause-n">11</span>Your responsibilities and prohibited uses</h2>
+<p>You agree to provide accurate information, keep your credentials secure, and comply with applicable law. You are responsible for transactions made from your account unless caused by our error.</p>
+<p>You must not use Poket:</p>
+<ul>
+<li>for money laundering, terrorist financing, fraud, or sanctions evasion, or to deal with sanctioned persons or from embargoed jurisdictions;</li>
+<li>to hold funds for third parties or to operate a payment, money transmission, or currency exchange business;</li>
+<li>for adult content or services, illegal drugs, weapons, counterfeit or stolen goods, pyramid schemes, or unregistered investment products;</li>
+<li>for gambling, lotteries, or sweepstakes without our written approval and the required licenses; or</li>
+<li>in any way that breaches network rules or the law.</li>
+</ul>
+        </section>
+        <section class="clause" id="t-12">
+          <h2><span class="clause-n">12</span>Intellectual property</h2>
+<p>The content and design of our app, website, and any material we provide to you (collectively, &ldquo;Poket Content&rdquo;) is our property or that of our licensors. You may not reproduce, modify, or commercially exploit Poket Content, or use our trademarks or trade names, without our prior written permission. Our software is proprietary; you may not copy, reverse engineer, or modify it except as expressly permitted by these Terms.</p>
+        </section>
+        <section class="clause" id="t-13">
+          <h2><span class="clause-n">13</span>Third-party services</h2>
+<p>Poket relies on third parties to provide parts of the service, including our identity verification partner, our bank-link risk partner, our blockchain screening partner, and our banking, custody, and card partners. Your use of Poket may be subject to those providers&rsquo; own terms.</p>
+        </section>
+        <section class="clause" id="t-14">
+          <h2><span class="clause-n">14</span>Disclaimers, limitation of liability, and indemnity</h2>
+<p>Except where these Terms say otherwise, Poket and Poket Content are provided &ldquo;as is&rdquo; and &ldquo;as available&rdquo; to the fullest extent permitted by law. Quantum Works and its partners disclaim all implied warranties, including merchantability, fitness for a particular purpose, title, and non-infringement. We do not warrant that Poket will be uninterrupted, error-free, or secure, that any transaction will be approved, settled, or free from dispute, or that any Digital Asset will hold its value. We give no warranty for merchants&rsquo; products or any third-party service.</p>
+<p>To the maximum extent permitted by law, neither you nor Quantum Works is liable for indirect, incidental, special, consequential, or punitive damages, or for lost profits, revenue, goodwill, or data. Our total liability to you is limited to the greater of the fees you paid us in the 12 months before the event and USD 25,000. These limits do not apply to fraud, gross negligence, or willful misconduct, or to amounts you owe us. We are not liable for loss caused by blockchain network failure, protocol change, fork, smart-contract defect, or loss of value of a Digital Asset, except where caused by our gross negligence or willful misconduct.</p>
+<p>You agree to defend, indemnify, and hold harmless Quantum Works, its affiliates, partners, officers, employees, and agents from claims, losses, fines, and expenses, including reasonable legal fees, arising from your breach of these Terms, network rules, or law, or from any transfer or instruction you originate.</p>
+        </section>
+        <section class="clause" id="t-15">
+          <h2><span class="clause-n">15</span>Force majeure</h2>
+<p>Neither you nor Quantum Works is liable for delay or failure to perform (other than payment obligations) caused by events beyond reasonable control, including natural disaster, war, civil unrest, government action, labor dispute, network, blockchain, or partner outage, or a cyberattack not preventable by industry-standard security, provided the affected party gives prompt notice and mitigates.</p>
+        </section>
+        <section class="clause" id="t-16">
+          <h2><span class="clause-n">16</span>Governing law and disputes</h2>
+<p>These Terms are governed by the law of the State of California, without regard to conflict-of-law principles.</p>
+<p><strong>Informal resolution.</strong> Write to us first (see <a href="#t-21">Section 21</a>). We will try to resolve your complaint within 30 days.</p>
+<p><strong>Arbitration.</strong> If a dispute is not resolved, it will be finally decided by binding individual arbitration before a single arbitrator appointed by JAMS in San Francisco, California, under its rules. Any court may enforce the award. Each party bears its own legal fees unless the arbitrator finds bad faith. You and Quantum Works may bring claims only in an individual capacity, and not as a plaintiff or class member in any class or representative action.</p>
+<p><strong>Exceptions.</strong> Either party may seek emergency injunctive relief from a court to protect confidential or personal information or intellectual property, and either party may bring a claim in small claims court if it qualifies. For matters not subject to arbitration, the state and federal courts in San Francisco, California have exclusive jurisdiction, and each party waives jury trial.</p>
+<p><strong>Time limit.</strong> To the extent permitted by law, a claim must be commenced within 12 months after it arises.</p>
+        </section>
+        <section class="clause" id="t-17">
+          <h2><span class="clause-n">17</span>Refunds, cancellations, and returns</h2>
+<p><strong>Purchases from merchants.</strong> Each merchant must maintain a refund, return, and cancellation policy, which is shown at checkout. Refunds are processed on the merchant&rsquo;s instruction, or by us where law or network rules require or to resolve a valid complaint. Refunds are paid only to the original payment method, for no more than the original amount, and never in cash or to a different payment method unless the original is closed and network rules permit. A refund can take 5 to 10 Business Days to appear, depending on your bank or card issuer.</p>
+<p><strong>Failed or erroneous transactions.</strong> If a transaction fails or is processed incorrectly because of an error by us or our partners, we will correct or reverse it within 5 Business Days after the error is identified.</p>
+<p><strong>Disputed transactions.</strong> Tell us within 60 days of the transaction date if you believe a transaction was unauthorized or processed in error. We will investigate and respond within 10 to 15 Business Days of receiving your report and, where warranted, reverse the transaction. Card-funded transactions are also subject to your card issuer&rsquo;s dispute process. Nothing here limits your rights under law.</p>
+<p><strong>Digital Asset transfers.</strong> A Digital Asset transfer is final once confirmed on the blockchain network. No reversal or refund is available after that except at our discretion, so check the destination address before you confirm.</p>
+<p><strong>Cancelling your account.</strong> You may close your account at any time by contacting customer service (<a href="#t-21">Section 21</a>). We will return your remaining fiat balance to your verified bank account or original funding source within 10 Business Days after closure, less any amounts you owe, and subject to holds required by law or by a pending dispute or investigation. Your non-custodial wallet remains yours. Any custodial balance is handled as <a href="#t-6">Section 6</a> describes.</p>
+<p><strong>Fees.</strong> Fees for services already provided are not refundable, except where we billed in error, where the transaction failed because of our error, or where law requires.</p>
+        </section>
+        <section class="clause" id="t-18">
+          <h2><span class="clause-n">18</span>Notices and electronic communications</h2>
+<p>We may send you statements, policy updates, and operational communications by email to your account address or through the app, and you consent to receive them electronically.</p>
+<p>Legal notices to us (including notices of breach, indemnity claims, and disputes) must be in writing and delivered by courier or registered mail to Quantum Works LLC, Attn: Legal / Compliance, 166 Geary Street, San Francisco, CA 94108, or by email to <a href="mailto:legal@onepoket.com">legal@onepoket.com</a>.</p>
+        </section>
+        <section class="clause" id="t-19">
+          <h2><span class="clause-n">19</span>Changes, termination, and general terms</h2>
+<p><strong>Changes.</strong> We may update these Terms on 30 days&rsquo; notice by email or in the app, or immediately where a network, partner, or law requires. If you keep using Poket after the effective date, you accept the changes. If you do not agree, close your account.</p>
+<p><strong>Termination.</strong> You may close your account at any time. We may suspend or terminate your access at any time, including if a network, partner, or regulator requires it, if you breach these Terms, or if we reasonably believe your activity is fraudulent or illegal. Closing your account does not affect your non-custodial wallet. Provisions that by their nature should survive termination do so.</p>
+<p><strong>Priority.</strong> If these Terms conflict with a rule required by a payment network, bank partner, or acquirer, that rule applies.</p>
+<p><strong>General.</strong> These Terms are the entire agreement between you and Quantum Works about Poket. You may not assign them; we may assign them to an affiliate or to a purchaser of our business, and may subcontract to our partners. If a provision is unenforceable, it is modified to the minimum extent necessary and the rest continues. A waiver is effective only in writing. You and Quantum Works are independent parties, and nothing here creates a partnership or agency.</p>
+        </section>
+        <section class="clause" id="t-20">
+          <h2><span class="clause-n">20</span>Privacy</h2>
+<p>Information you provide is used in accordance with our <a href="#privacy">Privacy Policy</a>, which you should read alongside these Terms.</p>
+        </section>
+        <section class="clause" id="t-21">
+          <h2><span class="clause-n">21</span>Contact and customer service</h2>
+<p>Quantum Works LLC, a Wyoming limited liability company
+166 Geary Street, San Francisco, CA 94108</p>
+<p>Customer service: <a href="mailto:support@onepoket.com">support@onepoket.com</a>
+Legal notices: <a href="mailto:legal@onepoket.com">legal@onepoket.com</a></p>
+        </section>
+      </div>
+    </div>
+   </div>
+
+   <div data-doc="partners" hidden>
+    <header class="mast">
+      <h1>Payment Partners <em>Terms</em></h1>
+      <div class="mast-meta">
+        <span>Quantum Works LLC</span>
+        <span class="dot"></span>
+        <span><span class="op">One<b>Poket</b></span></span>
+        <span class="dot"></span>
+        <span class="mono">Last updated [DATE]</span>
+      </div>
+    </header>
+
+    <div class="doc">
+      <aside class="toc">
+        <div class="toc-h">Contents</div>
+        <nav class="toc-list">
+          <a href="#pt-1"><span class="toc-n">01</span>Who provides the Services</a>
+          <a href="#pt-2"><span class="toc-n">02</span>Acceptance of Partner Terms</a>
+          <a href="#pt-3"><span class="toc-n">03</span>Order of terms</a>
+          <a href="#pt-4"><span class="toc-n">04</span>Funds held by Payment Partners</a>
+          <a href="#pt-5"><span class="toc-n">05</span>Information sharing</a>
+          <a href="#pt-6"><span class="toc-n">06</span>Changes to Payment Partners</a>
+          <a href="#pt-7"><span class="toc-n">07</span>Partner-imposed actions</a>
+          <a href="#pt-8"><span class="toc-n">08</span>Support and disputes</a>
+          <a href="#pt-schedule"><span class="toc-n">09</span>Payment Partners Schedule</a>
+        </nav>
+      </aside>
+
+      <div class="clauses">
+        <section class="clause" id="pt-1">
+          <h2><span class="clause-n">01</span>Who provides the Services</h2>
+<p>CentryOS is a trading name of Quantum Works LLC. CentryOS is not a bank and does not hold customer funds. Some parts of the Services are provided by third-party banks, licensed money transmitters, payment processors, digital asset service providers and identity verification providers (&ldquo;Payment Partners&rdquo;). The current Payment Partners, the services each provides, and links to their terms are listed in the <a href="#pt-schedule">Payment Partners Schedule</a> (&ldquo;Partner Terms&rdquo;).</p>
+        </section>
+        <section class="clause" id="pt-2">
+          <h2><span class="clause-n">02</span>Acceptance of Partner Terms</h2>
+<p>By accepting these Terms or using any CentryOS product or Service, you also accept the Partner Terms of each Payment Partner that provides the product or Service you use. Some Payment Partners require you to accept their terms separately. In that case we will show you those terms before your first use of that Service, and you cannot use it until you accept them.</p>
+        </section>
+        <section class="clause" id="pt-3">
+          <h2><span class="clause-n">03</span>Order of terms</h2>
+<p>These Terms govern your relationship with CentryOS. Partner Terms govern the service each Payment Partner provides to you. If they conflict on a Payment Partner&rsquo;s service, the Partner Terms prevail for that service.</p>
+        </section>
+        <section class="clause" id="pt-4">
+          <h2><span class="clause-n">04</span>Funds held by Payment Partners</h2>
+<p>Fiat balances are held by Payment Partners in accounts at their sponsor partner banks for the benefit of users. Neither CentryOS nor the Payment Partners are FDIC-insured banks. FDIC pass-through insurance, where it applies in certain circumstances, covers only the failure of the bank holding the funds, and only if certain conditions are met. Digital assets and stablecoins are not insured by the FDIC or any government agency.</p>
+        </section>
+        <section class="clause" id="pt-5">
+          <h2><span class="clause-n">05</span>Information sharing</h2>
+<p>You authorize CentryOS to share your personal, identity and transaction information with Payment Partners as needed to verify your identity, screen against sanctions lists, process transactions, prevent fraud, and comply with law. Each Payment Partner handles that information under its own privacy policy.</p>
+        </section>
+        <section class="clause" id="pt-6">
+          <h2><span class="clause-n">06</span>Changes to Payment Partners</h2>
+<p>CentryOS may add, replace or remove Payment Partners, and Payment Partners may update their terms. We will update the Payment Partners Schedule. We will notify you of any change that materially affects you within 30 days, unless law, a Payment Partner or a network requires a shorter period. Continuing to use the affected Service after that date means you accept the change.</p>
+        </section>
+        <section class="clause" id="pt-7">
+          <h2><span class="clause-n">07</span>Partner-imposed actions</h2>
+<p>A Payment Partner may limit, suspend or close your access to its service under its Partner Terms or applicable law. CentryOS is not responsible for those actions, but will tell you about them where the law allows.</p>
+        </section>
+        <section class="clause" id="pt-8">
+          <h2><span class="clause-n">08</span>Support and disputes</h2>
+<p>Contact CentryOS first at <a href="mailto:support@centryos.xyz">support@centryos.xyz</a>. We will resolve the issue or refer it to the relevant Payment Partner, if necessary. Some claims, such as bank error resolution, may be handled directly by the Payment Partner under its Partner Terms.</p>
+        </section>
+        <section class="clause" id="pt-schedule">
+          <h2><span class="clause-n">09</span>Payment Partners Schedule</h2>
+          <div class="sched-wrap">
+            <table class="sched">
+              <thead><tr><th>Payment Partner</th><th>Service</th><th>Partner Terms</th></tr></thead>
+              <tbody>
+                <tr><td>AptPay (Various Banks)</td><td>Account funding and payouts</td><td><a href="https://www.aptpay.com/ccpa-rights/" target="_blank" rel="noopener">View terms</a></td></tr>
+                <tr><td>Veem Payments Inc. (Various Banks)</td><td>Virtual Accounts and Cross-border payouts</td><td><a href="https://www.veem.com/lp/veem-terms-of-use-for-partners/" target="_blank" rel="noopener">View terms</a></td></tr>
+                <tr><td>Stripe</td><td>Card processing</td><td><a href="https://stripe.com/legal/ssa" target="_blank" rel="noopener">View terms</a></td></tr>
+                <tr><td>Plaid</td><td>Identity and bank account verification</td><td><a href="https://plaid.com/legal/#end-user-privacy-policy" target="_blank" rel="noopener">View terms</a></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </div>
+    </div>
+   </div>
+  </div>
+</main>
+
+
+
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-links">
+        <div class="foot-col">
+          <div class="foot-col-title">OnePoket</div>
+          <a href="#how">How it works</a>
+          <a href="#faq">Questions</a>
+          <a href="https://onepoket.com/business">For businesses</a>
+        </div>
+        <div class="foot-col">
+          <div class="foot-col-title">About</div>
+          <a href="#">CentryOS</a>
+          <a href="mailto:support@onepoket.com">support@onepoket.com</a>
+        </div>
+        <div class="foot-col">
+          <div class="foot-col-title">Legal</div>
+          <a href="#terms">Terms of use</a>
+          <a href="#privacy">Privacy policy</a>
+        </div>
+      </div>
+      <div class="foot-news">
+        <div class="foot-news-h">Subscribe to our <em>newsletter</em>.</div>
+        <form class="foot-news-form" id="newsForm" onsubmit="return false">
+          <input class="foot-news-input" id="newsIn" type="email" placeholder="you@yourdomain.com" aria-label="Email address">
+          <button class="foot-news-btn" type="submit">Subscribe <svg class="arrow" width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2.5 6.5h8M7 3l3.5 3.5L7 10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        </form>
+        <div class="foot-news-note" id="newsNote">Occasional product news. No spam, unsubscribe anytime.</div>
+        <div class="foot-news-note" id="newsOk" style="color:var(--brand)" hidden>Thanks &mdash; you're on the list.</div>
+      </div>
+    </div>
+
+    <div class="foot-wordmark" id="footWordmark">
+      <div class="foot-wordmark-clip">
+        <svg viewBox="0 0 543 161" fill="none" aria-label="OnePoket">
+          <g class="wm-part" style="transition-delay:0ms"><path fill-rule="evenodd" clip-rule="evenodd" d="M102.772 62.1889C102.772 59.5644 101.198 54.3152 94.8986 54.3152H76.2504V76.2787C76.2504 78.3507 73.3496 81.7816 66.7191 81.7816H51.8006C49.5904 81.4668 45.0872 79.9254 44.7557 76.2787V54.3152H24.4499C22.3778 54.3152 17.8194 57.2161 17.8194 62.1889V76.2787C17.8586 76.5547 17.8816 76.858 17.8857 77.1844C17.8862 77.2295 17.8864 77.2751 17.8863 77.3211C17.885 77.6607 17.8637 78.0236 17.8194 78.4053V86.6388V99.0709V116.476L55.9446 147.971C57.6022 149.214 60.9175 151.286 65.0615 147.971C70.0344 143.992 92.2741 125.317 102.772 116.476V62.1889ZM60.5031 131.809C73.0909 131.809 83.2953 121.604 83.2953 109.017C83.2953 96.4288 73.0909 86.2244 60.5031 86.2244C47.9152 86.2244 37.7108 96.4288 37.7108 109.017C37.7108 121.604 47.9152 131.809 60.5031 131.809Z" fill="var(--brand)"/><path d="M77.0792 109.017C77.0792 118.171 69.6578 125.593 60.5031 125.593C51.3483 125.593 43.9269 118.171 43.9269 109.017C43.9269 99.8619 51.3483 92.4404 60.5031 92.4404C69.6578 92.4404 77.0792 99.8619 77.0792 109.017Z" fill="var(--brand)"/><path d="M17.8194 76.2787V78.4053C17.8637 78.0236 17.885 77.6607 17.8863 77.3211L17.8857 77.1844C17.8816 76.858 17.8586 76.5547 17.8194 76.2787Z" fill="var(--brand)"/><path d="M17.8194 147.971H9.1169V155.43H17.8194V147.971Z" fill="var(--brand)"/><path d="M111.492 147.971V155.43H102.772V147.971H111.492Z" fill="var(--brand)"/><path d="M55.1158 150.043L17.8194 119.377V147.971V155.43H102.772V147.971V119.361C92.8266 127.511 71.5262 145.401 65.8903 150.043C61.3319 153.772 57.1878 151.7 55.1158 150.043Z" fill="var(--brand)"/><path d="M15.7474 86.6388V78.032V69.4252C13.2852 74.804 8.46435 80.2463 0 80.4185V86.6388H15.7474Z" fill="var(--brand)"/><path d="M53.0604 51H67.6347C70.2334 51 73.5442 53.0141 73.764 55.5594L73.9105 73.4874C73.9344 76.3807 70.528 79.1795 67.6347 79.1795H53.0604C50.1655 79.1795 47.2437 76.3823 47.2421 73.4874L47.2326 55.8238C47.3202 53.1559 50.3717 51 53.0604 51Z" fill="var(--brand)"/></g>
+          <g class="wm-part" style="transition-delay:80ms"><path class="wm" class="wm" d="M129.8 161V52.2H142.28L142.6 70.44L140.68 69.48C142.813 63.1867 146.333 58.44 151.24 55.24C156.253 51.9333 162.013 50.28 168.52 50.28C176.947 50.28 183.827 52.36 189.16 56.52C194.6 60.68 198.6 66.12 201.16 72.84C203.827 79.56 205.16 86.8133 205.16 94.6C205.16 102.387 203.827 109.64 201.16 116.36C198.6 123.08 194.6 128.52 189.16 132.68C183.827 136.84 176.947 138.92 168.52 138.92C164.147 138.92 160.04 138.173 156.2 136.68C152.467 135.187 149.267 133.107 146.6 130.44C144.04 127.773 142.28 124.627 141.32 121L143.24 118.76V161H129.8ZM167.24 126.12C174.6 126.12 180.413 123.347 184.68 117.8C188.947 112.253 191.08 104.52 191.08 94.6C191.08 84.68 188.947 76.9467 184.68 71.4C180.413 65.8533 174.6 63.08 167.24 63.08C162.333 63.08 158.067 64.2533 154.44 66.6C150.92 68.9467 148.147 72.4667 146.12 77.16C144.2 81.8533 143.24 87.6667 143.24 94.6C143.24 101.533 144.2 107.347 146.12 112.04C148.04 116.733 150.813 120.253 154.44 122.6C158.067 124.947 162.333 126.12 167.24 126.12Z" fill="var(--brand)"/></g>
+          <g class="wm-part" style="transition-delay:160ms"><path class="wm" d="M258.514 138.92C250.727 138.92 243.9 137.107 238.034 133.48C232.167 129.853 227.634 124.733 224.434 118.12C221.234 111.4 219.634 103.56 219.634 94.6C219.634 85.5333 221.234 77.6933 224.434 71.08C227.634 64.4667 232.167 59.3467 238.034 55.72C243.9 52.0933 250.727 50.28 258.514 50.28C266.3 50.28 273.074 52.0933 278.834 55.72C284.7 59.3467 289.234 64.4667 292.434 71.08C295.634 77.6933 297.234 85.5333 297.234 94.6C297.234 103.56 295.634 111.4 292.434 118.12C289.234 124.733 284.7 129.853 278.834 133.48C273.074 137.107 266.3 138.92 258.514 138.92ZM258.514 126.12C266.3 126.12 272.327 123.347 276.594 117.8C280.967 112.147 283.154 104.413 283.154 94.6C283.154 84.7867 280.967 77.1067 276.594 71.56C272.327 65.9067 266.3 63.08 258.514 63.08C250.727 63.08 244.647 65.9067 240.274 71.56C235.9 77.1067 233.714 84.7867 233.714 94.6C233.714 104.413 235.9 112.147 240.274 117.8C244.647 123.347 250.727 126.12 258.514 126.12Z" fill="var(--brand)"/></g>
+          <g class="wm-part" style="transition-delay:240ms"><path class="wm" d="M317.55 137V23.4H330.99V97.8L372.27 52.2H390.19L356.75 88.2L391.63 137H375.31L347.63 97.32L330.99 114.92V137H317.55Z" fill="var(--brand)"/></g>
+          <g class="wm-part" style="transition-delay:320ms"><path class="wm" d="M439.076 138.92C431.076 138.92 424.143 137.107 418.276 133.48C412.516 129.853 408.036 124.733 404.836 118.12C401.743 111.4 400.196 103.56 400.196 94.6C400.196 85.64 401.743 77.8533 404.836 71.24C408.036 64.6267 412.463 59.5067 418.116 55.88C423.876 52.1467 430.65 50.28 438.436 50.28C445.796 50.28 452.303 52.04 457.956 55.56C463.61 58.9733 467.983 63.9867 471.076 70.6C474.276 77.2133 475.876 85.2667 475.876 94.76V98.76H414.276C414.81 107.827 417.21 114.653 421.476 119.24C425.85 123.827 431.716 126.12 439.076 126.12C444.623 126.12 449.156 124.84 452.676 122.28C456.303 119.613 458.81 116.147 460.196 111.88L474.596 113C472.356 120.573 468.09 126.813 461.796 131.72C455.61 136.52 448.036 138.92 439.076 138.92ZM414.276 86.92H461.156C460.516 78.7067 458.116 72.68 453.956 68.84C449.903 65 444.73 63.08 438.436 63.08C431.93 63.08 426.543 65.1067 422.276 69.16C418.116 73.1067 415.45 79.0267 414.276 86.92Z" fill="var(--brand)"/></g>
+          <g class="wm-part" style="transition-delay:400ms"><path class="wm" d="M523.84 137C516.16 137 510.453 135.24 506.72 131.72C503.093 128.2 501.28 122.707 501.28 115.24V32.36H514.72V114.92C514.72 118.76 515.573 121.427 517.28 122.92C518.987 124.413 521.6 125.16 525.12 125.16H537.28V137H523.84ZM488.8 64.04V52.2H537.28V64.04H488.8Z" fill="var(--brand)"/></g>
+        </svg>
+      </div>
+    </div>
+
+    <div class="foot-bottom">
+      <span>&copy; 2026 Poketlabs. Part of the CentryOS ecosystem.</span>
+      <span><a href="#terms">Terms</a> &middot; <a href="#privacy">Privacy</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ============================================================
+   OnePoket shopper site: interactions
+   ============================================================ */
+const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const $ = s => document.querySelector(s);
+const validEmail = v => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v);
+
+/* ---------- theme ---------- */
+const SUN = '<circle cx="10" cy="10" r="3.6" stroke="currentColor" stroke-width="1.5"/><path d="M10 1.6v2.2M10 16.2v2.2M1.6 10h2.2M16.2 10h2.2M4.1 4.1l1.6 1.6M14.3 14.3l1.6 1.6M15.9 4.1l-1.6 1.6M5.7 14.3l-1.6 1.6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>';
+const MOON = '<path d="M16 11.4A6.6 6.6 0 0 1 8.6 4a6.8 6.8 0 1 0 7.4 7.4Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>';
+const themeIcon = $('#themeIcon');
+function paintTheme(){ themeIcon.innerHTML = document.documentElement.dataset.theme === 'dark' ? SUN : MOON; }
+if(matchMedia('(prefers-color-scheme: dark)').matches) document.documentElement.dataset.theme = 'dark';
+paintTheme();
+$('#themeBtn').addEventListener('click', ()=>{
+  document.documentElement.dataset.theme = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+  paintTheme();
+});
+
+/* ---------- nav shadow ---------- */
+const nav = $('#nav');
+addEventListener('scroll', ()=>{ nav.classList.toggle('stuck', scrollY > 8); }, {passive:true});
+
+/* ---------- footer wordmark reveal ---------- */
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+}, {threshold:.2});
+document.querySelectorAll('.foot-wordmark').forEach(el=>io.observe(el));
+
+/* ---------- faq ---------- */
+document.querySelectorAll('.q-btn').forEach(btn=>{
+  btn.setAttribute('aria-expanded','false');
+  btn.addEventListener('click', ()=>{
+    const q = btn.parentElement;
+    const open = q.classList.contains('open');
+    document.querySelectorAll('.q').forEach(o=>{ o.classList.remove('open'); o.querySelector('.q-btn').setAttribute('aria-expanded','false'); });
+    q.classList.toggle('open', !open);
+    btn.setAttribute('aria-expanded', String(!open));
+  });
+});
+
+/* ---------- newsletter ---------- */
+$('#newsForm').addEventListener('submit', ()=>{
+  if(!validEmail($('#newsIn').value.trim())) return;
+  $('#newsForm').hidden = true;
+  $('#newsNote').hidden = true;
+  $('#newsOk').hidden = false;
+});
+
+/* ============================================================
+   Widget demos: each panel plays once when it scrolls into view,
+   and again on Replay. Reduced motion shows the end state.
+   ============================================================ */
+/* the OnePoket lockup inside each widget is a copy of the nav logo */
+const LOCKUP = $('.nav .lockup svg').outerHTML;
+document.querySelectorAll('[data-lockup]').forEach(el=> el.insertAdjacentHTML('afterbegin', LOCKUP));
+
+const SPIN = '<span class="spin"></span> Paying';
+function payLabel(btn, html){ btn.innerHTML = html; }
+function press(btn){ btn.classList.add('press'); setTimeout(()=>btn.classList.remove('press'), 160); }
+
+const DEMOS = {
+  hero(p){
+    const w = p.querySelector('.w'), btn = w.querySelector('[data-pay]');
+    const reset = ()=>{ w.classList.remove('paid'); payLabel(btn, 'Pay <span class="mono">$23.40</span>'); };
+    return { reset, steps:[
+      [1400, ()=>{ press(btn); payLabel(btn, SPIN); }],
+      [1300, ()=>{ w.classList.add('paid'); }]
+    ]};
+  },
+  methods(p){
+    const w = p.querySelector('.w'), btn = w.querySelector('[data-pay]');
+    const tiles = [...w.querySelectorAll('.mq-t')];
+    const LABEL = {
+      card:  ['', 'Pay <span class="mono">$23.40</span>'],
+      apple: ['apple', 'Pay with Apple Pay'],
+      google:['google', 'Pay with Google Pay'],
+      cash:  ['cash', 'Pay with Cash App'],
+      bank:  ['', 'Pay by bank <span class="mono">$23.40</span>']
+    };
+    const pick = m => {
+      tiles.forEach(t=> t.classList.toggle('sel', t.dataset.m === m));
+      btn.className = 'w-pay' + (LABEL[m][0] ? ' ' + LABEL[m][0] : '');
+      payLabel(btn, LABEL[m][1]);
+    };
+    return { reset:()=>pick('card'), steps:[
+      [1100, ()=>pick('apple')], [1100, ()=>pick('google')], [1100, ()=>pick('cash')],
+      [1100, ()=>pick('bank')], [1300, ()=>pick('card')]
+    ]};
+  },
+  verify(p){
+    const st = p.querySelector('.vstack'), chks = [...st.querySelectorAll('.chk')];
+    const carry = st.querySelector('.carry'), btn = st.querySelector('.w.b [data-pay]');
+    const reset = ()=>{ st.classList.remove('s2'); chks.forEach(c=>c.classList.remove('on')); carry.classList.remove('on'); payLabel(btn, 'Pay <span class="mono">$12.00</span>'); };
+    return { reset, steps:[
+      [600, ()=>chks[0].classList.add('on')], [700, ()=>chks[1].classList.add('on')], [700, ()=>chks[2].classList.add('on')],
+      [900, ()=>st.classList.add('s2')], [800, ()=>carry.classList.add('on')],
+      [1000, ()=>{ press(btn); payLabel(btn, SPIN); }],
+      [1100, ()=>payLabel(btn, 'Paid <span class="mono">$12.00</span>')]
+    ]};
+  },
+  link(p){
+    const bubs = [...p.querySelectorAll('.bub')], sheet = p.querySelector('.sheet');
+    const w = p.querySelector('.w'), btn = w.querySelector('[data-pay]');
+    const reset = ()=>{ bubs.forEach(b=>b.classList.remove('on','tap')); sheet.classList.remove('on'); w.classList.remove('paid'); payLabel(btn, 'Pay <span class="mono">$23.40</span>'); };
+    return { reset, steps:[
+      [500, ()=>bubs[0].classList.add('on')], [700, ()=>bubs[1].classList.add('on')],
+      [900, ()=>bubs[1].classList.add('tap')], [350, ()=>sheet.classList.add('on')],
+      [1200, ()=>{ press(btn); payLabel(btn, SPIN); }],
+      [1200, ()=>w.classList.add('paid')]
+    ]};
+  },
+  fees(p){
+    const fee = p.querySelector('[data-fee]'), tot = p.querySelector('[data-tot]'), b = p.querySelector('[data-btn]');
+    const set = (f, t)=>{ fee.textContent = f; tot.textContent = t; b.textContent = t; [fee,tot,b].forEach(x=>{ x.classList.remove('flash'); void x.offsetWidth; x.classList.add('flash'); }); };
+    return { reset:()=>{ fee.textContent = '$0.00'; tot.textContent = '$23.40'; b.textContent = '$23.40'; },
+      steps:[ [1000, ()=>set('$0.70', '$24.10')] ]};
+  }
+};
+
+function runDemo(p){
+  const d = p._demo || (p._demo = DEMOS[p.dataset.demo](p));
+  (p._timers || []).forEach(clearTimeout);
+  p._timers = [];
+  d.reset();
+  if(reduced){ d.steps.forEach(([, fn])=>fn()); return; }
+  let t = 0;
+  d.steps.forEach(([delay, fn])=>{ t += delay; p._timers.push(setTimeout(fn, t)); });
+}
+const demoIO = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{ if(e.isIntersecting){ runDemo(e.target); demoIO.unobserve(e.target); } });
+}, {threshold:.45});
+document.querySelectorAll('[data-demo]').forEach(p=>{
+  DEMOS[p.dataset.demo] && (p._demo = DEMOS[p.dataset.demo](p), p._demo.reset());
+  demoIO.observe(p);
+  const r = p.querySelector('[data-replay]');
+  if(r) r.addEventListener('click', ()=>runDemo(p));
+});
+
+/* ---------- legal page routing (privacy + terms) ---------- */
+const homeMain = $('#top'), privMain = $('#privacyPage'), termsMain = $('#termsPage'), navBack = $('#navBack');
+const navBiz = $('#navBiz');
+const tocLinks = [...document.querySelectorAll('.toc a')];
+const tocMap = new Map(tocLinks.map(a => [a.getAttribute('href').slice(1), a]));
+const tocSpy = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(!e.isIntersecting) return;
+    const a = tocMap.get(e.target.id);
+    if(!a) return;
+    a.closest('.toc').querySelectorAll('a').forEach(x => x.classList.remove('on'));
+    a.classList.add('on');
+  });
+}, {rootMargin:'-88px 0px -70% 0px', threshold:0});
+document.querySelectorAll('.clause').forEach(c => tocSpy.observe(c));
+
+const HOME_TITLE = document.title;
+const VIEWS = {
+  '#privacy': [privMain, 'Privacy Policy | OnePoket'],
+  '#terms':   [termsMain, 'Terms of Use | OnePoket']
+};
+
+/* Terms page: Customer | Partners switch */
+const modeTog = $('#modeTog');
+const modeBtns = [...modeTog.querySelectorAll('button')];
+let termsDoc = 'customer';
+function placeKnob(){
+  const b = modeBtns.find(x => x.dataset.doc === termsDoc);
+  const k = modeTog.querySelector('.mode-knob');
+  if(!b || !b.offsetWidth) return;
+  k.style.width = b.offsetWidth + 'px';
+  k.style.transform = `translateX(${b.offsetLeft - 3}px)`;
+}
+function setTermsDoc(d, silent){
+  termsDoc = d;
+  termsMain.querySelectorAll('[data-doc]').forEach(el=>{ el.hidden = el.dataset.doc !== d; });
+  modeBtns.forEach(x=> x.setAttribute('aria-selected', String(x.dataset.doc === d)));
+  document.title = d === 'partners' ? 'Payment Partners Terms | OnePoket' : 'Terms of Use | OnePoket';
+  placeKnob();
+  if(!silent) scrollTo({top:0, behavior:'instant'});
+}
+modeBtns.forEach(b=> b.addEventListener('click', ()=> setTermsDoc(b.dataset.doc)));
+addEventListener('resize', placeKnob);
+(document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve()).then(placeKnob);
+
+let curView = '';
+function route(view){
+  const key = (view !== undefined) ? view : location.hash;
+  const hit = VIEWS[key];
+  curView = hit ? key : '';
+  homeMain.hidden = !!hit;
+  navBack.hidden  = !hit;
+  navBiz.hidden   = !!hit;
+  Object.values(VIEWS).forEach(([el]) => { el.hidden = true; });
+  if(hit) hit[0].hidden = false;
+  modeTog.hidden = curView !== '#terms';
+  document.title = hit ? hit[1] : HOME_TITLE;
+  if(curView === '#terms') setTermsDoc('customer', true);
+  if(hit) scrollTo({top:0, behavior:'instant'});
+}
+addEventListener('hashchange', ()=>{
+  const h = location.hash;
+  if(VIEWS[h] || h === '#top' || h === ''){ route(); }
+});
+route();
+
+/* In-page navigation that works anywhere, including sandboxed previews and
+   local files where hash changes may not fire: every #link is handled here. */
+function setHash(h){
+  try{ history.pushState(null, '', h || location.pathname + location.search); }catch(_){ /* preview sandbox */ }
+}
+document.addEventListener('click', e=>{
+  const a = e.target.closest('a[href^="#"]');
+  if(!a || e.defaultPrevented || e.metaKey || e.ctrlKey || e.shiftKey) return;
+  const h = a.getAttribute('href');
+  e.preventDefault();
+  if(VIEWS[h]){ route(h); setHash(h); return; }
+  if(h === '#top' || h === '#'){
+    if(curView){ route(''); setHash(''); }
+    scrollTo({top:0, behavior: curView ? 'instant' : 'smooth'});
+    return;
+  }
+  const target = document.getElementById(h.slice(1));
+  if(!target) return;
+  if(homeMain.contains(target) && curView){ route(''); setHash(''); }
+  requestAnimationFrame(()=> target.scrollIntoView({behavior:'smooth', block:'start'}));
+});
+</script>
+
+</body>
+</html>
