@@ -34,11 +34,9 @@ const TILE_H = 224
 const GAP = 16
 const PITCH_Y = TILE_H + GAP
 // The rows above and below the focus show a little over half a tile each,
-// cut by the band's edges, with their middles (and their rails) in frame
+// cut by the band's edges, with their middles in frame
 const SHOW = 124
 const HEIGHT = SHOW + GAP + TILE_H + GAP + SHOW
-// The rail under each row of stores
-const RAIL = 72
 
 // The stores around the focus, by offset from it. Each wordmark is set its own
 // simple way: a weight, a case, a tracking, an ink
@@ -56,14 +54,18 @@ const AROUND: Record<string, Mark> = {
   '2,1': { name: 'Tide Swim', style: { fontWeight: 600, letterSpacing: '0.02em', color: '#20364a' } },
 }
 
-type S = { paid: boolean }
-const initial: S = { paid: false }
-const poster: S = { paid: true }
+type S = { pressed: boolean; paid: boolean }
+const initial: S = { pressed: false, paid: false }
+const poster: S = { pressed: false, paid: true }
 
+// Ada taps Pay (the button dips), then it confirms on itself
 async function script(a: Act<S>) {
-  await a.wait(1200)
+  await a.wait(1000)
+  a.mark('press')
+  await a.set({ pressed: true })
+  await a.wait(180)
   a.mark('paid')
-  await a.set({ paid: true })
+  await a.set({ pressed: false, paid: true })
 }
 
 // Where the focus tile goes across a band `width` wide, and how wide the tiles
@@ -141,12 +143,9 @@ export function Network() {
           <Stage<S> width={width} height={HEIGHT} initial={initial} poster={poster} play="once" script={script} theme="light" greys="cool" tokens={TOKENS} className="nw-stage">
             {(s) => (
               <>
-                {/* The network itself: each row of stores sits on a faint
-                    rail that runs edge to edge, seen in the gaps between
-                    them, so the stores read as connected, not loose cards */}
-                {[-1, 0, 1].map((row) => (
-                  <span key={`rail${row}`} className="nw-rail" style={{ top: focusTop + row * PITCH_Y + (TILE_H - RAIL) / 2, height: RAIL }} />
-                ))}
+                {/* The ground the stores sit on: the band's own colour, so
+                    every gutter is one flat colour */}
+                <span className="nw-ground" />
                 {[-1, 0, 1].map((row) =>
                   cols.map((col) => {
                     const focus = row === 0 && col === 0
@@ -155,7 +154,7 @@ export function Network() {
                     // A wordmark only where the whole store is in frame, never cut by an edge
                     const whole = left >= 0 && left + tileW <= width
                     return focus ? (
-                      <FocusStore key={`${col},${row}`} style={style} paid={s.paid} />
+                      <FocusStore key={`${col},${row}`} style={style} paid={s.paid} pressed={s.pressed} />
                     ) : (
                       <Store key={`${col},${row}`} style={style} mark={whole ? AROUND[`${col},${row}`] : undefined} seed={Math.abs(col * 7 + row * 3)} />
                     )
@@ -186,29 +185,42 @@ const LINES = [
   [58, 58, 26],
 ]
 
+// The quiet stores' filler, in the theme's own inks (network.css)
+const BAR = { background: 'var(--nw-bar)' }
+const BAR_STRONG = { background: 'var(--nw-bar-strong)' }
+
 // A quiet store: its wordmark (or a bar, further out), two order lines, and
-// the OnePoket sheet with its Pay button, all in muted tones
+// the OnePoket sheet with its Pay button, all in muted tones. Its sheet shows
+// the "poket" wordmark alone: at this size the mark would be a smudge
 function Store({ style, mark, seed }: { style: CSSProperties; mark?: Mark; seed: number }) {
   const [a, b, c] = LINES[seed % LINES.length]!
   const [d, , f] = LINES[(seed + 2) % LINES.length]!
   return (
     <div className="nw-store" style={style}>
-      <div className="nw-head">{mark ? <Text className="nw-mark" style={mark.style}>{mark.name}</Text> : <Bar w={60 + (seed % 4) * 10} h={8} r={4} tone={3} />}</div>
+      <div className="nw-head">
+        {mark ? (
+          <Text className="nw-mark" style={{ ...mark.style, color: `var(--nw-mark-ink, ${mark.style.color})` }}>
+            {mark.name}
+          </Text>
+        ) : (
+          <Bar w={60 + (seed % 4) * 10} h={8} r={4} style={BAR_STRONG} />
+        )}
+      </div>
       <div className="nw-lines">
         <span className="nw-line">
           <span className="nw-thumb" />
-          <Bar w={a} h={6} tone={2} />
-          <Bar w={c} h={6} tone={2} />
+          <Bar w={a} h={6} style={BAR} />
+          <Bar w={c} h={6} style={BAR} />
         </span>
         <span className="nw-line">
           <span className="nw-thumb" />
-          <Bar w={d} h={6} tone={2} />
-          <Bar w={f} h={6} tone={2} />
+          <Bar w={d} h={6} style={BAR} />
+          <Bar w={f} h={6} style={BAR} />
         </span>
       </div>
       <div className="nw-sheet">
-        <PoketLogo height={11} className="nw-logo" />
-        <Bar w={b} h={6} tone={2} />
+        <PoketLogo height={10} wordmark className="nw-logo" />
+        <Bar w={b} h={6} style={BAR} />
         <span className="nw-pay" />
       </div>
     </div>
@@ -216,7 +228,7 @@ function Store({ style, mark, seed }: { style: CSSProperties; mark?: Mark; seed:
 }
 
 // Kola Books, where Ada pays: the same anatomy, in full colour, with words
-function FocusStore({ style, paid }: { style: CSSProperties; paid: boolean }) {
+function FocusStore({ style, paid, pressed }: { style: CSSProperties; paid: boolean; pressed: boolean }) {
   return (
     <div className="nw-store nw-store--focus" style={style}>
       <div className="nw-head">
@@ -237,7 +249,7 @@ function FocusStore({ style, paid }: { style: CSSProperties; paid: boolean }) {
       <div className="nw-sheet nw-sheet--focus">
         <PoketLogo height={11} className="nw-logo" />
         <Text className="nw-hello">Welcome back, Ada</Text>
-        <span className="nw-pay nw-pay--focus" data-paid={paid || undefined}>
+        <span className="nw-pay nw-pay--focus" data-paid={paid || undefined} data-pressed={pressed || undefined}>
           <span className="nw-pay-layer" data-on={!paid || undefined}>
             <span>
               Pay <span className="nw-amt">$12.00</span>

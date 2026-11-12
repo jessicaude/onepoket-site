@@ -27,7 +27,7 @@ Gold: `bento`, layout "hero and strip". Tiles: each picture is its own Stage at 
 
 - **Gate, all five tile stages per run:** 390, 768, 1024 and 1440, `--gate` light and `--dark` each. The last run ends `rehearsal passed` at all eight, with no lines on any bento stage.
 - **Full-section screenshots:** reduced motion, light and OS dark, at each width.
-- **Layout audit:** `scripts/layout-core.mjs` unchanged, run through a scroll wrapper so the section is audited inside the same 1000px viewport `layout.mjs` uses. `layout.mjs` alone only checks the first viewport, which never reaches this section at 768 and 1024. Results are below.
+- **Layout audit:** `scripts/layout-core.mjs` unchanged, run through a scroll wrapper so the section is audited inside the same 1000px viewport `layout.mjs` uses. `layout.mjs` alone only checks the first viewport, which never reaches this section at 768 and 1024. The final run is `no-issues-detected` at 390, 768, 1024 and 1440, light and dark, checking 14 to 20 padded containers and 1 to 2 controls per width.
 
 ## Gate fixes, in order
 

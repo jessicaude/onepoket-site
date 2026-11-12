@@ -40,7 +40,9 @@ Built to the WAI accordion pattern:
   - Tab past the last question skips a closed answer's link and reaches an open answer's link.
   - Every region is labelled by the button that controls it.
 - **Anchors:** the hero's "Questions" button lands with this section's heading below the nav at 1440 and 390, in light and dark. "See how it works" does the same for the bento (`id="how"`). Section anchors have a scroll margin that clears the sticky nav (88px, 76px on phones).
-- **Layout audit:** run through a scroll wrapper, in-viewport, with all answers closed and with the last one open, at 390, 768 and 1440, light and dark. The re-run after the latest fixes is recorded below.
+- **Layout audit:** run through a scroll wrapper, in-viewport.
+  - Before the review fixes: `no-issues-detected` at 390, 768 and 1440, light and dark, with all answers closed and with the last one open.
+  - After them (answer 5, hover, wrap, alignment): `no-issues-detected` at 390, 768, 1024 and 1440, light and dark. Six controls and one padded container were checked each time.
 
 ## Not checked
 
