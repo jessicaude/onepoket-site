@@ -1,0 +1,162 @@
+/* Section 4, Questions. Page tokens are in src/index.css; every rule is
+   scoped under .faq. The heading takes a left column and stays in view while
+   the questions scroll; below 900px it stacks above them. */
+.faq {
+  padding: 104px 0 120px;
+
+  & .faq-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+  }
+
+  @media (min-width: 900px) {
+    & .faq-grid {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+      gap: 48px;
+      align-items: start;
+    }
+
+    /* Clear of the sticky nav */
+    & .faq-side {
+      position: sticky;
+      top: 100px;
+    }
+  }
+
+  & .faq-title {
+    font-size: clamp(32px, 3.8vw, 48px);
+    font-weight: 800;
+    letter-spacing: -0.045em;
+    line-height: 1.04;
+  }
+
+  & .faq-help {
+    max-width: 300px;
+    margin-top: 16px;
+    font-size: 16px;
+    line-height: 1.55;
+    color: var(--ink-2);
+  }
+
+  & .faq-help a {
+    font-weight: 600;
+    color: var(--brand);
+  }
+
+  @media (hover: hover) {
+    & .faq-help a:hover {
+      text-decoration: underline;
+    }
+  }
+
+  /* ---- The accordion ---- */
+
+  & .faq-list {
+    border-top: 1px solid var(--line);
+  }
+
+  & .faq-item {
+    border-bottom: 1px solid var(--line);
+  }
+
+  & .faq-q {
+    font: inherit;
+  }
+
+  & .faq-btn {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    /* Flush with the dividers' left edge */
+    padding: 24px 0;
+    font-size: clamp(17px, 1.6vw, 19px);
+    font-weight: 600;
+    line-height: 1.35;
+    letter-spacing: -0.02em;
+    text-align: left;
+    color: var(--ink);
+    cursor: pointer;
+    transition: color 0.2s ease;
+  }
+
+  /* No lone last word ("do?") on a narrow screen */
+  & .faq-btn > span {
+    text-wrap: pretty;
+  }
+
+  /* Hover colour only where there is a real hover; a tap must not leave a
+     question green */
+  @media (hover: hover) {
+    & .faq-btn:hover {
+      color: var(--brand);
+    }
+  }
+
+  & .faq-btn:focus-visible {
+    outline: 2px solid var(--brand);
+    outline-offset: 2px;
+    border-radius: 6px;
+  }
+
+  & .faq-sign {
+    flex: none;
+    margin-left: auto;
+    color: var(--ink-3);
+    transition: transform 0.35s cubic-bezier(0.22, 0.85, 0.24, 1), color 0.2s ease;
+  }
+
+  & .faq-item[data-open] .faq-sign {
+    transform: rotate(45deg);
+    color: var(--brand);
+  }
+
+  /* The answer opens by its own height. Closed, it is hidden from assistive
+     tech and from the tab order (visibility), once it has finished closing */
+  & .faq-panel {
+    display: grid;
+    grid-template-rows: 0fr;
+    visibility: hidden;
+    transition: grid-template-rows 0.4s cubic-bezier(0.22, 0.85, 0.24, 1), visibility 0s linear 0.4s;
+  }
+
+  & .faq-item[data-open] .faq-panel {
+    grid-template-rows: 1fr;
+    visibility: visible;
+    transition: grid-template-rows 0.4s cubic-bezier(0.22, 0.85, 0.24, 1), visibility 0s;
+  }
+
+  & .faq-panel-in {
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  & .faq-a {
+    max-width: 600px;
+    padding: 0 0 26px;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--ink-2);
+    text-wrap: pretty;
+  }
+
+  & .faq-a a {
+    font-weight: 600;
+    color: var(--brand);
+  }
+
+  @media (hover: hover) {
+    & .faq-a a:hover {
+      text-decoration: underline;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    & .faq-panel,
+    & .faq-item[data-open] .faq-panel,
+    & .faq-sign {
+      transition: none;
+    }
+  }
+}

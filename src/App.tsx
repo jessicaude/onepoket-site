@@ -1,3 +1,4 @@
+import { Faq } from './faq/Faq'
 import { Features } from './features/Features'
 import { Hero } from './hero/Hero'
 import { Network } from './network/Network'
@@ -9,6 +10,7 @@ function App() {
       <Hero />
       <Features />
       <Network />
+      <Faq />
     </main>
   )
 }

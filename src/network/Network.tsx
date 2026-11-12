@@ -1,4 +1,4 @@
-import { useLayoutEffect, useState, type CSSProperties } from 'react'
+import { useLayoutEffect, useMemo, useState, type CSSProperties } from 'react'
 import { Bar, Check, Stage, Text, type Act } from '../kit'
 import { useFontsReady } from '../brand/fonts'
 import { PoketLogo } from '../brand/PoketLogo'
@@ -25,13 +25,13 @@ import './network.css'
 // Story: one beat, once, as the band scrolls in: Ada's Pay button confirms on
 // itself ("Pay $12.00" to "Paid $12.00"). Poster: paid.
 //
-// Real strings: the store wordmarks (fictional), "Welcome back, Ada" and the
-// button. "by CentryOS" is left out at this size.
+// Real strings: the store wordmarks (fictional), Kola Books' two order lines
+// ("The Salt Road" $7.50 and "River Notes" $4.50, which make the $12.00),
+// "Welcome back, Ada" and the button. "by CentryOS" is left out at this
+// size. The stores around the focus keep their bars.
 
-const TILE_W = 200
 const TILE_H = 224
 const GAP = 16
-const PITCH_X = TILE_W + GAP
 const PITCH_Y = TILE_H + GAP
 // The rows above and below the focus show about half a tile each
 const SHOW = 112
@@ -63,27 +63,32 @@ async function script(a: Act<S>) {
   await a.set({ paid: true })
 }
 
-// Where the focus tile goes across a band `width` wide: near the middle,
-// whole with room around it, and placed so both side edges cut a tile close
-// to half. Tried in 4px steps; the best both-edges score wins.
+// Where the focus tile goes across a band `width` wide, and how wide the tiles
+// are: near the middle, whole with room around it, and placed so both side
+// edges cut a tile close to half, never to a sliver and never by too little.
+// No one tile width manages that at every page width (at 768, 200px tiles
+// leave slivers or barely-cut edges), so the width may flex from 184 to 228,
+// as close to 200 as the edges allow. Searched once per width.
 function place(width: number) {
-  const cut = (x0: number, edge: number) => {
+  let best = { tileW: 200, left: Math.round(width / 2 - 100), score: Infinity }
+  for (let tileW = 184; tileW <= 228; tileW += 4) {
+    const pitch = tileW + GAP
     // How much of the tile that crosses `edge` shows, as a share of a tile:
     // 0.5 is ideal; a gap at the edge or a sliver scores worst
-    for (let k = -12; k <= 12; k++) {
-      const x = x0 + k * PITCH_X
-      if (x < edge && x + TILE_W > edge) return edge === 0 ? (x + TILE_W) / TILE_W : (edge - x) / TILE_W
+    const cut = (x0: number, edge: number) => {
+      for (let k = -14; k <= 14; k++) {
+        const x = x0 + k * pitch
+        if (x < edge && x + tileW > edge) return edge === 0 ? (x + tileW) / tileW : (edge - x) / tileW
+      }
+      return 0
     }
-    return 0
+    for (let left = 32; left <= width - tileW - 32; left++) {
+      if (Math.abs(left + tileW / 2 - width / 2) > pitch * 0.75) continue
+      const score = Math.max(Math.abs(cut(left, 0) - 0.5), Math.abs(cut(left, width) - 0.5)) + Math.abs(tileW - 200) / 400
+      if (score < best.score) best = { tileW, left, score }
+    }
   }
-  let best = { left: Math.round(width / 2 - TILE_W / 2), score: Infinity }
-  for (let left = 32; left <= width - TILE_W - 32; left += 4) {
-    const centre = left + TILE_W / 2
-    if (Math.abs(centre - width / 2) > Math.max(PITCH_X / 2, width * 0.18)) continue
-    const score = Math.max(Math.abs(cut(left, 0) - 0.5), Math.abs(cut(left, width) - 0.5))
-    if (score < best.score) best = { left, score }
-  }
-  return best.left
+  return best
 }
 
 function useBandWidth() {
@@ -103,10 +108,11 @@ function useBandWidth() {
 export function Network() {
   const fonts = useFontsReady()
   const [band, width] = useBandWidth()
-  const focusLeft = place(width)
+  const { tileW, left: focusLeft } = useMemo(() => place(width), [width])
+  const pitchX = tileW + GAP
   const focusTop = SHOW + GAP
-  const first = Math.floor(-focusLeft / PITCH_X) - 1
-  const last = Math.ceil((width - focusLeft) / PITCH_X)
+  const first = Math.floor(-focusLeft / pitchX) - 1
+  const last = Math.ceil((width - focusLeft) / pitchX)
   const cols = Array.from({ length: last - first + 1 }, (_, i) => first + i)
   return (
     <section className="nw" aria-labelledby="nw-title">
@@ -132,14 +138,29 @@ export function Network() {
           <Stage<S> width={width} height={HEIGHT} initial={initial} poster={poster} play="once" script={script} theme="light" greys="cool" tokens={TOKENS} className="nw-stage">
             {(s) => (
               <>
+                {/* The network itself: faint dashed lines through every row
+                    and column, the stores sitting on it */}
+                <svg className="nw-net" width={width} height={HEIGHT} aria-hidden>
+                  {[-1, 0, 1].map((row) => {
+                    const y = focusTop + row * PITCH_Y + TILE_H / 2
+                    return <path key={`r${row}`} d={`M0 ${y}H${width}`} />
+                  })}
+                  {cols.map((col) => {
+                    const x = focusLeft + col * pitchX + tileW / 2
+                    return <path key={`c${col}`} d={`M${x} 0V${HEIGHT}`} />
+                  })}
+                </svg>
                 {[-1, 0, 1].map((row) =>
                   cols.map((col) => {
                     const focus = row === 0 && col === 0
-                    const style = { left: focusLeft + col * PITCH_X, top: focusTop + row * PITCH_Y }
+                    const left = focusLeft + col * pitchX
+                    const style = { left, top: focusTop + row * PITCH_Y, width: tileW }
+                    // A wordmark only where the whole store is in frame, never cut by an edge
+                    const whole = left >= 0 && left + tileW <= width
                     return focus ? (
                       <FocusStore key={`${col},${row}`} style={style} paid={s.paid} />
                     ) : (
-                      <Store key={`${col},${row}`} style={style} mark={AROUND[`${col},${row}`]} seed={Math.abs(col * 7 + row * 3)} />
+                      <Store key={`${col},${row}`} style={style} mark={whole ? AROUND[`${col},${row}`] : undefined} seed={Math.abs(col * 7 + row * 3)} />
                     )
                   }),
                 )}
@@ -160,11 +181,12 @@ const TOKENS = {
   '--ss-mono': "'Geist Mono', ui-monospace, monospace",
 }
 
+// Order-line bar widths that fit the narrowest tile's line
 const LINES = [
-  [92, 54, 30],
-  [78, 64, 26],
-  [104, 46, 34],
-  [70, 58, 28],
+  [76, 54, 26],
+  [64, 62, 24],
+  [82, 46, 28],
+  [58, 58, 26],
 ]
 
 // A quiet store: its wordmark (or a bar, further out), two order lines, and
@@ -206,13 +228,13 @@ function FocusStore({ style, paid }: { style: CSSProperties; paid: boolean }) {
       <div className="nw-lines">
         <span className="nw-line">
           <span className="nw-thumb nw-thumb--book" />
-          <Bar w={84} h={6} tone={3} />
-          <Bar w={28} h={6} tone={3} />
+          <Text className="nw-item">The Salt Road</Text>
+          <Text className="nw-price">$7.50</Text>
         </span>
         <span className="nw-line">
           <span className="nw-thumb nw-thumb--book2" />
-          <Bar w={66} h={6} tone={3} />
-          <Bar w={24} h={6} tone={3} />
+          <Text className="nw-item">River Notes</Text>
+          <Text className="nw-price">$4.50</Text>
         </span>
       </div>
       <div className="nw-sheet nw-sheet--focus">
