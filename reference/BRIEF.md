@@ -34,6 +34,7 @@ OnePoket is a checkout widget that sits inside online stores. A shopper saves a 
 ## Look
 
 - Keep the brand tokens from `reference/onepoket-website.html`: ink #0A1512, brand green #0A5C48, mint #3FE0A3, wash #F2F7F4, line #E4EBE7. Font: Geist, Geist Mono for amounts. Light and dark themes.
+- Display-size amounts (large statement figures outside the widget) use Geist with tabular figures, not Geist Mono, because the mono zero has a slash. Amounts inside the widget keep Geist Mono.
 - The widget itself always renders in its light product colours, in both themes.
 - Avoid the generic fintech layout: rows of text on the left and a centred card on a grey panel on the right, a four-up benefit strip, and a closing band of three equal tiles. Every section should have its own composition.
 - Store names in demos are fictional (Ilé Living, Kola Books). Give them simple wordmarks, not a letter in a coloured square.

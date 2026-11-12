@@ -1,0 +1,648 @@
+/* Section 2, the feature bento. Page tokens are in src/index.css. Every rule
+   is scoped under .fb. The grid is the page's (container queries on the
+   column); each picture is its own Stage at 1:1, pinned to its tile's foot
+   and cropped by the tile. Product surfaces inside stages stay light in both
+   themes; the tiles behind them follow the page. */
+.fb {
+  padding: 104px 0 112px;
+
+  & > .wrap {
+    container-type: inline-size;
+  }
+
+  & .fb-title {
+    max-width: 560px;
+    margin-bottom: 36px;
+    font-size: clamp(32px, 3.8vw, 48px);
+    font-weight: 800;
+    letter-spacing: -0.045em;
+    line-height: 1.02;
+  }
+
+  /* ---- The grid: hero and strip, every width its own design ---- */
+
+  & .fb-grid {
+    --pad: 28px;
+    --gap: 16px;
+    display: grid;
+    gap: var(--gap);
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: 540px 430px 340px 300px 360px;
+    grid-template-areas: 'way' 'link' 'verify' 'total' 'wrong';
+  }
+
+  /* A tablet column: the hero across, then pairs */
+  @container (min-width: 600px) {
+    & .fb-grid {
+      --pad: 28px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-rows: 340px 430px 360px;
+      grid-template-areas: 'way way' 'link verify' 'total wrong';
+    }
+  }
+
+  /* A homepage: hero and strip */
+  @container (min-width: 900px) {
+    & .fb-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-rows: 430px 350px;
+      grid-template-areas: 'way way link' 'verify total wrong';
+    }
+  }
+
+  /* ---- The tile: one frame for all five ---- */
+
+  & .fb-tile {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    overflow: hidden;
+    border-radius: 22px;
+    background: var(--fb-tile, var(--wash));
+  }
+
+  & .fb-tile--way { grid-area: way; }
+  & .fb-tile--link { grid-area: link; }
+  & .fb-tile--verify { grid-area: verify; }
+  & .fb-tile--total { grid-area: total; }
+  & .fb-tile--wrong { grid-area: wrong; }
+
+  /* Run-in copy: the bold lead and its quieter continuation at one size */
+  & .fb-copy {
+    position: relative;
+    z-index: 1;
+    max-width: 420px;
+    padding: 24px var(--pad) 0;
+    font-size: 17px;
+    line-height: 24px;
+    letter-spacing: -0.012em;
+    color: var(--ink-2);
+    text-wrap: pretty;
+  }
+
+  & .fb-copy > b {
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  & .fb-tile--way .fb-copy {
+    max-width: 520px;
+  }
+
+  /* ---- Pictures: pinned to the tile's foot, cropped by the tile ---- */
+
+  & .fb-picture-wrap {
+    position: relative;
+    flex: 1;
+    min-height: 0;
+  }
+
+  & .fb-picture {
+    position: absolute;
+    bottom: 0;
+  }
+
+  /* A measured Stage reaches the tile edge, where the crop belongs */
+  & .fb-picture--fill {
+    left: 0;
+    width: 100%;
+  }
+
+  /* A centered object on a fixed canvas wider than any tile: the tile's
+     sides crop only empty ground */
+  & .fb-picture--canvas {
+    left: 50%;
+    width: 360px;
+    margin-left: -180px;
+  }
+
+  & .fb-stage .ss-stage {
+    overflow: hidden;
+    background: transparent;
+  }
+
+  /* ---- The total you see: the grid's one accent tile ---- */
+
+  & .fb-tile--total {
+    background: #0a5c48;
+  }
+
+  & .fb-tile--total .fb-copy {
+    color: rgb(255 255 255 / 0.74);
+  }
+
+  & .fb-tile--total .fb-copy > b {
+    color: #fff;
+  }
+}
+
+/* In the dark theme the tiles sit one step above the page's own wash, so
+   they separate from the page */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) .fb { --fb-tile: #14231c; }
+}
+
+:root[data-theme='dark'] .fb { --fb-tile: #14231c; }
+
+/* ---------------- The scenes ---------------- */
+
+.fb {
+  --w-ink: #16211c;
+  --w-ink2: #5a6b63;
+  --w-line: #e4ebe7;
+  --w-brand: #0a5c48;
+  --w-mint: #eaf5f1;
+  --w-soft: #f2f5f3;
+
+  /* ---- Pay your way: the sheet, its method row large ---- */
+
+  /* Anchored to the tile's foot: it runs 40px past the crop, and the Pay
+     button ends 32px above it */
+  & .fw-sheet {
+    position: absolute;
+    bottom: -40px;
+    left: 28px;
+    width: calc(100% - 28px + 40px);
+    padding: 24px 24px 72px;
+    border-radius: 20px;
+    background: #fff;
+    color: var(--w-ink);
+    box-shadow:
+      0 0 0 1px rgba(10, 21, 18, 0.05),
+      0 18px 40px -18px rgba(8, 61, 49, 0.25),
+      0 4px 12px rgba(10, 21, 18, 0.04);
+  }
+
+  & .fw-brand {
+    display: grid;
+    justify-items: start;
+    gap: 4px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--w-line);
+  }
+
+  & .fw-logo {
+    display: block;
+    color: var(--w-brand);
+  }
+
+  & .fw-by {
+    font-size: 11px;
+    line-height: 1.3;
+    color: #93a29b;
+  }
+
+  & .fw-eyebrow {
+    margin: 16px 0 10px;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 17px;
+    color: var(--w-ink2);
+  }
+
+  & .fw-methods {
+    display: flex;
+    gap: var(--gap, 12px);
+  }
+
+  /* Words only, one inset on every side, the label on the tile's left */
+  & .fw-method {
+    display: flex;
+    flex: none;
+    align-items: center;
+    width: var(--tile);
+    height: var(--tile-h);
+    padding: 0 15px;
+    border: 1px solid var(--w-line);
+    border-radius: 14px;
+    transition: border-color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  & .fw-method[data-on] {
+    border-color: var(--w-brand);
+    background: var(--w-mint);
+    box-shadow: inset 0 0 0 0.5px var(--w-brand);
+  }
+
+  & .fw-label {
+    font-size: var(--label, 15px);
+    font-weight: 600;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+    white-space: nowrap;
+  }
+
+  /* The sheet's Pay button, as wide as the whole tiles above it */
+  /* The button takes the method's colour; its labels share one cell and
+     crossfade, the old one gone before the new one arrives */
+  & .fw-pay {
+    display: grid;
+    grid-template-areas: 'label';
+    place-items: center;
+    width: var(--row);
+    height: 46px;
+    margin-top: 16px;
+    border-radius: 999px;
+    background: var(--w-brand);
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.3;
+    transition: background-color 0.35s ease;
+  }
+
+  & .fw-pay[data-m='apple'],
+  & .fw-pay[data-m='google'] { background: #000; }
+  & .fw-pay[data-m='cash'] { background: #00c244; }
+
+  & .fw-pay-label {
+    grid-area: label;
+    white-space: nowrap;
+    opacity: 0;
+    filter: blur(2px);
+    transition: opacity 0.14s ease, filter 0.14s ease;
+  }
+
+  & .fw-pay-label[data-on] {
+    opacity: 1;
+    filter: none;
+    transition-duration: 0.22s;
+    transition-delay: 0.14s;
+  }
+
+  & .fw-amt {
+    font-family: var(--ss-mono);
+    font-weight: 600;
+  }
+
+  /* Wide: the sheet drawn large */
+  & .fw-sheet[data-big] .fw-by { font-size: 12.5px; }
+
+  & .fw-sheet[data-big] .fw-eyebrow {
+    margin: 18px 0 12px;
+    font-size: 15px;
+    line-height: 20px;
+  }
+
+  & .fw-sheet[data-big] .fw-pay {
+    height: 54px;
+    margin-top: 18px;
+    font-size: 17px;
+  }
+
+  /* Narrow: the sheet's list of methods, one row each */
+  & .fw-sheet[data-narrow] {
+    left: 28px;
+    width: calc(100% - 28px + 40px);
+    padding: 16px 16px 72px;
+    --label: 15px;
+  }
+
+  & .fw-sheet[data-narrow] .fw-pay {
+    width: auto;
+    margin: 14px 48px 0 0;
+  }
+
+  & .fw-sheet[data-narrow] .fw-methods {
+    flex-direction: column;
+    gap: 6px;
+    /* Rows end a gutter short of the tile edge */
+    margin-right: 48px;
+  }
+
+  & .fw-sheet[data-narrow] .fw-method {
+    width: auto;
+    height: 46px;
+    padding: 0 15px;
+    border-radius: 12px;
+  }
+
+
+  /* ---- Pay from a link: a phone on a store's chat ---- */
+
+  /* At true size, a gutter from the left; the tile crops its right side */
+  & .fl-phone {
+    position: absolute;
+  }
+
+  /* Inside the phone everything is in iOS points */
+  & .fl-app {
+    display: flex;
+    flex-direction: column;
+    color: #111;
+  }
+
+  & .fl-head {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    height: 64px;
+    padding: 0 20px;
+    border-bottom: 1px solid rgb(0 0 0 / 0.08);
+  }
+
+  & .fl-back {
+    display: flex;
+    color: var(--w-brand);
+  }
+
+  & .fl-who {
+    display: grid;
+    gap: 1px;
+  }
+
+  & .fl-who b {
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+
+  & .fl-who small {
+    font-size: 15px;
+    color: #8a8a8e;
+  }
+
+  & .fl-thread {
+    flex: none;
+    padding: 0 16px;
+  }
+
+  /* The store's messages stay narrow enough to clear the tile's right edge
+     at every width */
+  & .fl-thread .ss-bubble {
+    max-width: 236px;
+  }
+
+  & .fl-link {
+    display: grid;
+    grid-template-columns: 36px auto;
+    align-items: center;
+    gap: 10px;
+  }
+
+  & .fl-link-icon {
+    display: grid;
+    place-items: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    background: #fff;
+    color: var(--w-brand);
+  }
+
+  & .fl-link-text {
+    display: grid;
+    gap: 2px;
+  }
+
+  & .fl-link-text b {
+    font-weight: 600;
+  }
+
+  & .fl-amt {
+    font-family: var(--ss-mono);
+  }
+
+  & .fl-link-text small {
+    font-size: 15px;
+    color: #6b6b70;
+  }
+
+  /* ---- Verify once: one identity carried along the network ---- */
+
+  & .fv {
+    position: absolute;
+    inset: 0;
+  }
+
+  /* Through every store's badge spot, behind the cards, and on off the foot */
+  & .fv-line {
+    position: absolute;
+    left: calc(28px + var(--card) - 26px);
+    width: 0;
+    border-left: 1.5px dashed #b7c8c0;
+  }
+
+  & .fv-store {
+    position: absolute;
+    left: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: var(--card);
+    height: 52px;
+    padding: 0 16px 0 18px;
+    border-radius: 14px;
+    background: #fff;
+    box-shadow: 0 0 0 1px rgba(10, 21, 18, 0.05), 0 2px 8px -2px rgba(10, 21, 18, 0.1);
+  }
+
+  /* Three simple wordmarks, three stores: each set its own way */
+  & .fv-name--ile {
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    color: #1c1410;
+  }
+
+  & .fv-name--kola {
+    font-size: 12.5px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #2a1d12;
+  }
+
+  & .fv-name--nori {
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: -0.04em;
+    color: #1d3a2c;
+  }
+
+  /* Inside the card, never across its edge. The ring and the tick are both
+     drawn at full size and only fade, so nothing resizes */
+  & .fv-state {
+    position: relative;
+    display: grid;
+    width: 20px;
+    height: 20px;
+  }
+
+  & .fv-ring,
+  & .fv-tick {
+    grid-area: 1 / 1;
+    transition: opacity 0.25s ease 0.45s;
+  }
+
+  & .fv-ring {
+    border: 1.5px dashed #b7c8c0;
+    border-radius: 50%;
+  }
+
+  & .fv-tick { opacity: 0; }
+  & .fv-state[data-visited] .fv-ring { opacity: 0; }
+  & .fv-state[data-visited] .fv-tick { opacity: 1; }
+
+  & .fv-tick .ss-check__ring { stroke: var(--w-brand); }
+  & .fv-tick .ss-check__fill { fill: var(--w-brand); }
+  & .fv-tick .ss-check__tick { stroke: #fff; }
+
+  /* The identity: sits on the store's badge spot, over its tick */
+  & .fv-badge {
+    position: absolute;
+    right: 36px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    height: 32px;
+    padding: 0 12px 0 8px;
+    border-radius: 999px;
+    background: var(--w-mint);
+    box-shadow: 0 0 0 1px rgba(10, 92, 72, 0.25), 0 6px 14px -6px rgba(8, 61, 49, 0.4);
+    will-change: transform;
+    transition: transform 0.7s cubic-bezier(0.25, 0.8, 0.25, 1);
+  }
+
+  & .fv-badge-tick .ss-check__ring { stroke: var(--w-brand); }
+  & .fv-badge-tick .ss-check__fill { fill: var(--w-brand); }
+  & .fv-badge-tick .ss-check__tick { stroke: #fff; }
+
+  & .fv-badge-text {
+    font-size: 12.5px;
+    font-weight: 600;
+    line-height: 1.3;
+    color: #083d31;
+    white-space: nowrap;
+  }
+
+  /* ---- The total you see: the amount in display type ---- */
+
+  & .ft-button {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    /* Centered in what the copy leaves, an even field above and below */
+    justify-content: center;
+    padding: 0 28px 24px;
+    color: #fff;
+  }
+
+  & .ft-pay {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    color: rgb(255 255 255 / 0.78);
+  }
+
+  /* A display-size amount: Geist with tabular figures, not Geist Mono,
+     whose zero is slashed (BRIEF.md, Look) */
+  & .ft-amt {
+    margin-top: 4px;
+    font-family: var(--ss-font);
+    font-size: var(--amt);
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    line-height: 1;
+    letter-spacing: -0.045em;
+    white-space: nowrap;
+  }
+
+  /* ---- If an order goes wrong: a tilted pile of receipts ---- */
+
+  & .fo-pile {
+    position: absolute;
+    left: 50%;
+    display: grid;
+    translate: -50% -50%;
+  }
+
+  & .fo-card {
+    grid-area: 1 / 1;
+    display: grid;
+    align-content: start;
+    gap: 10px;
+    width: 200px;
+    height: 152px;
+    padding: 16px 18px;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0 0 0 1px rgba(10, 21, 18, 0.05), 0 8px 20px -10px rgba(10, 21, 18, 0.25);
+  }
+
+  /* Small, alternating angles, each about its own center, offset unevenly */
+  & .fo-card--back { translate: -22px 18px; rotate: -6deg; }
+  & .fo-card--mid { translate: 18px -12px; rotate: 4deg; }
+
+
+  /* Tilted 2°, so its content's boxes grow sideways by about 7px: the top
+     inset makes up the difference, and the padding reads even */
+  & .fo-card--top {
+    gap: 0;
+    padding: 22px 16px 16px;
+    transform: translate(0, 4px) rotate(-2deg);
+    box-shadow: 0 0 0 1px rgba(10, 21, 18, 0.06), 0 14px 28px -12px rgba(8, 61, 49, 0.35);
+  }
+
+  & .fo-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+  }
+
+  & .fo-store {
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--w-ink);
+  }
+
+  /* The refund's tag arrives once, on a layer it keeps */
+  & .fo-tag {
+    padding: 3px 8px;
+    border-radius: 999px;
+    background: var(--w-mint);
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 1.2;
+    color: var(--w-brand);
+    opacity: 0;
+    transform: scale(0.7);
+    will-change: transform;
+    transition: transform 0.45s cubic-bezier(0.34, 1.4, 0.64, 1), opacity 0.2s ease;
+  }
+
+  & .fo-tag[data-on] {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* The receipt's dashed rules are drawn, not borders, so they ride the
+     card's motion without re-laying their dashes */
+  & .fo-item {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 14px;
+    padding: 11px 0;
+    background:
+      repeating-linear-gradient(90deg, #d5dfda 0 4px, transparent 4px 7px) top / 100% 1px no-repeat,
+      repeating-linear-gradient(90deg, #d5dfda 0 4px, transparent 4px 7px) bottom / 100% 1px no-repeat;
+    font-size: 12.5px;
+    color: var(--w-ink);
+  }
+
+  & .fo-amt {
+    font-family: var(--ss-mono);
+    font-weight: 600;
+  }
+
+  & .fo-to {
+    margin-top: 12px;
+    font-size: 11.5px;
+    color: var(--w-ink2);
+  }
+}

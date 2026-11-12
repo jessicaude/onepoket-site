@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState, type RefObject } from 'react'
+import { useFontsReady } from '../brand/fonts'
 import { PoketLogo } from '../brand/PoketLogo'
 import { HeroStage } from './HeroStage'
 import './hero.css'
@@ -10,10 +11,11 @@ export function Hero() {
   const fontsReady = useFontsReady()
   const picture = useRef<HTMLDivElement>(null)
   useBleed(picture, fontsReady)
+  const scrolled = useScrolled()
 
   return (
     <>
-      <header className="nav">
+      <header className="nav" data-scrolled={scrolled || undefined}>
         <div className="wrap nav-in">
           <a className="nav-logo" href="#top">
             <PoketLogo height={30} />
@@ -70,6 +72,18 @@ export function Hero() {
   )
 }
 
+// The nav is clear over the hero's top and turns solid once the page scrolls
+function useScrolled() {
+  const [scrolled, setScrolled] = useState(false)
+  useEffect(() => {
+    const check = () => setScrolled(window.scrollY > 4)
+    check()
+    window.addEventListener('scroll', check, { passive: true })
+    return () => window.removeEventListener('scroll', check)
+  }, [])
+  return scrolled
+}
+
 // The store window runs off the page's right edge, not the stage's: tell the
 // scene, in its own design pixels, how far the page goes past the stage, so
 // the window is always long enough to reach the screen edge at any width
@@ -99,31 +113,4 @@ function useBleed(picture: RefObject<HTMLDivElement | null>, ready: boolean) {
       window.removeEventListener('resize', measure)
     }
   }, [picture, ready])
-}
-
-// The stage measures its text, so it starts once the web fonts are in: text
-// that reflows when Geist arrives would shift under the first beat. Falls
-// back after 1.5s so a blocked font never holds the picture back.
-function useFontsReady() {
-  // Not seeded from document.fonts.status: before the stylesheet arrives it
-  // already reads 'loaded', since nothing is pending yet
-  const [ready, setReady] = useState(false)
-  useEffect(() => {
-    if (ready) return
-    let live = true
-    const done = () => live && setReady(true)
-    const timer = window.setTimeout(done, 1500)
-    // fonts.ready resolves before the Google stylesheet has declared any face,
-    // so wait for the stylesheet, then load the faces the scene draws with
-    const link = document.querySelector<HTMLLinkElement>('link[href*="fonts.googleapis.com/css2"]')
-    const sheet = !link || link.sheet ? Promise.resolve() : new Promise((go) => link.addEventListener('load', go, { once: true }))
-    sheet
-      .then(() => Promise.all(['400 16px Geist', '600 16px Geist', '700 16px Geist', '600 16px "Geist Mono"'].map((f) => document.fonts.load(f))))
-      .then(done, done)
-    return () => {
-      live = false
-      window.clearTimeout(timer)
-    }
-  }, [ready])
-  return ready
 }
