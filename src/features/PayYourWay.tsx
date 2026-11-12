@@ -8,8 +8,7 @@ import { METHODS, Tile, after, beat, before, stageLook, usePictureSize, type Bea
 // every label whole. The method tiles are words only: the widget's own glyphs
 // drew Apple Pay and Google Pay as the same generic phone, which reads as a
 // placeholder, and the official marks need a brand-guidelines check first.
-// Four methods show whole; Bank runs off the tile's right edge with its label
-// still in view. The sheet's own Pay button sits
+// All five methods show whole; the sheet runs off the tile's right edge. The sheet's own Pay button sits
 // under the row and changes with the method, as the reference prototype's
 // does: green "Pay $23.40" for Card, black "Pay with Apple Pay" for Apple
 // Pay, and so on. The sheet runs off the tile's foot. The selection moves
@@ -43,9 +42,9 @@ export function PayYourWay() {
   const narrow = width < 600
   const gap = width < 700 ? 12 : 14
   const start = GUTTER + SHEET_PAD
-  // Four whole tiles, then 60% of Bank before the tile edge: its label in
-  // view, the rest of the tile clearly cut, never a sliver
-  const tile = Math.floor((width - start - 4 * gap) / 4.6)
+  // All five whole, ending a gutter short of the tile edge: a labelled control
+  // reads whole or not at all. The sheet is what the tile crops
+  const tile = Math.floor((width - start - GUTTER - 4 * gap) / 5)
   // One 16px inset on every side of a method tile (the CSS), clearly an
   // indent from the sheet's "Pay with", never a near miss. The label is as
   // large as the longest one, "Google Pay", allows inside that inset
@@ -60,7 +59,7 @@ export function PayYourWay() {
   const lockupH = logo + 4 + (big ? 16 : 14)
   const eyebrowH = big ? 18 + 20 + 12 : 16 + 17 + 10
   const buttonH = big ? 54 : 46
-  const row = 4 * tile + 3 * gap
+  const row = 5 * tile + 4 * gap
   // Lockup, eyebrow, the row, the button: roughly the sheet's content, only to
   // keep the stage tall enough. The sheet itself is anchored to the tile's
   // foot in CSS, so its button always ends 32px above the crop, whatever the

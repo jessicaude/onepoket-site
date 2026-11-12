@@ -1,0 +1,212 @@
+/* Section 3, the network. Page tokens are in src/index.css; every rule is
+   scoped under .nw. The picture is a full-bleed band: one Stage as wide as
+   the page, its grid of store checkouts running off every edge. The stores
+   are product surfaces and stay light in both themes; the band behind them
+   follows the page. */
+.nw {
+  padding: 24px 0 120px;
+
+  & .nw-title {
+    max-width: 720px;
+    font-size: clamp(32px, 3.8vw, 48px);
+    font-weight: 800;
+    letter-spacing: -0.045em;
+    line-height: 1.04;
+    text-wrap: balance;
+  }
+
+  /* The supporting line: body text, where OnePoket keeps its light "One" */
+  & .nw-sub {
+    max-width: 520px;
+    margin: 14px 0 40px;
+    font-size: clamp(16px, 1.5vw, 18px);
+    line-height: 1.5;
+    color: var(--ink-2);
+  }
+
+  & .nw-band {
+    /* How far the stores around the focus recede toward the band */
+    --nw-dim: 0.55;
+    position: relative;
+    width: 100%;
+    /* Holds the picture's height while the fonts load */
+    min-height: 472px;
+    background: var(--nw-band, var(--wash));
+  }
+
+  & .nw-stage .ss-stage {
+    overflow: hidden;
+    background: transparent;
+  }
+}
+
+/* In the dark theme the band sits one step above the page, like the tiles */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) .nw { --nw-band: #14231c; }
+  :root:not([data-theme='light']) .nw .nw-band { --nw-dim: 0.3; }
+}
+
+:root[data-theme='dark'] .nw { --nw-band: #14231c; }
+:root[data-theme='dark'] .nw .nw-band { --nw-dim: 0.3; }
+
+/* ---------------- The stores ---------------- */
+
+.nw {
+  --w-ink: #16211c;
+  --w-ink2: #5a6b63;
+  --w-line: #e4ebe7;
+  --w-brand: #0a5c48;
+  --w-brand-deep: #083d31;
+
+  /* One anatomy for every store: wordmark, two order lines, the sheet */
+  & .nw-store {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    height: 224px;
+    padding: 14px;
+    border-radius: 14px;
+    background: #fff;
+    box-shadow: 0 0 0 1px rgba(10, 21, 18, 0.05), 0 6px 16px -8px rgba(10, 21, 18, 0.16);
+    /* Every store but the focus recedes toward the band */
+    opacity: var(--nw-dim);
+  }
+
+  & .nw-head {
+    display: flex;
+    align-items: center;
+    height: 22px;
+  }
+
+  & .nw-mark {
+    font-size: 13px;
+    line-height: 1.3;
+    white-space: nowrap;
+    opacity: 0.85;
+  }
+
+  & .nw-lines {
+    display: grid;
+    gap: 10px;
+    margin-top: 12px;
+  }
+
+  & .nw-line {
+    display: grid;
+    grid-template-columns: 24px 1fr auto;
+    align-items: center;
+    gap: 9px;
+  }
+
+  & .nw-thumb {
+    width: 24px;
+    height: 24px;
+    border-radius: 6px;
+    background: #eef2f0;
+  }
+
+  /* The sheet at the store's foot: the OnePoket logo, a line, the button */
+  & .nw-sheet {
+    display: grid;
+    justify-items: start;
+    gap: 8px;
+    margin-top: auto;
+    padding: 10px;
+    border: 1px solid var(--w-line);
+    border-radius: 10px;
+  }
+
+  & .nw-logo {
+    display: block;
+    color: #8db4a6;
+  }
+
+  & .nw-pay {
+    justify-self: stretch;
+    height: 26px;
+    border-radius: 999px;
+    background: #cfe2da;
+  }
+
+  /* ---- Kola Books, in focus ---- */
+
+  /* Full strength, a little larger in its own cell, ringed and lifted */
+  & .nw-store--focus {
+    z-index: 1;
+    opacity: 1;
+    transform: scale(1.1);
+    box-shadow: 0 0 0 2px var(--w-brand), 0 28px 56px -18px rgba(8, 61, 49, 0.5), 0 8px 18px rgba(10, 21, 18, 0.1);
+  }
+
+  & .nw-mark--kola {
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #2a1d12;
+    opacity: 1;
+  }
+
+  & .nw-thumb--book {
+    background: linear-gradient(90deg, #7a3b2e 0 3px, #b5533f 3px);
+  }
+
+  & .nw-thumb--book2 {
+    background: linear-gradient(90deg, #1f4d6b 0 3px, #3c7aa0 3px);
+  }
+
+  & .nw-sheet--focus .nw-logo {
+    color: var(--w-brand);
+  }
+
+  & .nw-hello {
+    font-size: 11.5px;
+    font-weight: 600;
+    line-height: 1.3;
+    color: var(--w-ink);
+  }
+
+  /* Ada's button confirms on itself: two layers in one cell, the old label
+     gone before the new one arrives */
+  & .nw-pay--focus {
+    display: grid;
+    grid-template-areas: 'stack';
+    place-items: center;
+    background: var(--w-brand);
+    color: #fff;
+    font-size: 11.5px;
+    font-weight: 600;
+    line-height: 1.3;
+    transition: background-color 0.3s ease;
+  }
+
+  & .nw-pay--focus[data-paid] {
+    background: var(--w-brand-deep);
+  }
+
+  & .nw-amt {
+    font-family: var(--ss-mono);
+  }
+
+  & .nw-pay-layer {
+    grid-area: stack;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    opacity: 0;
+    filter: blur(2px);
+    transition: opacity 0.14s ease, filter 0.14s ease;
+  }
+
+  & .nw-pay-layer[data-on] {
+    opacity: 1;
+    filter: none;
+    transition-duration: 0.22s;
+    transition-delay: 0.14s;
+  }
+
+  & .nw-pay-check .ss-check__ring { stroke: rgb(255 255 255 / 0.4); }
+  & .nw-pay-check .ss-check__fill { fill: #fff; }
+  & .nw-pay-check .ss-check__tick { stroke: var(--w-brand-deep); }
+}
